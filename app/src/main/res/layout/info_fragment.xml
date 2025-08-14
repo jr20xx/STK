@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="linkOpener"
+            type="cu.lt.joe.stk.fragments.InformationFragment" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/info_fragment_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="1dp"
+                app:contentPadding="8dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="96dp"
+                        android:layout_height="96dp"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@mipmap/ic_launcher" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/app_name"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="Versión 1.0"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:text="STK es una aplicación de software libre, distribuida tal cual y sin garantías de ninguna índole. Fue creada con el fin de facilitar la gestión de algunos de los servicios de la Empresa de Telecomunicaciones de Cuba S.A. (ETECSA). No existe ningún vínculo entre el creador de esta aplicación y ETECSA. Cualquier logo o marca comercial que pueda aparecer en la aplicación es propiedad absoluta de sus respectivos dueños y se usan, meramente, con fines ilustrativos y/o de identificación."
+                        android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="1dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="Informaciones útiles"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="4dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick='@{_ -> linkOpener.openExternalLink("https://etecsa.cu/es/preguntas-frecuentes?faq=374")}'
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="5dp"
+                        app:contentPadding="5dp"
+                        app:strokeWidth="0dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/balance_recharge_faq_iv"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="5dp"
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/ic_help" />
+
+                            <TextView
+                                android:id="@+id/balance_recharge_faq_header"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:layout_toEndOf="@id/balance_recharge_faq_iv"
+                                android:singleLine="true"
+                                android:text="Saldo móvil"
+                                android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/balance_recharge_faq_header"
+                                android:layout_toEndOf="@id/balance_recharge_faq_iv"
+                                android:text="Este es un enlace al sitio oficial con las preguntas más frecuentes sobre el saldo móvil"
+                                android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+                        </RelativeLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="4dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick='@{_ -> linkOpener.openExternalLink("https://etecsa.cu/es/preguntas-frecuentes?faq=4781")}'
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="5dp"
+                        app:contentPadding="5dp"
+                        app:strokeWidth="0dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/mobile_plans_faq_iv"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="5dp"
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/ic_help" />
+
+                            <TextView
+                                android:id="@+id/mobile_plans_faq_header"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:layout_toEndOf="@id/mobile_plans_faq_iv"
+                                android:singleLine="true"
+                                android:text="Planes"
+                                android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/mobile_plans_faq_header"
+                                android:layout_toEndOf="@id/mobile_plans_faq_iv"
+                                android:text="Este es un enlace al sitio oficial con las preguntas más frecuentes sobre los planes móviles"
+                                android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+                        </RelativeLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:onClick='@{_ -> linkOpener.openExternalLink("https://github.com/jr20xx/STK")}'
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="5dp"
+                        app:contentPadding="5dp"
+                        app:strokeWidth="0dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/source_code_iv"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center"
+                                android:layout_marginEnd="5dp"
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/ic_github" />
+
+                            <TextView
+                                android:id="@+id/source_code_header"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:layout_toEndOf="@id/source_code_iv"
+                                android:singleLine="true"
+                                android:text="Código fuente"
+                                android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/source_code_header"
+                                android:layout_toEndOf="@id/source_code_iv"
+                                android:text="Este es un enlace al repositorio donde se encuentra el código de esta aplicación"
+                                android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+                        </RelativeLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

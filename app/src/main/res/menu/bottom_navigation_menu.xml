@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/main_fragment_im"
+        android:icon="@drawable/home_icon_selector"
+        android:title="Inicio" />
+    <item
+        android:id="@+id/shopping_fragment_im"
+        android:icon="@drawable/shop_icon_selector"
+        android:title="Compras" />
+    <item
+        android:id="@+id/info_fragment_im"
+        android:icon="@drawable/info_icon_selector"
+        android:title="Info" />
+</menu>

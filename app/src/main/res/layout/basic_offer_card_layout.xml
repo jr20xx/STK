@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="basicOffer"
+            type="cu.lt.joe.stk.objects.BasicOffer" />
+
+        <import type="android.view.View" />
+
+        <import type="android.view.ViewGroup" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="3dp"
+        app:contentPadding="8dp"
+        app:strokeWidth="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/available_service_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginEnd="5dp"
+                android:singleLine="true"
+                android:text='@{basicOffer.availableService}'
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/basic_offer_card_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/available_service_tv"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                app:dividerColor="?colorOnSurface" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/basic_offer_card_divider"
+                android:layout_centerHorizontal="true"
+                android:singleLine="true"
+                android:text="@{basicOffer.price}"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
