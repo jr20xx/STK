@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="torchPowered"
+            type="boolean" />
+
+        <variable
+            name="torchController"
+            type="cu.lt.joe.stk.activities.VoucherCodeScannerActivity" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.journeyapps.barcodescanner.DecoratedBarcodeView
+            android:id="@+id/voucher_code_barcode_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:zxing_scanner_layout="@layout/custom_barcode_scanner_layout" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/voucher_scanner_flashlight_control"
+            style="@style/Widget.Material3.Button.IconButton"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="12dp"
+            android:onClickListener="@{v -> torchPowered ? torchController.onTorchOff() : torchController.onTorchOn() }"
+            android:scaleType="centerCrop"
+            android:src="@{torchPowered ? @drawable/ic_flash_on : @drawable/ic_flash_off}" />
+    </RelativeLayout>
+</layout>
