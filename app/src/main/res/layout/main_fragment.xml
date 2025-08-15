@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -584,30 +585,29 @@
                             </com.google.android.material.textfield.TextInputLayout>
                         </LinearLayout>
 
-                        <LinearLayout
+                        <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@id/transfer_password_and_balance_container">
 
                             <com.google.android.material.button.MaterialButton
                                 android:id="@+id/transfer_password_change_button"
-                                style="?attr/buttonBarButtonStyle"
-                                android:layout_width="0dp"
+                                style="@style/Widget.Material3.Button.TextButton"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:gravity="start|center_vertical"
+                                android:layout_alignParentStart="true"
                                 android:onClickListener="@{v-> USSDRequester.executeUSSDRequest(v)}"
-                                android:paddingStart="0dp"
                                 android:text="Cambiar clave" />
 
                             <com.google.android.material.button.MaterialButton
                                 android:id="@+id/transfer_button"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
                                 android:onClickListener="@{v-> USSDRequester.executeUSSDRequest(v)}"
                                 android:text="Transferir"
                                 app:cornerRadius="8dp" />
-                        </LinearLayout>
+                        </RelativeLayout>
                     </RelativeLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
