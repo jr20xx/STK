@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
@@ -258,10 +259,27 @@ public class MainFragment extends Fragment
                     {
                         binding.transferBalanceInputText.setError(null);
                         binding.transferBalanceInputText.setErrorEnabled(false);
-                        Utils.performCall(this, Uri.parse("tel:*234*1*" + receiverNumber + "*" + passwordCode + "*" + balanceAmount + Uri.encode("#")));
-                        binding.transferPhoneNumberInputText.getEditText().setText(null);
-                        binding.transferPasswordInputText.getEditText().setText(null);
-                        binding.transferBalanceInputText.getEditText().setText(null);
+                        if (balanceAmount.contains(".") || balanceAmount.contains(","))
+                        {
+                            new MaterialAlertDialogBuilder(requireActivity())
+                                    .setTitle("Monto con centavos")
+                                    .setMessage("Debido a restricciones que impiden la transferencia de saldo con centavos directamente desde aplicaciones de terceros, se ignorará la cantidad especificada y deberá introducirla cuando ETECSA le solicite el monto a transferir")
+                                    .setPositiveButton(android.R.string.ok, (dialogInterface, which) -> {
+                                        Utils.performCall(this, Uri.parse("tel:*234*1*" + receiverNumber + "*" + passwordCode + Uri.encode("#")));
+                                        binding.transferPhoneNumberInputText.getEditText().setText(null);
+                                        binding.transferPasswordInputText.getEditText().setText(null);
+                                        binding.transferBalanceInputText.getEditText().setText(null);
+                                    })
+                                    .setNegativeButton(android.R.string.cancel, null)
+                                    .show();
+                        }
+                        else
+                        {
+                            Utils.performCall(this, Uri.parse("tel:*234*1*" + receiverNumber + "*" + passwordCode + "*" + balanceAmount + Uri.encode("#")));
+                            binding.transferPhoneNumberInputText.getEditText().setText(null);
+                            binding.transferPasswordInputText.getEditText().setText(null);
+                            binding.transferBalanceInputText.getEditText().setText(null);
+                        }
                     }
                 }
             }
