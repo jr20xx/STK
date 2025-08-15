@@ -578,7 +578,7 @@
                                     android:layout_height="wrap_content"
                                     android:hint="Monto"
                                     android:inputType="numberDecimal"
-                                    android:maxLength="5"
+                                    android:maxLength="10"
                                     android:maxLines="1"
                                     android:textAppearance="?android:attr/textAppearanceMedium" />
                             </com.google.android.material.textfield.TextInputLayout>
