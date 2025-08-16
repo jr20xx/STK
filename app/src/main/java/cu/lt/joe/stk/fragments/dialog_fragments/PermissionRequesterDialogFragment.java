@@ -4,7 +4,6 @@ import android.Manifest;
 import android.app.Dialog;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
@@ -14,7 +13,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import cu.lt.joe.stk.databinding.PermissionRequesterDialogLayoutBinding;
 import cu.lt.joe.stk.utils.Utils;
 
-public class PermissionRequesterFragment extends DialogFragment
+public class PermissionRequesterDialogFragment extends DialogFragment
 {
     private final static String DATA_URI_SAVE_TAG = "SAVED_URI";
     private Uri dataUri;
@@ -26,9 +25,9 @@ public class PermissionRequesterFragment extends DialogFragment
     });
 
     @NonNull
-    public static PermissionRequesterFragment newInstance(@NonNull Uri dataUri)
+    public static PermissionRequesterDialogFragment newInstance(@NonNull Uri dataUri)
     {
-        PermissionRequesterFragment fragment = new PermissionRequesterFragment();
+        PermissionRequesterDialogFragment fragment = new PermissionRequesterDialogFragment();
         Bundle bundleArgs = new Bundle();
         bundleArgs.putParcelable(DATA_URI_SAVE_TAG, dataUri);
         fragment.setArguments(bundleArgs);

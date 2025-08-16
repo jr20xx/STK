@@ -7,7 +7,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
-import cu.lt.joe.stk.fragments.dialog_fragments.PermissionRequesterFragment;
+import cu.lt.joe.stk.fragments.dialog_fragments.PermissionRequesterDialogFragment;
 
 public class Utils
 {
@@ -21,6 +21,6 @@ public class Utils
         if (ActivityCompat.checkSelfPermission(fragment.requireActivity(), Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED)
             fragment.requireActivity().startActivity(new Intent(Intent.ACTION_CALL, uriToDial));
         else
-            PermissionRequesterFragment.newInstance(uriToDial).show(fragment.getChildFragmentManager(), null);
+            PermissionRequesterDialogFragment.newInstance(uriToDial).show(fragment.getChildFragmentManager(), null);
     }
 }
