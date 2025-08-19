@@ -16,7 +16,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
@@ -25,6 +24,7 @@ import com.journeyapps.barcodescanner.ScanOptions;
 import java.util.Objects;
 import cu.lt.joe.stk.activities.VoucherCodeScannerActivity;
 import cu.lt.joe.stk.databinding.MainFragmentBinding;
+import cu.lt.joe.stk.fragments.dialog_fragments.TransferCentsWarningDialogFragment;
 import cu.lt.joe.stk.fragments.dialog_fragments.TransferPasswordChangeDialogFragment;
 import cu.lt.joe.stk.utils.Utils;
 
@@ -198,6 +198,22 @@ public class MainFragment extends Fragment
                 }
             }
         });
+
+        getChildFragmentManager().setFragmentResultListener(
+                TransferCentsWarningDialogFragment.DIALOG_REQUEST_KEY,
+                this, (requestKey, bundle) -> {
+                    if (requestKey.equals(TransferCentsWarningDialogFragment.DIALOG_REQUEST_KEY))
+                    {
+                        if (bundle.getBoolean(TransferCentsWarningDialogFragment.RESULT_KEY, false))
+                        {
+                            Utils.performCall(this, Uri.parse("tel:*234*1*" + binding.transferPhoneNumberInputText.getEditText().getText().toString() + "*" + binding.transferPasswordInputText.getEditText().getText().toString() + Uri.encode("#")));
+                            binding.transferPhoneNumberInputText.getEditText().setText(null);
+                            binding.transferPasswordInputText.getEditText().setText(null);
+                            binding.transferBalanceInputText.getEditText().setText(null);
+                        }
+                    }
+                }
+        );
         return binding.getRoot();
     }
 
@@ -260,19 +276,7 @@ public class MainFragment extends Fragment
                         binding.transferBalanceInputText.setError(null);
                         binding.transferBalanceInputText.setErrorEnabled(false);
                         if (balanceAmount.contains(".") || balanceAmount.contains(","))
-                        {
-                            new MaterialAlertDialogBuilder(requireActivity())
-                                    .setTitle("Monto con centavos")
-                                    .setMessage("Debido a restricciones que impiden la transferencia de saldo con centavos directamente desde aplicaciones de terceros, se ignorará la cantidad especificada y deberá introducirla cuando ETECSA le solicite el monto a transferir")
-                                    .setPositiveButton(android.R.string.ok, (dialogInterface, which) -> {
-                                        Utils.performCall(this, Uri.parse("tel:*234*1*" + receiverNumber + "*" + passwordCode + Uri.encode("#")));
-                                        binding.transferPhoneNumberInputText.getEditText().setText(null);
-                                        binding.transferPasswordInputText.getEditText().setText(null);
-                                        binding.transferBalanceInputText.getEditText().setText(null);
-                                    })
-                                    .setNegativeButton(android.R.string.cancel, null)
-                                    .show();
-                        }
+                            new TransferCentsWarningDialogFragment().show(getChildFragmentManager(), null);
                         else
                         {
                             Utils.performCall(this, Uri.parse("tel:*234*1*" + receiverNumber + "*" + passwordCode + "*" + balanceAmount + Uri.encode("#")));
