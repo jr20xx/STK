@@ -207,9 +207,7 @@ public class MainFragment extends Fragment
                         if (bundle.getBoolean(TransferCentsWarningDialogFragment.RESULT_KEY, false))
                         {
                             Utils.performCall(this, Uri.parse("tel:*234*1*" + binding.transferPhoneNumberInputText.getEditText().getText().toString() + "*" + binding.transferPasswordInputText.getEditText().getText().toString() + Uri.encode("#")));
-                            binding.transferPhoneNumberInputText.getEditText().setText(null);
-                            binding.transferPasswordInputText.getEditText().setText(null);
-                            binding.transferBalanceInputText.getEditText().setText(null);
+                            cleanTransferFields();
                         }
                     }
                 }
@@ -280,9 +278,7 @@ public class MainFragment extends Fragment
                         else
                         {
                             Utils.performCall(this, Uri.parse("tel:*234*1*" + receiverNumber + "*" + passwordCode + "*" + balanceAmount + Uri.encode("#")));
-                            binding.transferPhoneNumberInputText.getEditText().setText(null);
-                            binding.transferPasswordInputText.getEditText().setText(null);
-                            binding.transferBalanceInputText.getEditText().setText(null);
+                            cleanTransferFields();
                         }
                     }
                 }
@@ -306,6 +302,13 @@ public class MainFragment extends Fragment
     private void launchContactPicker()
     {
         contactPickerResultLauncher.launch(new Intent(Intent.ACTION_PICK).setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE));
+    }
+
+    private void cleanTransferFields()
+    {
+        binding.transferPhoneNumberInputText.getEditText().setText(null);
+        binding.transferPasswordInputText.getEditText().setText(null);
+        binding.transferBalanceInputText.getEditText().setText(null);
     }
 
     @Override
