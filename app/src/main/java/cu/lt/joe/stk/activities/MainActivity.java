@@ -5,12 +5,14 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
+import cu.lt.joe.stk.AppCore;
 import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.adapters.MainActivityPagerAdapter;
 import cu.lt.joe.stk.databinding.MainLayoutBinding;
 import cu.lt.joe.stk.fragments.InformationFragment;
 import cu.lt.joe.stk.fragments.MainFragment;
 import cu.lt.joe.stk.fragments.ShoppingFragment;
+import cu.lt.joe.stk.fragments.dialog_fragments.ErrorMessageDialogFragment;
 
 public class MainActivity extends BaseActivity
 {
@@ -74,5 +76,11 @@ public class MainActivity extends BaseActivity
                     !sharedPreferences.getBoolean(THEME_MODE_SAVER_PREFERENCE_KEY, false)).apply();
             recreate();
         });
+
+        binding.getRoot().postDelayed(() -> {
+            String errorMessage = getIntent().getStringExtra(AppCore.ERROR_TAG);
+            if (errorMessage != null)
+                ErrorMessageDialogFragment.newInstance(errorMessage).show(getSupportFragmentManager(), null);
+        }, 100);
     }
 }
