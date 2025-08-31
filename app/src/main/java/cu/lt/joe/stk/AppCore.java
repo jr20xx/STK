@@ -37,9 +37,8 @@ public class AppCore extends Application
         PrintWriter printWriter = new PrintWriter(result);
         for (; throwable != null; throwable = throwable.getCause())
             throwable.printStackTrace(printWriter);
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        intent.putExtra(ERROR_TAG, result.toString());
-        return intent;
+        return new Intent(getApplicationContext(), MainActivity.class)
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                .putExtra(ERROR_TAG, result.toString());
     }
 }
