@@ -24,7 +24,7 @@ public class AppCore extends Application
                     PendingIntent.getActivity(getApplicationContext(), 111, getResurrectionIntent(throwable), PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE));
 
             android.os.Process.killProcess(android.os.Process.myPid());
-            System.exit(2);
+            System.exit(1);
             uncaughtExceptionHandler.uncaughtException(thread, throwable);
         });
         super.onCreate();
