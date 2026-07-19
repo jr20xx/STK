@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:text="Para poder continuar con la ejecución de la operación seleccionada, la aplicación necesita que se le conceda el permiso requerido. La operación pendiente se realizará automáticamente una vez que se le conceda el permiso a la aplicación" />
+                android:text="Para poder continuar con la ejecución de la operación seleccionada, la aplicación necesita que se le conceda el permiso requerido. La operación pendiente se realizará una vez que se le conceda el permiso a la aplicación" />
 
             <LinearLayout
                 android:layout_width="match_parent"
