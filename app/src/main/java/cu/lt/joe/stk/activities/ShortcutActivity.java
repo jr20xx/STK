@@ -33,6 +33,8 @@ public class ShortcutActivity extends BaseActivity
         super.onCreate(savedInstanceState);
         if (Intent.ACTION_CREATE_SHORTCUT.equals(getIntent().getAction()))
         {
+            setTheme(R.style.Theme_STK);
+            super.applyDynamicColors();
             ShortcutSelectorLayoutBinding binding = DataBindingUtil.setContentView(this, R.layout.shortcut_selector_layout);
             ArrayList<ShortcutItem> shortcutItems = new ArrayList<>();
             shortcutItems.add(new ShortcutItem(R.drawable.ic_balance, "Saldo", "*222#"));

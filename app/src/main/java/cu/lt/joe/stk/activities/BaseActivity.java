@@ -19,6 +19,11 @@ public class BaseActivity extends AppCompatActivity
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         AppCompatDelegate.setDefaultNightMode(sharedPreferences.getBoolean(THEME_MODE_SAVER_PREFERENCE_KEY, false) ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
+        applyDynamicColors();
+    }
+
+    protected void applyDynamicColors()
+    {
         DynamicColors.applyToActivityIfAvailable(this);
     }
 }
