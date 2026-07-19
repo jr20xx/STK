@@ -40,7 +40,7 @@ public class TransferPasswordChangeDialogFragment extends DialogFragment
                 {
                     binding.newPasswordInputText.setError(null);
                     binding.newPasswordInputText.setErrorEnabled(false);
-                    Utils.performCall(this, Uri.parse("tel:*234*2*" + oldPassword + "*" + newPassword + Uri.encode("#")));
+                    Utils.performCallFromFragment(this, Uri.parse("tel:*234*2*" + oldPassword + "*" + newPassword + Uri.encode("#")));
                     dismissAllowingStateLoss();
                 }
             }

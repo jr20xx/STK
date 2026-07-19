@@ -20,7 +20,7 @@ public class Utils
         return (int) (dp * context.getResources().getDisplayMetrics().density + 0.5f);
     }
 
-    public static void performCall(Fragment fragment, Uri uriToDial)
+    public static void performCallFromFragment(@NonNull Fragment fragment, @NonNull Uri uriToDial)
     {
         if (ActivityCompat.checkSelfPermission(fragment.requireActivity(), Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED)
             fragment.requireActivity().startActivity(new Intent(Intent.ACTION_CALL, uriToDial));

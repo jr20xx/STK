@@ -79,9 +79,9 @@ public class MainFragment extends Fragment
                                 if (triggerView != null)
                                 {
                                     if (triggerView.equals(binding.privateCallCard))
-                                        Utils.performCall(this, Uri.parse("tel:" + Uri.encode("#") + "31" + Uri.encode("#") + numberAsString));
+                                        Utils.performCallFromFragment(this, Uri.parse("tel:" + Uri.encode("#") + "31" + Uri.encode("#") + numberAsString));
                                     else if (triggerView.equals(binding.revertedCallCard))
-                                        Utils.performCall(this, Uri.parse("tel:*99" + numberAsString));
+                                        Utils.performCallFromFragment(this, Uri.parse("tel:*99" + numberAsString));
                                     else
                                         binding.transferPhoneNumberInputText.getEditText().setText(numberAsString);
                                 }
@@ -206,7 +206,7 @@ public class MainFragment extends Fragment
                     {
                         if (bundle.getBoolean(TransferCentsWarningDialogFragment.RESULT_KEY, false))
                         {
-                            Utils.performCall(this, Uri.parse("tel:*234*1*" + binding.transferPhoneNumberInputText.getEditText().getText().toString() + "*" + binding.transferPasswordInputText.getEditText().getText().toString() + Uri.encode("#")));
+                            Utils.performCallFromFragment(this, Uri.parse("tel:*234*1*" + binding.transferPhoneNumberInputText.getEditText().getText().toString() + "*" + binding.transferPasswordInputText.getEditText().getText().toString() + Uri.encode("#")));
                             cleanTransferFields();
                         }
                     }
@@ -218,17 +218,17 @@ public class MainFragment extends Fragment
     public void executeUSSDRequest(View v)
     {
         if (v.equals(binding.balanceCard))
-            Utils.performCall(this, Uri.parse("tel:*222" + Uri.encode("#")));
+            Utils.performCallFromFragment(this, Uri.parse("tel:*222" + Uri.encode("#")));
         else if (v.equals(binding.dataCard))
-            Utils.performCall(this, Uri.parse("tel:*222*328" + Uri.encode("#")));
+            Utils.performCallFromFragment(this, Uri.parse("tel:*222*328" + Uri.encode("#")));
         else if (v.equals(binding.messagesCard))
-            Utils.performCall(this, Uri.parse("tel:*222*767" + Uri.encode("#")));
+            Utils.performCallFromFragment(this, Uri.parse("tel:*222*767" + Uri.encode("#")));
         else if (v.equals(binding.callsCard))
-            Utils.performCall(this, Uri.parse("tel:*222*869" + Uri.encode("#")));
+            Utils.performCallFromFragment(this, Uri.parse("tel:*222*869" + Uri.encode("#")));
         else if (v.equals(binding.bonusesCard))
-            Utils.performCall(this, Uri.parse("tel:*222*266" + Uri.encode("#")));
+            Utils.performCallFromFragment(this, Uri.parse("tel:*222*266" + Uri.encode("#")));
         else if (v.equals(binding.limitsCard))
-            Utils.performCall(this, Uri.parse("tel:*222*732" + Uri.encode("#")));
+            Utils.performCallFromFragment(this, Uri.parse("tel:*222*732" + Uri.encode("#")));
         else if (v.equals(binding.rechargeButton))
         {
             String voucherActivationCode = binding.voucherCodeInputText.getEditText().getText().toString();
@@ -239,7 +239,7 @@ public class MainFragment extends Fragment
             {
                 binding.voucherCodeInputText.setError(null);
                 binding.voucherCodeInputText.setErrorEnabled(false);
-                Utils.performCall(this, Uri.parse("tel:*662*" + voucherActivationCode + Uri.encode("#")));
+                Utils.performCallFromFragment(this, Uri.parse("tel:*662*" + voucherActivationCode + Uri.encode("#")));
                 binding.voucherCodeInputText.getEditText().setText(null);
             }
         }
@@ -277,7 +277,7 @@ public class MainFragment extends Fragment
                             new TransferCentsWarningDialogFragment().show(getChildFragmentManager(), null);
                         else
                         {
-                            Utils.performCall(this, Uri.parse("tel:*234*1*" + receiverNumber + "*" + passwordCode + "*" + balanceAmount + Uri.encode("#")));
+                            Utils.performCallFromFragment(this, Uri.parse("tel:*234*1*" + receiverNumber + "*" + passwordCode + "*" + balanceAmount + Uri.encode("#")));
                             cleanTransferFields();
                         }
                     }
@@ -285,11 +285,11 @@ public class MainFragment extends Fragment
             }
         }
         else if (v.equals(binding.balanceLoan25Btn))
-            Utils.performCall(this, Uri.parse("tel:*234*3*1*25*1" + Uri.encode("#")));
+            Utils.performCallFromFragment(this, Uri.parse("tel:*234*3*1*25*1" + Uri.encode("#")));
         else if (v.equals(binding.balanceLoan50Btn))
-            Utils.performCall(this, Uri.parse("tel:*234*3*1*50*1" + Uri.encode("#")));
+            Utils.performCallFromFragment(this, Uri.parse("tel:*234*3*1*50*1" + Uri.encode("#")));
         else if (v.equals(binding.balanceLoanCheckBtn))
-            Utils.performCall(this, Uri.parse("tel:*222*233" + Uri.encode("#")));
+            Utils.performCallFromFragment(this, Uri.parse("tel:*222*233" + Uri.encode("#")));
         else if (v.equals(binding.privateCallCard) || v.equals(binding.revertedCallCard))
         {
             triggerView = v;

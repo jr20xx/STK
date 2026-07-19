@@ -48,7 +48,7 @@ public class ShoppingFragment extends Fragment
         voiceOffers.add(new BasicOffer("40 MIN", "250 CUP", Uri.parse("tel:*133*3*5" + Uri.encode("#"))));
         carrierOffersGroups.add(new CarrierOffersGroup("Planes de Voz", voiceOffers));
 
-        binding.shoppingFragmentRecycler.setAdapter(new ShoppingListAdapter(requireActivity(), carrierOffersGroups, obtainedUri -> Utils.performCall(this, obtainedUri)));
+        binding.shoppingFragmentRecycler.setAdapter(new ShoppingListAdapter(requireActivity(), carrierOffersGroups, obtainedUri -> Utils.performCallFromFragment(this, obtainedUri)));
         binding.shoppingFragmentRecycler.setLayoutManager(new LinearLayoutManager(requireActivity()));
         return binding.getRoot();
     }
