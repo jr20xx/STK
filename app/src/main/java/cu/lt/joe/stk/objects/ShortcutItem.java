@@ -9,13 +9,6 @@ public class ShortcutItem
     private final int iconResId;
     private final String shortTitle, longTitle, dialingNumber;
 
-    public ShortcutItem(int iconResId, String shortTitle, String dialingNumber)
-    {
-        this.iconResId = iconResId;
-        this.shortTitle = this.longTitle = shortTitle;
-        this.dialingNumber = dialingNumber;
-    }
-
     public ShortcutItem(int iconResId, String shortTitle, String longTitle, String dialingNumber)
     {
         this.iconResId = iconResId;
