@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">STK</string>
+    <string name="ussd_accessibility_service_description">Servicio para obtener y almacenar la cantidad de saldo disponible y el estado de los bonos</string>
 </resources>
