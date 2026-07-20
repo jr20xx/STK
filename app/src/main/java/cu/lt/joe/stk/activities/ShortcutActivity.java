@@ -37,12 +37,12 @@ public class ShortcutActivity extends BaseActivity
             super.applyDynamicColors();
             ShortcutSelectorLayoutBinding binding = DataBindingUtil.setContentView(this, R.layout.shortcut_selector_layout);
             ArrayList<ShortcutItem> shortcutItems = new ArrayList<>();
-            shortcutItems.add(new ShortcutItem(R.drawable.ic_balance, "Saldo", "*222#"));
-            shortcutItems.add(new ShortcutItem(R.drawable.ic_data, "Datos", "*222*328#"));
-            shortcutItems.add(new ShortcutItem(R.drawable.ic_message, "Mensajes", "*222*767#"));
-            shortcutItems.add(new ShortcutItem(R.drawable.ic_call, "Minutos", "*222*869#"));
-            shortcutItems.add(new ShortcutItem(R.drawable.ic_bonus, "Bonos", "*222*266#"));
-            shortcutItems.add(new ShortcutItem(R.drawable.ic_no_recharge, "Recarga", "*222*732#"));
+            shortcutItems.add(new ShortcutItem(R.drawable.ic_balance, "Saldo", "Consultar saldo disponible", "*222#"));
+            shortcutItems.add(new ShortcutItem(R.drawable.ic_data, "Datos", "Consultar datos disponibles", "*222*328#"));
+            shortcutItems.add(new ShortcutItem(R.drawable.ic_message, "Mensajes", "Consultar mensajes disponibles", "*222*767#"));
+            shortcutItems.add(new ShortcutItem(R.drawable.ic_call, "Minutos", "Consultar minutos restantes", "*222*869#"));
+            shortcutItems.add(new ShortcutItem(R.drawable.ic_bonus, "Bonos", "Consultar bonos disponibles","*222*266#"));
+            shortcutItems.add(new ShortcutItem(R.drawable.ic_no_recharge, "Recarga", "Consultar fecha de recarga","*222*732#"));
             binding.shortcutListRv.setAdapter(new ShortcutListAdapter
                     (this, shortcutItems, (shortcutItem) -> {
                         Bitmap iconBitmap = ShortcutUtils.getShortcutIconBitmap(ShortcutActivity.this, Color.rgb(204, 12, 12), shortcutItem.getIconResId());
@@ -53,8 +53,8 @@ public class ShortcutActivity extends BaseActivity
                             IconCompat icon = IconCompat.createWithAdaptiveBitmap(iconBitmap);
                             String id = "dial_shortcut_" + System.currentTimeMillis();
                             ShortcutInfo shortcutInfo = new ShortcutInfo.Builder(ShortcutActivity.this, id)
-                                    .setShortLabel(shortcutItem.getTitle())
-                                    .setLongLabel(shortcutItem.getTitle())
+                                    .setShortLabel(shortcutItem.getShortTitle())
+                                    .setLongLabel(shortcutItem.getShortTitle())
                                     .setIntent(ShortcutUtils.getTargetIntent(ShortcutActivity.this, dialingNumber))
                                     .setIcon(icon.toIcon(ShortcutActivity.this))
                                     .build();
@@ -64,7 +64,7 @@ public class ShortcutActivity extends BaseActivity
                         {
                             setResult(ShortcutActivity.RESULT_OK, new Intent()
                                     .putExtra(Intent.EXTRA_SHORTCUT_INTENT, ShortcutUtils.getTargetIntent(ShortcutActivity.this, dialingNumber))
-                                    .putExtra(Intent.EXTRA_SHORTCUT_NAME, shortcutItem.getTitle())
+                                    .putExtra(Intent.EXTRA_SHORTCUT_NAME, shortcutItem.getShortTitle())
                                     .putExtra(Intent.EXTRA_SHORTCUT_ICON, iconBitmap));
                         }
                         finish();

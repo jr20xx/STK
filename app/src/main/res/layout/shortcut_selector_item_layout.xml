@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/shortcut_item_icon_iv"
                 android:singleLine="true"
-                android:text="@{shortcutItem.title}"
+                android:text="@{shortcutItem.longTitle}"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView

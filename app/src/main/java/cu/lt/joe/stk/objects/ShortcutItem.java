@@ -7,13 +7,21 @@ import androidx.databinding.BindingAdapter;
 public class ShortcutItem
 {
     private final int iconResId;
-    private final String title, dialingNumber;
+    private final String shortTitle, longTitle, dialingNumber;
 
-    public ShortcutItem(int iconResId, String title, String dialingNumber)
+    public ShortcutItem(int iconResId, String shortTitle, String dialingNumber)
     {
         this.iconResId = iconResId;
-        this.title = title;
+        this.shortTitle = this.longTitle = shortTitle;
         this.dialingNumber = dialingNumber;
+    }
+
+    public ShortcutItem(int iconResId, String shortTitle, String longTitle, String dialingNumber)
+    {
+        this.iconResId = iconResId;
+        this.shortTitle = shortTitle;
+        this.dialingNumber = dialingNumber;
+        this.longTitle = longTitle;
     }
 
     @BindingAdapter("android:drawable")
@@ -27,9 +35,14 @@ public class ShortcutItem
         return iconResId;
     }
 
-    public String getTitle()
+    public String getShortTitle()
     {
-        return title;
+        return shortTitle;
+    }
+
+    public String getLongTitle()
+    {
+        return longTitle;
     }
 
     public String getDialingNumber()
