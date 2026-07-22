@@ -1,12 +1,15 @@
 package cu.lt.joe.stk.fragments;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,16 +19,22 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.Phonenumber;
 import com.journeyapps.barcodescanner.ScanContract;
 import com.journeyapps.barcodescanner.ScanOptions;
+import java.util.ArrayList;
 import java.util.Objects;
+import cu.lt.joe.stk.Constants;
+import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.activities.VoucherCodeScannerActivity;
+import cu.lt.joe.stk.adapters.ConsultItemAdapter;
 import cu.lt.joe.stk.databinding.MainFragmentBinding;
 import cu.lt.joe.stk.fragments.dialog_fragments.TransferCentsWarningDialogFragment;
 import cu.lt.joe.stk.fragments.dialog_fragments.TransferPasswordChangeDialogFragment;
+import cu.lt.joe.stk.objects.ConsultItem;
 import cu.lt.joe.stk.utils.Utils;
 
 public class MainFragment extends Fragment
@@ -99,8 +108,45 @@ public class MainFragment extends Fragment
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
+        SharedPreferences sharp = requireActivity().getSharedPreferences(Constants.SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
         binding = MainFragmentBinding.inflate(inflater, container, false);
         binding.setUSSDRequester(this);
+
+        ArrayList<ConsultItem> consultItems = new ArrayList<>();
+        consultItems.add(new ConsultItem(R.drawable.ic_balance, "Saldo", sharp.getString(Constants.LAST_KNOWN_BALANCE, null), Uri.parse("tel:*222" + Uri.encode("#"))));
+        consultItems.add(new ConsultItem(R.drawable.ic_data, "Datos", sharp.getString(Constants.LAST_KNOWN_INTERNET_DATA, null), Uri.parse("tel:*222*328" + Uri.encode("#"))));
+        consultItems.add(new ConsultItem(R.drawable.ic_message, "Mensajes", sharp.getString(Constants.LAST_KNOWN_MESSAGES_COUNT, null), Uri.parse("tel:*222*767" + Uri.encode("#"))));
+        consultItems.add(new ConsultItem(R.drawable.ic_call, "Minutos", sharp.getString(Constants.LAST_KNOWN_MINUTES_COUNT, sharp.getString(Constants.LAST_KNOWN_MINUTES_COUNT, null)), Uri.parse("tel:*222*869" + Uri.encode("#"))));
+        consultItems.add(new ConsultItem(R.drawable.ic_bonus, "Bonos", sharp.getString(Constants.LAST_KNOWN_BONUSES, null), Uri.parse("tel:*222*266" + Uri.encode("#"))));
+        consultItems.add(new ConsultItem(R.drawable.ic_no_recharge, "Recarga", sharp.getString(Constants.LAST_KNOWN_RECHARGE_TIME, null), Uri.parse("tel:*222*732" + Uri.encode("#"))));
+        ConsultItemAdapter consultItemsAdapter = new ConsultItemAdapter(this, consultItems);
+        binding.consultItemsList.setNestedScrollingEnabled(false);
+        binding.consultItemsList.setAdapter(consultItemsAdapter);
+
+        DisplayMetrics dm = new DisplayMetrics();
+        requireActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
+        int spanCount = dm.widthPixels / Utils.dpToPx(requireContext(), 180);
+        binding.consultItemsList.setLayoutManager(new StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL));
+
+        sharp.registerOnSharedPreferenceChangeListener((sharedPreferences, key) -> {
+            String newValue = sharp.getString(key, null);
+            switch (key)
+            {
+                case Constants.LAST_KNOWN_BALANCE:
+                    consultItemsAdapter.updateAvailableInfoAtPosition(0, newValue);
+                    break;
+                case Constants.LAST_KNOWN_INTERNET_DATA:
+                    consultItemsAdapter.updateAvailableInfoAtPosition(1, newValue);
+                    break;
+                case Constants.LAST_KNOWN_MESSAGES_COUNT:
+                    consultItemsAdapter.updateAvailableInfoAtPosition(2, newValue);
+                    break;
+                case Constants.LAST_KNOWN_MINUTES_COUNT:
+                    consultItemsAdapter.updateAvailableInfoAtPosition(3, newValue);
+                    break;
+            }
+        });
+
         binding.voucherCodeInputText.setEndIconOnClickListener(v ->
                 voucherActivationCodeBarcodeScanner.launch(new ScanOptions()
                         .setCaptureActivity(VoucherCodeScannerActivity.class)
@@ -217,19 +263,7 @@ public class MainFragment extends Fragment
 
     public void executeUSSDRequest(View v)
     {
-        if (v.equals(binding.balanceCard))
-            Utils.performCallFromFragment(this, Uri.parse("tel:*222" + Uri.encode("#")));
-        else if (v.equals(binding.dataCard))
-            Utils.performCallFromFragment(this, Uri.parse("tel:*222*328" + Uri.encode("#")));
-        else if (v.equals(binding.messagesCard))
-            Utils.performCallFromFragment(this, Uri.parse("tel:*222*767" + Uri.encode("#")));
-        else if (v.equals(binding.callsCard))
-            Utils.performCallFromFragment(this, Uri.parse("tel:*222*869" + Uri.encode("#")));
-        else if (v.equals(binding.bonusesCard))
-            Utils.performCallFromFragment(this, Uri.parse("tel:*222*266" + Uri.encode("#")));
-        else if (v.equals(binding.limitsCard))
-            Utils.performCallFromFragment(this, Uri.parse("tel:*222*732" + Uri.encode("#")));
-        else if (v.equals(binding.rechargeButton))
+        if (v.equals(binding.rechargeButton))
         {
             String voucherActivationCode = binding.voucherCodeInputText.getEditText().getText().toString();
             binding.voucherCodeInputText.setErrorEnabled(true);

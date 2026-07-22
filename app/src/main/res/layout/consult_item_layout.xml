@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="consultItem"
+            type="cu.lt.joe.stk.objects.ConsultItem" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/consult_item_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
+        app:contentPadding="8dp"
+        app:strokeWidth="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/consult_item_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:drawable="@{consultItem.iconResId}"
+                android:importantForAccessibility="no" />
+
+            <TextView
+                android:id="@+id/consult_item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_toEndOf="@id/consult_item_iv"
+                android:singleLine="true"
+                android:text="@{consultItem.title}"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/consult_item_card_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/consult_item_title"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_toEndOf="@id/consult_item_iv"
+                app:dividerColor="?colorOnSurface" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/consult_item_card_divider"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="3dp"
+                android:layout_toEndOf="@id/consult_item_iv"
+                android:singleLine="true"
+                android:text="@{consultItem.availableInfo}"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
