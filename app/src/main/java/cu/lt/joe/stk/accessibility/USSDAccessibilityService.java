@@ -7,8 +7,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.view.accessibility.AccessibilityEvent;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import cu.lt.joe.stk.Constants;
 import cu.lt.joe.stk.utils.Utils;
 
@@ -24,52 +22,35 @@ public class USSDAccessibilityService extends AccessibilityService
         if (event.getClassName() != null && AlertDialog.class.getName().contentEquals(event.getClassName()))
         {
             String responseMessage = Utils.extractTextFromAccessibilityEvent(event).toUpperCase();
-            Pattern pattern;
-            Matcher matcher;
-            if (responseMessage.contains("SALDO:"))
+            String wordsFromMessage[] = responseMessage.toUpperCase().split(" ");
+            for (int i = 0; i < wordsFromMessage.length; i++)
             {
-                pattern = Pattern.compile("SALDO:\\s*([\\d.]+) (CUP)\\.");
-                matcher = pattern.matcher(responseMessage);
-                if (matcher.find())
-                    spEditor.putString(Constants.LAST_KNOWN_BALANCE, matcher.group(1)).apply();
-
-                pattern = Pattern.compile("DATOS:\\s*(\\d+)\\s*([KMGT]?B).");
-                matcher = pattern.matcher(responseMessage);
-                if (matcher.find())
-                    spEditor.putString(Constants.LAST_KNOWN_INTERNET_DATA, matcher.group(1)).apply();
-
-                pattern = Pattern.compile("SMS: (\\d+)\\.");
-                matcher = pattern.matcher(responseMessage);
-                if (matcher.find())
-                    spEditor.putString(Constants.LAST_KNOWN_MESSAGES_COUNT, matcher.group(1)).apply();
-
-                pattern = Pattern.compile("VOZ: (\\d+)\\.");
-                matcher = pattern.matcher(responseMessage);
-                if (matcher.find())
-                    spEditor.putString(Constants.LAST_KNOWN_MINUTES_COUNT, matcher.group(1)).apply();
-            }
-            else if (responseMessage.contains("TARIFA:"))
-            {
-                pattern = Pattern.compile("DATOS:\\s*(\\d+)\\s*([KMGT]?B).");
-                matcher = pattern.matcher(responseMessage);
-                if (matcher.find())
-                    spEditor.putString(Constants.LAST_KNOWN_INTERNET_DATA, matcher.group(1)).apply();
-            }
-            else if (responseMessage.contains("SMS"))
-            {
-                //TODO: Write code to handle SMS report
-            }
-            else if (responseMessage.contains("MIN"))
-            {
-                //TODO: Write code to handle minutes report
-            }
-            else if (responseMessage.contains("RECARGA"))
-            {
-                //TODO: Write code to handle recharge report
-            }
-            else
-            {
-                //TODO: Write code to handle bonuses report, since is the only thing left to possibly handle
+                String currentWord = wordsFromMessage[i];
+                switch (currentWord)
+                {
+                    case "SALDO:":
+                        spEditor.putString(Constants.LAST_KNOWN_BALANCE, wordsFromMessage[i + 1] + " " + wordsFromMessage[i + 2].replace(".", "")).apply();
+                        i += 2;
+                        break;
+                    case "DATOS:":
+                        spEditor.putString(Constants.LAST_KNOWN_INTERNET_DATA, wordsFromMessage[i + 1] + " " + wordsFromMessage[i + 2].replace(".", "")).apply();
+                        i += 2;
+                        break;
+                    case "VOZ:":
+                        spEditor.putString(Constants.LAST_KNOWN_MINUTES_COUNT, wordsFromMessage[i + 1].replace(".", "")).apply();
+                        i++;
+                        break;
+                    case "SMS:":
+                        spEditor.putString(Constants.LAST_KNOWN_MESSAGES_COUNT, wordsFromMessage[i + 1].replace(".", "")).apply();
+                        i++;
+                        break;
+                    case "SMS":
+                        spEditor.putString(Constants.LAST_KNOWN_MESSAGES_COUNT, wordsFromMessage[i - 1]).apply();
+                        break;
+                    case "MIN":
+                        spEditor.putString(Constants.LAST_KNOWN_MINUTES_COUNT, wordsFromMessage[i - 1]).apply();
+                        break;
+                }
             }
         }
     }
