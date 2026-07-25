@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 import cu.lt.joe.stk.AppCore;
+import cu.lt.joe.stk.Constants;
 import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.adapters.MainActivityPagerAdapter;
 import cu.lt.joe.stk.databinding.MainLayoutBinding;
@@ -72,8 +73,8 @@ public class MainActivity extends BaseActivity
         binding.mainActivityPager.setOffscreenPageLimit(2);
         binding.themeModeToggleButton.setOnClickListener(v ->
         {
-            sharedPreferences.edit().putBoolean(THEME_MODE_SAVER_PREFERENCE_KEY,
-                    !sharedPreferences.getBoolean(THEME_MODE_SAVER_PREFERENCE_KEY, false)).apply();
+            sharedPreferences.edit().putBoolean(Constants.IS_DARK_MODE_ENABLED,
+                    !sharedPreferences.getBoolean(Constants.IS_DARK_MODE_ENABLED, false)).apply();
             recreate();
         });
 
