@@ -10,14 +10,14 @@ import com.google.android.material.color.DynamicColors;
 
 public class BaseActivity extends AppCompatActivity
 {
-    protected final String THEME_MODE_SAVER_PREFERENCE_KEY = "UI_MODE_DARK";
+    protected final String IS_DARK_MODE_ENABLED = "IS_DARK_MODE_ENABLED";
     protected SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
     {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        AppCompatDelegate.setDefaultNightMode(sharedPreferences.getBoolean(THEME_MODE_SAVER_PREFERENCE_KEY, false) ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
+        AppCompatDelegate.setDefaultNightMode(sharedPreferences.getBoolean(IS_DARK_MODE_ENABLED, false) ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
         applyDynamicColors();
     }
