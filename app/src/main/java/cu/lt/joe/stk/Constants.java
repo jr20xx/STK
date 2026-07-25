@@ -4,7 +4,6 @@ public class Constants
 {
     public final static String SHORTCUT_ACTION_DIAL = "cu.lt.joe.stk.DIAL_USSD",
             SHORTCUT_USSD_CODE = "cu.lt.joe.stk.USSD_CODE",
-            SHARED_PREFERENCES_NAME = "known_user_data",
             LAST_KNOWN_BALANCE = "last_known_balance",
             LAST_KNOWN_INTERNET_DATA = "last_known_internet_data",
             LAST_KNOWN_MESSAGES_COUNT = "last_known_messages_count",

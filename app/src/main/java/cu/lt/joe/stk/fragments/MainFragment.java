@@ -1,6 +1,5 @@
 package cu.lt.joe.stk.fragments;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -19,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
@@ -104,11 +104,13 @@ public class MainFragment extends Fragment
                 }
             }
     );
+    private SharedPreferences sharp;
+    private SharedPreferences.OnSharedPreferenceChangeListener sharedPreferenceChangeListener;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        SharedPreferences sharp = requireActivity().getSharedPreferences(Constants.SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
+        sharp = PreferenceManager.getDefaultSharedPreferences(requireActivity());
         binding = MainFragmentBinding.inflate(inflater, container, false);
         binding.setUSSDRequester(this);
 
@@ -128,7 +130,7 @@ public class MainFragment extends Fragment
         int spanCount = dm.widthPixels / Utils.dpToPx(requireContext(), 180);
         binding.consultItemsList.setLayoutManager(new StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL));
 
-        sharp.registerOnSharedPreferenceChangeListener((sharedPreferences, key) -> {
+        sharedPreferenceChangeListener = (sharedPreferences, key) -> {
             String newValue = sharp.getString(key, null);
             switch (key)
             {
@@ -145,7 +147,8 @@ public class MainFragment extends Fragment
                     consultItemsAdapter.updateAvailableInfoAtPosition(3, newValue);
                     break;
             }
-        });
+        };
+        sharp.registerOnSharedPreferenceChangeListener(sharedPreferenceChangeListener);
 
         binding.voucherCodeInputText.setEndIconOnClickListener(v ->
                 voucherActivationCodeBarcodeScanner.launch(new ScanOptions()
@@ -384,5 +387,13 @@ public class MainFragment extends Fragment
             binding.mainFragmentScrollview.setScrollY(savedInstanceState.getInt(SCROLL_POSITION_SAVE_TAG));
         }
         super.onViewStateRestored(savedInstanceState);
+    }
+
+    @Override
+    public void onDestroyView()
+    {
+        super.onDestroyView();
+        if (sharp != null && sharedPreferenceChangeListener != null)
+            sharp.unregisterOnSharedPreferenceChangeListener(sharedPreferenceChangeListener);
     }
 }

@@ -7,6 +7,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.view.accessibility.AccessibilityEvent;
+import androidx.preference.PreferenceManager;
 import cu.lt.joe.stk.Constants;
 import cu.lt.joe.stk.utils.Utils;
 
@@ -16,7 +17,7 @@ public class USSDAccessibilityService extends AccessibilityService
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event)
     {
-        SharedPreferences sharp = getSharedPreferences(Constants.SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sharp = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor spEditor = sharp.edit();
 
         if (event.getClassName() != null && AlertDialog.class.getName().contentEquals(event.getClassName()))
