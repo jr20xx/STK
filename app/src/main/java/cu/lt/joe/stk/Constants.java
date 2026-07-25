@@ -2,7 +2,8 @@ package cu.lt.joe.stk;
 
 public class Constants
 {
-    public final static String SHORTCUT_ACTION_DIAL = "cu.lt.joe.stk.DIAL_USSD",
+    public final static String IS_DARK_MODE_ENABLED = "IS_DARK_MODE_ENABLED",
+            SHORTCUT_ACTION_DIAL = "cu.lt.joe.stk.DIAL_USSD",
             SHORTCUT_USSD_CODE = "cu.lt.joe.stk.USSD_CODE",
             LAST_KNOWN_BALANCE = "last_known_balance",
             LAST_KNOWN_INTERNET_DATA = "last_known_internet_data",
