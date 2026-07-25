@@ -131,21 +131,24 @@ public class MainFragment extends Fragment
         binding.consultItemsList.setLayoutManager(new StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL));
 
         sharedPreferenceChangeListener = (sharedPreferences, key) -> {
-            String newValue = sharp.getString(key, null);
-            switch (key)
+            if (key != null && !key.equals(Constants.IS_DARK_MODE_ENABLED))
             {
-                case Constants.LAST_KNOWN_BALANCE:
-                    consultItemsAdapter.updateAvailableInfoAtPosition(0, newValue);
-                    break;
-                case Constants.LAST_KNOWN_INTERNET_DATA:
-                    consultItemsAdapter.updateAvailableInfoAtPosition(1, newValue);
-                    break;
-                case Constants.LAST_KNOWN_MESSAGES_COUNT:
-                    consultItemsAdapter.updateAvailableInfoAtPosition(2, newValue);
-                    break;
-                case Constants.LAST_KNOWN_MINUTES_COUNT:
-                    consultItemsAdapter.updateAvailableInfoAtPosition(3, newValue);
-                    break;
+                String newValue = sharp.getString(key, null);
+                switch (key)
+                {
+                    case Constants.LAST_KNOWN_BALANCE:
+                        consultItemsAdapter.updateAvailableInfoAtPosition(0, newValue);
+                        break;
+                    case Constants.LAST_KNOWN_INTERNET_DATA:
+                        consultItemsAdapter.updateAvailableInfoAtPosition(1, newValue);
+                        break;
+                    case Constants.LAST_KNOWN_MESSAGES_COUNT:
+                        consultItemsAdapter.updateAvailableInfoAtPosition(2, newValue);
+                        break;
+                    case Constants.LAST_KNOWN_MINUTES_COUNT:
+                        consultItemsAdapter.updateAvailableInfoAtPosition(3, newValue);
+                        break;
+                }
             }
         };
         sharp.registerOnSharedPreferenceChangeListener(sharedPreferenceChangeListener);
