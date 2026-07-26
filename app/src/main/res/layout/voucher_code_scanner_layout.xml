@@ -16,7 +16,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
 
         <com.journeyapps.barcodescanner.DecoratedBarcodeView
             android:id="@+id/voucher_code_barcode_view"
