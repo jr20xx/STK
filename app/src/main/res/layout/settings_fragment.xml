@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="cu.lt.joe.stk.utils.Utils" />
+
         <variable
             name="linkOpener"
             type="cu.lt.joe.stk.fragments.SettingsFragment" />
@@ -36,34 +38,11 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="96dp"
-                        android:layout_height="96dp"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="5dp"
-                        android:scaleType="fitCenter"
-                        app:srcCompat="@mipmap/ic_launcher" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:text="@string/app_name"
-                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:text="Versión 1.0"
-                        android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
-
-                    <TextView
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/accessibility_service_switch"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
-                        android:text="STK es una aplicación de software libre, distribuida tal cual y sin garantías de ninguna índole. Fue creada con el fin de facilitar la gestión de algunos de los servicios de la Empresa de Telecomunicaciones de Cuba S.A. (ETECSA). No existe ningún vínculo entre el creador de esta aplicación y ETECSA. Cualquier logo o marca comercial que pueda aparecer en la aplicación es propiedad absoluta de sus respectivos dueños y se usan, meramente, con fines ilustrativos y/o de identificación."
-                        android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+                        android:text="Activar servicio de accesibilidad" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 

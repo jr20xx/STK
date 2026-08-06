@@ -3,6 +3,7 @@ package cu.lt.joe.stk.fragments;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.snackbar.Snackbar;
 import cu.lt.joe.stk.databinding.SettingsFragmentBinding;
+import cu.lt.joe.stk.utils.Utils;
 
 public class SettingsFragment extends Fragment
 {
@@ -23,6 +25,7 @@ public class SettingsFragment extends Fragment
     {
         binding = SettingsFragmentBinding.inflate(inflater, container, false);
         binding.setLinkOpener(this);
+        binding.accessibilityServiceSwitch.setOnClickListener(v -> startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)));
         return binding.getRoot();
     }
 
@@ -51,5 +54,12 @@ public class SettingsFragment extends Fragment
         if (savedInstanceState != null)
             binding.infoFragmentScrollview.setScrollY(savedInstanceState.getInt(SCROLL_POSITION_SAVER_TAG));
         super.onViewStateRestored(savedInstanceState);
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        binding.accessibilityServiceSwitch.setChecked(Utils.isAccessibilityServiceEnabled(requireContext()));
     }
 }
