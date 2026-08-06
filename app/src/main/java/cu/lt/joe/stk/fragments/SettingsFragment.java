@@ -25,7 +25,7 @@ public class SettingsFragment extends Fragment
     {
         binding = SettingsFragmentBinding.inflate(inflater, container, false);
         binding.setLinkOpener(this);
-        binding.accessibilityServiceSwitch.setOnClickListener(v -> startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)));
+        binding.accessibilityServiceSwitchCard.setOnClickListener(v -> startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)));
         return binding.getRoot();
     }
 
