@@ -5,8 +5,6 @@
 
     <data>
 
-        <import type="cu.lt.joe.stk.utils.Utils" />
-
         <variable
             name="linkOpener"
             type="cu.lt.joe.stk.fragments.SettingsFragment" />
