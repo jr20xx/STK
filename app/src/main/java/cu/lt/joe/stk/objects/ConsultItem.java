@@ -1,16 +1,13 @@
 package cu.lt.joe.stk.objects;
 
 import android.net.Uri;
-import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.databinding.BindingAdapter;
 
-public class ConsultItem
+public class ConsultItem extends BaseItem
 {
     private final int iconResId;
     private final String title;
-    private String availableInfo;
     private final Uri uriToDial;
+    private String availableInfo;
 
     public ConsultItem(int iconResId, String title, String availableInfo, Uri uriToDial)
     {
@@ -18,12 +15,6 @@ public class ConsultItem
         this.title = title;
         this.availableInfo = availableInfo;
         this.uriToDial = uriToDial;
-    }
-
-    @BindingAdapter("android:drawable")
-    public static void setIcon(@NonNull ImageView iconImageView, int iconResId)
-    {
-        iconImageView.setImageResource(iconResId);
     }
 
     public int getIconResId()
@@ -41,13 +32,13 @@ public class ConsultItem
         return availableInfo;
     }
 
-    public Uri getUriToDial()
-    {
-        return uriToDial;
-    }
-
     public void setAvailableInfo(String availableInfo)
     {
         this.availableInfo = availableInfo;
+    }
+
+    public Uri getUriToDial()
+    {
+        return uriToDial;
     }
 }

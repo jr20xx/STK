@@ -1,10 +1,6 @@
 package cu.lt.joe.stk.objects;
 
-import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.databinding.BindingAdapter;
-
-public class ShortcutItem
+public class ShortcutItem extends BaseItem
 {
     private final int iconResId;
     private final String shortTitle, longTitle, dialingNumber;
@@ -15,12 +11,6 @@ public class ShortcutItem
         this.shortTitle = shortTitle;
         this.dialingNumber = dialingNumber;
         this.longTitle = longTitle;
-    }
-
-    @BindingAdapter("android:drawable")
-    public static void setIcon(@NonNull ImageView iconImageView, int iconResId)
-    {
-        iconImageView.setImageResource(iconResId);
     }
 
     public int getIconResId()
