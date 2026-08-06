@@ -1,18 +1,22 @@
 package cu.lt.joe.stk.utils;
 
 import android.Manifest;
+import android.accessibilityservice.AccessibilityServiceInfo;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.pm.ServiceInfo;
 import android.net.Uri;
 import android.view.accessibility.AccessibilityEvent;
+import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+import cu.lt.joe.stk.accessibility.USSDAccessibilityService;
 import cu.lt.joe.stk.fragments.dialog_fragments.PermissionRequesterDialogFragment;
 
 public class Utils
@@ -57,7 +61,7 @@ public class Utils
 
     private static void appendTextFromAccessibilityNode(AccessibilityNodeInfo node, StringBuilder textBuilder)
     {
-        if(node != null)
+        if (node != null)
         {
             if (node.getText() != null)
                 textBuilder.append(node.getText().toString()).append(" ");
@@ -68,5 +72,16 @@ public class Utils
                 if (child != null) child.recycle();
             }
         }
+    }
+
+    public static boolean isAccessibilityServiceEnabled(Context context)
+    {
+        for (AccessibilityServiceInfo serviceInfo : ((AccessibilityManager) context.getSystemService(Context.ACCESSIBILITY_SERVICE)).getEnabledAccessibilityServiceList(AccessibilityServiceInfo.FEEDBACK_GENERIC))
+        {
+            ServiceInfo currentServiceInfo = serviceInfo.getResolveInfo().serviceInfo;
+            if (currentServiceInfo.packageName.equalsIgnoreCase(context.getPackageName()) && currentServiceInfo.name.equalsIgnoreCase(USSDAccessibilityService.class.getName()))
+                return true;
+        }
+        return false;
     }
 }
