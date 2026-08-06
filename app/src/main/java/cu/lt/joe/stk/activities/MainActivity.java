@@ -10,8 +10,8 @@ import cu.lt.joe.stk.Constants;
 import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.adapters.MainActivityPagerAdapter;
 import cu.lt.joe.stk.databinding.MainLayoutBinding;
-import cu.lt.joe.stk.fragments.InformationFragment;
 import cu.lt.joe.stk.fragments.MainFragment;
+import cu.lt.joe.stk.fragments.SettingsFragment;
 import cu.lt.joe.stk.fragments.ShoppingFragment;
 import cu.lt.joe.stk.fragments.dialog_fragments.ErrorMessageDialogFragment;
 
@@ -26,7 +26,7 @@ public class MainActivity extends BaseActivity
         binding = DataBindingUtil.setContentView(this, R.layout.main_layout);
         binding.mainActivityPager.setSaveEnabled(true);
         binding.mainActivityPager.setAdapter(new MainActivityPagerAdapter(
-                new Fragment[]{new MainFragment(), new ShoppingFragment(), new InformationFragment()},
+                new Fragment[]{new MainFragment(), new ShoppingFragment(), new SettingsFragment()},
                 getSupportFragmentManager(), getLifecycle()
         ));
         binding.bottomNavigationView.setOnItemSelectedListener(item ->
@@ -41,9 +41,9 @@ public class MainActivity extends BaseActivity
                     binding.mainActivityPager.setCurrentItem(1);
                     binding.mainActivityTitleTv.setText("Planes y paquetes");
                     return true;
-                case "Info":
+                case "Ajustes":
                     binding.mainActivityPager.setCurrentItem(2);
-                    binding.mainActivityTitleTv.setText("Información");
+                    binding.mainActivityTitleTv.setText("Ajustes");
                     return true;
             }
             return false;
@@ -62,7 +62,7 @@ public class MainActivity extends BaseActivity
                         binding.bottomNavigationView.setSelectedItemId(R.id.shopping_fragment_im);
                         break;
                     case 2:
-                        binding.bottomNavigationView.setSelectedItemId(R.id.info_fragment_im);
+                        binding.bottomNavigationView.setSelectedItemId(R.id.settings_fragment_im);
                         break;
                     default:
                         super.onPageSelected(position);

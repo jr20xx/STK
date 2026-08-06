@@ -10,18 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.snackbar.Snackbar;
-import cu.lt.joe.stk.databinding.InfoFragmentBinding;
+import cu.lt.joe.stk.databinding.SettingsFragmentBinding;
 
-public class InformationFragment extends Fragment
+public class SettingsFragment extends Fragment
 {
     private static final String SCROLL_POSITION_SAVER_TAG = "SAVED_SCROLL_POSITION";
-    private InfoFragmentBinding binding;
+    private SettingsFragmentBinding binding;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
-        binding = InfoFragmentBinding.inflate(inflater, container, false);
+        binding = SettingsFragmentBinding.inflate(inflater, container, false);
         binding.setLinkOpener(this);
         return binding.getRoot();
     }

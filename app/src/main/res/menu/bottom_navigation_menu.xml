@@ -10,7 +10,7 @@
         android:icon="@drawable/shop_icon_selector"
         android:title="Compras" />
     <item
-        android:id="@+id/info_fragment_im"
-        android:icon="@drawable/info_icon_selector"
-        android:title="Info" />
+        android:id="@+id/settings_fragment_im"
+        android:icon="@drawable/settings_icon_selector"
+        android:title="Ajustes" />
 </menu>

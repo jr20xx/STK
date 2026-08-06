@@ -7,7 +7,7 @@
 
         <variable
             name="linkOpener"
-            type="cu.lt.joe.stk.fragments.InformationFragment" />
+            type="cu.lt.joe.stk.fragments.SettingsFragment" />
     </data>
 
     <androidx.core.widget.NestedScrollView
