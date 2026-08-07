@@ -65,6 +65,7 @@ public class MainFragment extends Fragment
                     }
                 }
             });
+    private SharedPreferences sharp;
     private final ActivityResultLauncher<Intent> contactPickerResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result ->
@@ -90,7 +91,9 @@ public class MainFragment extends Fragment
                                     if (triggerView.equals(binding.privateCallCard))
                                         Utils.performCallFromFragment(this, Uri.parse("tel:" + Uri.encode("#") + "31" + Uri.encode("#") + numberAsString));
                                     else if (triggerView.equals(binding.revertedCallCard))
-                                        Utils.performCallFromFragment(this, Uri.parse("tel:*99" + numberAsString));
+                                        Utils.performCallFromFragment(this, Uri.parse("tel:" +
+                                                Constants.REVERTED_CALL_PREFIXES_ARRAY[sharp.getInt(Constants.REVERTED_CALL_PREFIX_INDEX, 0)] +
+                                                numberAsString));
                                     else
                                         binding.transferPhoneNumberInputText.getEditText().setText(numberAsString);
                                 }
@@ -104,7 +107,6 @@ public class MainFragment extends Fragment
                 }
             }
     );
-    private SharedPreferences sharp;
     private SharedPreferences.OnSharedPreferenceChangeListener sharedPreferenceChangeListener;
 
     @Override
