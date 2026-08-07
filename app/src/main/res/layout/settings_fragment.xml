@@ -220,7 +220,8 @@
                                 android:layout_below="@id/balance_recharge_faq_header"
                                 android:layout_toEndOf="@id/balance_recharge_faq_iv"
                                 android:text="Este es un enlace al sitio oficial con las preguntas más frecuentes sobre el saldo móvil"
-                                android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+                                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                                android:textColor="?android:attr/textColorSecondary" />
                         </RelativeLayout>
                     </com.google.android.material.card.MaterialCardView>
 
@@ -270,7 +271,8 @@
                                 android:layout_below="@id/mobile_plans_faq_header"
                                 android:layout_toEndOf="@id/mobile_plans_faq_iv"
                                 android:text="Este es un enlace al sitio oficial con las preguntas más frecuentes sobre los planes móviles"
-                                android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+                                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                                android:textColor="?android:attr/textColorSecondary" />
                         </RelativeLayout>
                     </com.google.android.material.card.MaterialCardView>
 
@@ -320,7 +322,8 @@
                                 android:layout_below="@id/source_code_header"
                                 android:layout_toEndOf="@id/source_code_iv"
                                 android:text="Este es un enlace al repositorio donde se encuentra el código de esta aplicación"
-                                android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+                                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                                android:textColor="?android:attr/textColorSecondary" />
                         </RelativeLayout>
                     </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
