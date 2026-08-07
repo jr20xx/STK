@@ -10,5 +10,7 @@ public class Constants
             LAST_KNOWN_MESSAGES_COUNT = "last_known_messages_count",
             LAST_KNOWN_MINUTES_COUNT = "last_known_minutes_count",
             LAST_KNOWN_BONUSES = "last_known_bonuses",
-            LAST_KNOWN_RECHARGE_TIME = "last_known_recharge_time";
+            LAST_KNOWN_RECHARGE_TIME = "last_known_recharge_time",
+            REVERTED_CALL_PREFIX_INDEX = "reverted_call_prefix_index";
+    public final static String REVERTED_CALL_PREFIXES_ARRAY[] = new String[]{"*99", "*+99", "+5399"};
 }
