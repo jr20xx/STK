@@ -5,7 +5,6 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
-import java.util.Objects;
 import cu.lt.joe.stk.AppCore;
 import cu.lt.joe.stk.Constants;
 import cu.lt.joe.stk.R;
@@ -32,20 +31,23 @@ public class MainActivity extends BaseActivity
         ));
         binding.bottomNavigationView.setOnItemSelectedListener(item ->
         {
-            switch (Objects.requireNonNull(item.getTitle()).toString())
+            if (item.getTitle().toString().equals(getString(R.string.home_fragment_menu_title)))
             {
-                case MainActivity.this.getString(R.string.home_fragment_menu_title):
-                    binding.mainActivityPager.setCurrentItem(0);
-                    binding.mainActivityTitleTv.setText(R.string.home_fragment_menu_title);
-                    return true;
-                case MainActivity.this.getString(R.string.shop_fragment_menu_title):
-                    binding.mainActivityPager.setCurrentItem(1);
-                    binding.mainActivityTitleTv.setText(R.string.shop_fragment_title);
-                    return true;
-                case MainActivity.this.getString(R.string.settings_fragment_menu_title):
-                    binding.mainActivityPager.setCurrentItem(2);
-                    binding.mainActivityTitleTv.setText(R.string.settings_fragment_menu_title);
-                    return true;
+                binding.mainActivityPager.setCurrentItem(0);
+                binding.mainActivityTitleTv.setText(R.string.home_fragment_menu_title);
+                return true;
+            }
+            else if (item.getTitle().toString().equals(getString(R.string.shop_fragment_menu_title)))
+            {
+                binding.mainActivityPager.setCurrentItem(1);
+                binding.mainActivityTitleTv.setText(R.string.shop_fragment_title);
+                return true;
+            }
+            else if (item.getTitle().toString().equals(getString(R.string.settings_fragment_menu_title)))
+            {
+                binding.mainActivityPager.setCurrentItem(2);
+                binding.mainActivityTitleTv.setText(R.string.settings_fragment_menu_title);
+                return true;
             }
             return false;
         });
