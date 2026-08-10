@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">STK</string>
     <string name="ussd_accessibility_service_description">Servicio para obtener y almacenar la cantidad de saldo disponible y el estado de los bonos</string>
+    <string name="recovery_mode_dialog_title">Modo de recuperación</string>
+    <string name="recovery_mode_dialog_message">Ocurrió un error inesperado y la aplicación tuvo que reiniciarse. Puede copiar el mensaje de error para obtener detalles avanzados del error ocurrido o simplemente descartar este mensaje. Lamentamos las molestias ocasionadas y al cerrar este diálogo podrá continuar utilizando la aplicación con normalidad</string>
+    <string name="error_message_clipboard_tag">Mensaje de error de STK</string>
+    <string name="home_fragment_menu_title">Inicio</string>
+    <string name="shop_fragment_menu_title">Compras</string>
+    <string name="shop_fragment_title">Planes y paquetes</string>
+    <string name="settings_fragment_menu_title">Ajustes</string>
 </resources>

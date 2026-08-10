@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import cu.lt.joe.stk.AppCore;
+import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.utils.Utils;
 
 public class ErrorMessageDialogFragment extends DialogFragment
@@ -32,10 +33,10 @@ public class ErrorMessageDialogFragment extends DialogFragment
         if (savedInstanceState != null && savedInstanceState.containsKey(AppCore.ERROR_TAG))
             errorMessage = savedInstanceState.getString(AppCore.ERROR_TAG);
         return new MaterialAlertDialogBuilder(requireActivity())
-                .setTitle("Modo de recuperación")
-                .setMessage("Ocurrió un error inesperado y la aplicación tuvo que reiniciarse. Puede copiar el mensaje de error para obtener detalles avanzados del error ocurrido o simplemente descartar este mensaje. Lamentamos las molestias ocasionadas y al cerrar este diálogo podrá continuar utilizando la aplicación con normalidad")
+                .setTitle(R.string.recovery_mode_dialog_title)
+                .setMessage(R.string.recovery_mode_dialog_message)
                 .setPositiveButton(android.R.string.copy, (dialogInterface, which) ->
-                        Utils.copyToClipboard(requireActivity(), "Mensaje de error de STK", errorMessage))
+                        Utils.copyToClipboard(requireActivity(), getString(R.string.error_message_clipboard_tag), errorMessage))
                 .setNegativeButton(android.R.string.cancel, null)
                 .create();
     }
