@@ -8,4 +8,20 @@
     <string name="shop_fragment_menu_title">Compras</string>
     <string name="shop_fragment_title">Planes y paquetes</string>
     <string name="settings_fragment_menu_title">Ajustes</string>
+    <string name="invalid_code_tip">Código inválido</string>
+    <string name="malformed_code_tip">Código con caracteres inválidos</string>
+    <string name="invalid_phone_number_tip">El número asociado es inválido</string>
+    <string name="unusable_phone_number_tip">El número elegido no se puede usar</string>
+    <string name="balance_label">Saldo</string>
+    <string name="data_label">Datos</string>
+    <string name="messages_label">Mensajes</string>
+    <string name="minutes_label">Minutos</string>
+    <string name="bonuses_label">Bonos</string>
+    <string name="recharge_label">Recarga</string>
+    <string name="recharge_code_length_error">El código debe tener 16 dígitos</string>
+    <string name="transfer_receiver_phone_number_length_error">El número del receptor debe tener 8 dígitos</string>
+    <string name="transfer_receiver_phone_number_starting_error">El número del receptor debe empezar con 5 o 6</string>
+    <string name="transfer_key_length_error">La clave debe contener 4 dígitos</string>
+    <string name="transfer_balance_empty_error">Introduzca el monto</string>
+    <string name="transfer_balance_is_zero_error">El monto a transferir no puede ser 0</string>
 </resources>

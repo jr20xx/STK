@@ -51,14 +51,14 @@ public class MainFragment extends Fragment
                 if (obtainedContents != null)
                 {
                     if (obtainedContents.isBlank())
-                        Snackbar.make(binding.getRoot(), "Código inválido", Snackbar.LENGTH_SHORT).show();
+                        Snackbar.make(binding.getRoot(), R.string.invalid_code_tip, Snackbar.LENGTH_SHORT).show();
                     else
                     {
                         obtainedContents = obtainedContents.trim();
                         for (char c : obtainedContents.toCharArray())
                             if (c < '0' || c > '9')
                             {
-                                Snackbar.make(binding.getRoot(), "Código con caracteres inválidos", Snackbar.LENGTH_SHORT).show();
+                                Snackbar.make(binding.getRoot(), R.string.malformed_code_tip, Snackbar.LENGTH_SHORT).show();
                                 return;
                             }
                         binding.voucherCodeInputText.getEditText().setText(obtainedContents);
@@ -83,7 +83,7 @@ public class MainFragment extends Fragment
                             Phonenumber.PhoneNumber number = phoneNumberUtil.parse(cursor.getString(0), "CU");
                             String numberAsString = phoneNumberUtil.getNationalSignificantNumber(number);
                             if (!phoneNumberUtil.isValidNumberForRegion(number, "CU") || numberAsString.charAt(0) != '5' && numberAsString.charAt(0) != '6')
-                                Snackbar.make(binding.getRoot(), "El número asociado es inválido", Snackbar.LENGTH_SHORT).show();
+                                Snackbar.make(binding.getRoot(), R.string.invalid_phone_number_tip, Snackbar.LENGTH_SHORT).show();
                             else
                             {
                                 if (triggerView != null)
@@ -102,7 +102,7 @@ public class MainFragment extends Fragment
                     }
                     catch (Exception ignored)
                     {
-                        Snackbar.make(binding.getRoot(), "El número elegido no se puede usar", Snackbar.LENGTH_SHORT).show();
+                        Snackbar.make(binding.getRoot(), R.string.unusable_phone_number_tip, Snackbar.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -117,12 +117,12 @@ public class MainFragment extends Fragment
         binding.setUSSDRequester(this);
 
         ArrayList<ConsultItem> consultItems = new ArrayList<>();
-        consultItems.add(new ConsultItem(R.drawable.ic_balance, "Saldo", sharp.getString(Constants.LAST_KNOWN_BALANCE, null), Uri.parse("tel:*222" + Uri.encode("#"))));
-        consultItems.add(new ConsultItem(R.drawable.ic_data, "Datos", sharp.getString(Constants.LAST_KNOWN_INTERNET_DATA, null), Uri.parse("tel:*222*328" + Uri.encode("#"))));
-        consultItems.add(new ConsultItem(R.drawable.ic_message, "Mensajes", sharp.getString(Constants.LAST_KNOWN_MESSAGES_COUNT, null), Uri.parse("tel:*222*767" + Uri.encode("#"))));
-        consultItems.add(new ConsultItem(R.drawable.ic_call, "Minutos", sharp.getString(Constants.LAST_KNOWN_MINUTES_COUNT, sharp.getString(Constants.LAST_KNOWN_MINUTES_COUNT, null)), Uri.parse("tel:*222*869" + Uri.encode("#"))));
-        consultItems.add(new ConsultItem(R.drawable.ic_bonus, "Bonos", sharp.getString(Constants.LAST_KNOWN_BONUSES, null), Uri.parse("tel:*222*266" + Uri.encode("#"))));
-        consultItems.add(new ConsultItem(R.drawable.ic_no_recharge, "Recarga", sharp.getString(Constants.LAST_KNOWN_RECHARGE_TIME, null), Uri.parse("tel:*222*732" + Uri.encode("#"))));
+        consultItems.add(new ConsultItem(R.drawable.ic_balance, getString(R.string.balance_label), sharp.getString(Constants.LAST_KNOWN_BALANCE, null), Uri.parse("tel:*222" + Uri.encode("#"))));
+        consultItems.add(new ConsultItem(R.drawable.ic_data, getString(R.string.data_label), sharp.getString(Constants.LAST_KNOWN_INTERNET_DATA, null), Uri.parse("tel:*222*328" + Uri.encode("#"))));
+        consultItems.add(new ConsultItem(R.drawable.ic_message, getString(R.string.messages_label), sharp.getString(Constants.LAST_KNOWN_MESSAGES_COUNT, null), Uri.parse("tel:*222*767" + Uri.encode("#"))));
+        consultItems.add(new ConsultItem(R.drawable.ic_call, getString(R.string.minutes_label), sharp.getString(Constants.LAST_KNOWN_MINUTES_COUNT, sharp.getString(Constants.LAST_KNOWN_MINUTES_COUNT, null)), Uri.parse("tel:*222*869" + Uri.encode("#"))));
+        consultItems.add(new ConsultItem(R.drawable.ic_bonus, getString(R.string.bonuses_label), sharp.getString(Constants.LAST_KNOWN_BONUSES, null), Uri.parse("tel:*222*266" + Uri.encode("#"))));
+        consultItems.add(new ConsultItem(R.drawable.ic_no_recharge, getString(R.string.recharge_label), sharp.getString(Constants.LAST_KNOWN_RECHARGE_TIME, null), Uri.parse("tel:*222*732" + Uri.encode("#"))));
         ConsultItemAdapter consultItemsAdapter = new ConsultItemAdapter(this, consultItems);
         binding.consultItemsList.setNestedScrollingEnabled(false);
         binding.consultItemsList.setAdapter(consultItemsAdapter);
@@ -276,7 +276,7 @@ public class MainFragment extends Fragment
             String voucherActivationCode = binding.voucherCodeInputText.getEditText().getText().toString();
             binding.voucherCodeInputText.setErrorEnabled(true);
             if (voucherActivationCode.isBlank() || voucherActivationCode.length() < 16)
-                binding.voucherCodeInputText.setError("El código debe tener 16 dígitos");
+                binding.voucherCodeInputText.setError(getString(R.string.recharge_code_length_error));
             else
             {
                 binding.voucherCodeInputText.setError(null);
@@ -292,25 +292,25 @@ public class MainFragment extends Fragment
                     balanceAmount = binding.transferBalanceInputText.getEditText().getText().toString();
             binding.transferPhoneNumberInputText.setErrorEnabled(true);
             if (receiverNumber.isBlank() || receiverNumber.length() < 8)
-                binding.transferPhoneNumberInputText.setError("El número del receptor debe tener 8 dígitos");
+                binding.transferPhoneNumberInputText.setError(getString(R.string.transfer_receiver_phone_number_length_error));
             else if (receiverNumber.charAt(0) != '5' && receiverNumber.charAt(0) != '6')
-                binding.transferPhoneNumberInputText.setError("El número del receptor debe empezar con 5 o 6");
+                binding.transferPhoneNumberInputText.setError(getString(R.string.transfer_receiver_phone_number_starting_error));
             else
             {
                 binding.transferPhoneNumberInputText.setError(null);
                 binding.transferPhoneNumberInputText.setErrorEnabled(false);
                 binding.transferPasswordInputText.setErrorEnabled(true);
                 if (passwordCode.isBlank() || passwordCode.length() < 4)
-                    binding.transferPasswordInputText.setError("La clave debe contener 4 dígitos");
+                    binding.transferPasswordInputText.setError(getString(R.string.transfer_key_length_error));
                 else
                 {
                     binding.transferPasswordInputText.setError(null);
                     binding.transferPasswordInputText.setErrorEnabled(false);
                     binding.transferBalanceInputText.setErrorEnabled(true);
                     if (balanceAmount.isBlank())
-                        binding.transferBalanceInputText.setError("Introduzca el monto");
+                        binding.transferBalanceInputText.setError(getString(R.string.transfer_balance_empty_error));
                     else if (Double.parseDouble(balanceAmount) == 0)
-                        binding.transferBalanceInputText.setError("El monto a transferir no puede ser 0");
+                        binding.transferBalanceInputText.setError(getString(R.string.transfer_balance_is_zero_error));
                     else
                     {
                         binding.transferBalanceInputText.setError(null);
