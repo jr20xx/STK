@@ -231,7 +231,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="4dp"
                         android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="4dp"
+                        android:layout_marginBottom="8dp"
                         android:clickable="true"
                         android:focusable="true"
                         android:onClick='@{_ -> linkOpener.openExternalLink("https://etecsa.cu/es/preguntas-frecuentes?faq=4781")}'
