@@ -339,7 +339,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/application_name_tv"
                                 android:layout_toEndOf="@id/application_icon_iv"
-                                android:text="Versión 1.1"
+                                android:text='@{"Versión " + @string/app_version}'
                                 android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
                                 android:textColor="?android:attr/textColorSecondary" />
 
