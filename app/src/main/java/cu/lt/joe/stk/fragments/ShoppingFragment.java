@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import java.util.ArrayList;
+import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.adapters.ShoppingListAdapter;
 import cu.lt.joe.stk.databinding.ShoppingFragmentLayoutBinding;
 import cu.lt.joe.stk.objects.BasicOffer;
@@ -31,14 +32,14 @@ public class ShoppingFragment extends Fragment
         dataPackets.add(new DataPacket("2 GB", "15 MIN", "20 SMS", "120 CUP", Uri.parse("tel:*133*1*4*2" + Uri.encode("#"))));
         dataPackets.add(new DataPacket("4 GB", "35 MIN", "40 SMS", "240 CUP", Uri.parse("tel:*133*1*4*3" + Uri.encode("#"))));
         dataPackets.add(new DataPacket("6 GB", "60 MIN", "70 SMS", "360 CUP", Uri.parse("tel:*133*1*4*4" + Uri.encode("#"))));
-        carrierOffersGroups.add(new CarrierOffersGroup("Paquetes de Internet", dataPackets));
+        carrierOffersGroups.add(new CarrierOffersGroup(getString(R.string.data_packets_header_label), dataPackets));
 
         ArrayList<BasicOffer> smsOffers = new ArrayList<>();
         smsOffers.add(new BasicOffer("20 SMS", "15 CUP", Uri.parse("tel:*133*2*1" + Uri.encode("#"))));
         smsOffers.add(new BasicOffer("50 SMS", "30 CUP", Uri.parse("tel:*133*2*2" + Uri.encode("#"))));
         smsOffers.add(new BasicOffer("90 SMS", "50 CUP", Uri.parse("tel:*133*2*3" + Uri.encode("#"))));
         smsOffers.add(new BasicOffer("120 SMS", "60 CUP", Uri.parse("tel:*133*2*4" + Uri.encode("#"))));
-        carrierOffersGroups.add(new CarrierOffersGroup("Planes de SMS", smsOffers));
+        carrierOffersGroups.add(new CarrierOffersGroup(getString(R.string.message_packets_header_label), smsOffers));
 
         ArrayList<BasicOffer> voiceOffers = new ArrayList<>();
         voiceOffers.add(new BasicOffer("5 MIN", "37.50 CUP", Uri.parse("tel:*133*3*1" + Uri.encode("#"))));
@@ -46,7 +47,7 @@ public class ShoppingFragment extends Fragment
         voiceOffers.add(new BasicOffer("15 MIN", "105 CUP", Uri.parse("tel:*133*3*3" + Uri.encode("#"))));
         voiceOffers.add(new BasicOffer("25 MIN", "162.50 CUP", Uri.parse("tel:*133*3*4" + Uri.encode("#"))));
         voiceOffers.add(new BasicOffer("40 MIN", "250 CUP", Uri.parse("tel:*133*3*5" + Uri.encode("#"))));
-        carrierOffersGroups.add(new CarrierOffersGroup("Planes de Voz", voiceOffers));
+        carrierOffersGroups.add(new CarrierOffersGroup(getString(R.string.voice_packets_header_label), voiceOffers));
 
         binding.shoppingFragmentRecycler.setAdapter(new ShoppingListAdapter(requireActivity(), carrierOffersGroups, obtainedUri -> Utils.performCallFromFragment(this, obtainedUri)));
         binding.shoppingFragmentRecycler.setLayoutManager(new LinearLayoutManager(requireActivity()));
