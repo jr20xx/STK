@@ -50,7 +50,7 @@
                 android:layout_margin="12dp"
                 android:layout_toEndOf="@id/custom_barcode_scanner_iv"
                 android:background="@color/zxing_transparent"
-                android:text="Ubique el código QR del cupón dentro del cuadrado central"
+                android:text="@string/qr_scan_tip_message"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
         </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>

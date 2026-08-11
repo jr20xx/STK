@@ -46,4 +46,5 @@
     <string name="minutes_check_label">Consultar minutos restantes</string>
     <string name="bonuses_check_label">Consultar bonos disponibles</string>
     <string name="recharge_check_label">Consultar fecha de recarga</string>
+    <string name="qr_scan_tip_message">Ubique el código QR del cupón dentro del cuadrado central</string>
 </resources>
