@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import cu.lt.joe.stk.R;
 
 public class TransferCentsWarningDialogFragment extends DialogFragment
 {
@@ -17,8 +18,8 @@ public class TransferCentsWarningDialogFragment extends DialogFragment
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState)
     {
         return new MaterialAlertDialogBuilder(requireActivity())
-                .setTitle("Monto con centavos")
-                .setMessage("Debido a restricciones que impiden la transferencia de saldo con centavos directamente desde aplicaciones de terceros, se ignorará la cantidad especificada y deberá introducirla cuando ETECSA le solicite el monto a transferir")
+                .setTitle(R.string.transfer_cents_dialog_title)
+                .setMessage(R.string.transfer_cents_dialog_message)
                 .setPositiveButton(android.R.string.ok, (dialogInterface, which) -> {
                     Bundle result = new Bundle();
                     result.putBoolean(RESULT_KEY, true);

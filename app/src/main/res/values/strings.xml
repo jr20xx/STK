@@ -31,4 +31,6 @@
     <string name="data_packets_header_label">Paquetes de Internet</string>
     <string name="message_packets_header_label">Planes de SMS</string>
     <string name="voice_packets_header_label">Planes de Voz</string>
+    <string name="transfer_cents_dialog_title">Monto con centavos</string>
+    <string name="transfer_cents_dialog_message">Debido a restricciones que impiden la transferencia de saldo con centavos directamente desde aplicaciones de terceros, se ignorará la cantidad especificada y deberá introducirla cuando ETECSA le solicite el monto a transferir</string>
 </resources>
