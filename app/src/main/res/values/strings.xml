@@ -68,4 +68,19 @@
 
     <string name="permission_requester_dialog_title">Permiso requerido</string>
     <string name="permission_requester_dialog_body">Para poder continuar con la ejecución de la operación seleccionada, la aplicación necesita que se le conceda el permiso requerido. La operación pendiente se realizará una vez que se le conceda el permiso a la aplicación</string>
+
+    <string name="general_settings_section_header">Opciones generales</string>
+    <string name="accessibility_service_switch_header">Servicio de accesibilidad</string>
+    <string name="accessibility_service_switch_description">Habilitar el servicio de accesibilidad empleado para capturar los datos mostrados en la pantalla inicial</string>
+    <string name="reverted_call_prefix_selector_header">Prefijo para cobro revertido</string>
+    <string name="reverted_call_prefix_selector_description">Seleccionar el prefijo para las llamadas con cobro revertido (en caso de que la opción por defecto no funcione)</string>
+    <string name="useful_information_section_header">Informaciones útiles</string>
+    <string name="balance_recharge_faq_header">Saldo móvil</string>
+    <string name="balance_recharge_faq_description">Este es un enlace al sitio oficial con las preguntas más frecuentes sobre el saldo móvil</string>
+    <string name="mobile_plans_faq_header">Planes</string>
+    <string name="mobile_plans_faq_description">Este es un enlace al sitio oficial con las preguntas más frecuentes sobre los planes móviles</string>
+    <string name="application_info_section_header">Información de la aplicación</string>
+    <string name="version_label">Versión %s</string>
+    <string name="telegram_label">Telegram</string>
+    <string name="source_code_label">Código fuente</string>
 </resources>
