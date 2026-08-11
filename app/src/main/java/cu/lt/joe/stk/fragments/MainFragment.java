@@ -117,12 +117,12 @@ public class MainFragment extends Fragment
         binding.setUSSDRequester(this);
 
         ArrayList<ConsultItem> consultItems = new ArrayList<>();
-        consultItems.add(new ConsultItem(R.drawable.ic_balance, getString(R.string.balance_label), sharp.getString(Constants.LAST_KNOWN_BALANCE, null), Uri.parse("tel:*222" + Uri.encode("#"))));
-        consultItems.add(new ConsultItem(R.drawable.ic_data, getString(R.string.data_label), sharp.getString(Constants.LAST_KNOWN_INTERNET_DATA, null), Uri.parse("tel:*222*328" + Uri.encode("#"))));
-        consultItems.add(new ConsultItem(R.drawable.ic_message, getString(R.string.messages_label), sharp.getString(Constants.LAST_KNOWN_MESSAGES_COUNT, null), Uri.parse("tel:*222*767" + Uri.encode("#"))));
-        consultItems.add(new ConsultItem(R.drawable.ic_call, getString(R.string.minutes_label), sharp.getString(Constants.LAST_KNOWN_MINUTES_COUNT, sharp.getString(Constants.LAST_KNOWN_MINUTES_COUNT, null)), Uri.parse("tel:*222*869" + Uri.encode("#"))));
-        consultItems.add(new ConsultItem(R.drawable.ic_bonus, getString(R.string.bonuses_label), sharp.getString(Constants.LAST_KNOWN_BONUSES, null), Uri.parse("tel:*222*266" + Uri.encode("#"))));
-        consultItems.add(new ConsultItem(R.drawable.ic_no_recharge, getString(R.string.recharge_label), sharp.getString(Constants.LAST_KNOWN_RECHARGE_TIME, null), Uri.parse("tel:*222*732" + Uri.encode("#"))));
+        consultItems.add(new ConsultItem(R.drawable.ic_balance, getString(R.string.balance_label), sharp.getString(Constants.LAST_KNOWN_BALANCE, null), Uri.fromParts("tel", getString(R.string.balance_check_ussd_code), null)));
+        consultItems.add(new ConsultItem(R.drawable.ic_data, getString(R.string.data_label), sharp.getString(Constants.LAST_KNOWN_INTERNET_DATA, null), Uri.fromParts("tel", getString(R.string.data_check_ussd_code), null)));
+        consultItems.add(new ConsultItem(R.drawable.ic_message, getString(R.string.messages_label), sharp.getString(Constants.LAST_KNOWN_MESSAGES_COUNT, null), Uri.fromParts("tel", getString(R.string.messages_check_ussd_code), null)));
+        consultItems.add(new ConsultItem(R.drawable.ic_call, getString(R.string.minutes_label), sharp.getString(Constants.LAST_KNOWN_MINUTES_COUNT, sharp.getString(Constants.LAST_KNOWN_MINUTES_COUNT, null)), Uri.fromParts("tel", getString(R.string.minutes_check_ussd_code), null)));
+        consultItems.add(new ConsultItem(R.drawable.ic_bonus, getString(R.string.bonuses_label), sharp.getString(Constants.LAST_KNOWN_BONUSES, null), Uri.fromParts("tel", getString(R.string.bonuses_check_ussd_code), null)));
+        consultItems.add(new ConsultItem(R.drawable.ic_no_recharge, getString(R.string.recharge_label), sharp.getString(Constants.LAST_KNOWN_RECHARGE_TIME, null), Uri.fromParts("tel", getString(R.string.recharge_check_ussd_code), null)));
         ConsultItemAdapter consultItemsAdapter = new ConsultItemAdapter(this, consultItems);
         binding.consultItemsList.setNestedScrollingEnabled(false);
         binding.consultItemsList.setAdapter(consultItemsAdapter);
