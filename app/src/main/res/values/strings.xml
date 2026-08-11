@@ -100,6 +100,8 @@
     <string name="data_packets_header_label">Internet packets</string>
     <string name="message_packets_header_label">SMS Plans</string>
     <string name="voice_packets_header_label">Voice Plans</string>
+    <string name="no_minutes_available_tag">NO MIN</string>
+    <string name="no_sms_available_tag">NO SMS</string>
 
     <string name="general_settings_section_header">General settings</string>
     <string name="accessibility_service_switch_header">Accessibility service</string>

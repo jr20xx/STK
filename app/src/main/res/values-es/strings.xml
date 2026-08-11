@@ -93,6 +93,8 @@
     <string name="data_packets_header_label">Paquetes de Internet</string>
     <string name="message_packets_header_label">Planes de SMS</string>
     <string name="voice_packets_header_label">Planes de Voz</string>
+    <string name="no_minutes_available_tag">SIN MIN</string>
+    <string name="no_sms_available_tag">SIN SMS</string>
 
     <string name="general_settings_section_header">Opciones generales</string>
     <string name="accessibility_service_switch_header">Servicio de accesibilidad</string>

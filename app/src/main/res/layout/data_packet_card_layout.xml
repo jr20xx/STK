@@ -66,14 +66,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:singleLine="true"
-                        android:text='@{dataPacket.availableMinutes != null || dataPacket.availableMessages != null ? dataPacket.availableMinutes : "SIN MIN"}'
+                        android:text='@{dataPacket.availableMinutes != null || dataPacket.availableMessages != null ? dataPacket.availableMinutes : @string/no_minutes_available_tag}'
                         android:textAppearance="?android:attr/textAppearanceSmall" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:singleLine="true"
-                        android:text='@{dataPacket.availableMinutes != null || dataPacket.availableMessages != null ? dataPacket.availableMessages : "SIN SMS"}'
+                        android:text='@{dataPacket.availableMinutes != null || dataPacket.availableMessages != null ? dataPacket.availableMessages : @string/no_sms_available_tag}'
                         android:textAppearance="?android:attr/textAppearanceSmall" />
                 </LinearLayout>
             </LinearLayout>
