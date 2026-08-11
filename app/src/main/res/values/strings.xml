@@ -50,7 +50,7 @@
 
     <string name="home_fragment_menu_title">Home</string>
     <string name="shop_fragment_menu_title">Purchases</string>
-    <string name="shop_fragment_title">Packets &amp; plans</string>
+    <string name="shop_fragment_title">Packets and plans</string>
     <string name="settings_fragment_menu_title">Settings</string>
 
     <string name="invalid_phone_number_tip">The associated number is invalid</string>
