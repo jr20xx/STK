@@ -18,7 +18,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                android:text="Cambio de clave" />
+                android:text="@string/transfer_key_change_dialog_title" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/old_password_inputText"
@@ -37,7 +37,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Clave antigua"
+                    android:hint="@string/transfer_key_change_dialog_old_key_hint"
                     android:inputType="numberPassword"
                     android:maxLength="4"
                     android:maxLines="1"
@@ -61,7 +61,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Nueva clave"
+                    android:hint="@string/transfer_key_change_dialog_new_key_hint"
                     android:inputType="numberPassword"
                     android:maxLength="4"
                     android:maxLines="1"

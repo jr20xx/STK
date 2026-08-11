@@ -68,6 +68,10 @@
     <string name="balance_loan_50">Pedir $50</string>
     <string name="balance_loan_check_button_label">Verificar deuda</string>
 
+    <string name="transfer_key_change_dialog_title">Cambio de clave</string>
+    <string name="transfer_key_change_dialog_old_key_hint">Clave antigua</string>
+    <string name="transfer_key_change_dialog_new_key_hint">Nueva clave</string>
+
     <string name="permission_requester_dialog_title">Permiso requerido</string>
     <string name="permission_requester_dialog_body">Para poder continuar con la ejecución de la operación seleccionada, la aplicación necesita que se le conceda el permiso requerido. La operación pendiente se realizará una vez que se le conceda el permiso a la aplicación</string>
 
