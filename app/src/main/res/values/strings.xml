@@ -47,6 +47,8 @@
     <string name="bonuses_check_label">Consultar bonos disponibles</string>
     <string name="recharge_check_label">Consultar fecha de recarga</string>
 
+    <string name="shortcut_selector_header">Seleccionar acceso directo</string>
+
     <string name="calls_section_header">Llamadas</string>
     <string name="private_number_label">Número privado</string>
     <string name="reverted_call_label">Cobro revertido</string>
