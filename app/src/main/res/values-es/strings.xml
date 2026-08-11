@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="shortcut_selector_header">Seleccionar acceso directo</string>
+    <string name="balance_check_label">Consultar saldo disponible</string>
+    <string name="data_check_label">Consultar datos disponibles</string>
+    <string name="messages_check_label">Consultar mensajes disponibles</string>
+    <string name="minutes_check_label">Consultar minutos restantes</string>
+    <string name="bonuses_check_label">Consultar bonos disponibles</string>
+    <string name="recharge_check_label">Consultar fecha de recarga</string>
+
+    <string name="balance_label">Saldo</string>
+    <string name="data_label">Datos</string>
+    <string name="messages_label">Mensajes</string>
+    <string name="minutes_label">Minutos</string>
+    <string name="bonuses_label">Bonos</string>
+    <string name="recharge_label">Recarga</string>
+
+    <string name="permission_requester_dialog_title">Permiso requerido</string>
+    <string name="permission_requester_dialog_body">Para poder continuar con la ejecución de la operación seleccionada, la aplicación necesita que se le conceda el permiso requerido. La operación pendiente se realizará una vez que se le conceda el permiso a la aplicación</string>
+
+    <string name="ussd_accessibility_service_description">Servicio para obtener y almacenar la
+        cantidad de saldo disponible; además del estado de los bonos y paquetes disponibles.
+
+        \n\nEste servicio se encarga de escanear el contenido del diálogo que aparece en pantalla tras
+        una consulta en busca de información relacionada con la cantidad de saldo disponible, los
+        minutos de llamadas con los que cuenta, la cantidad de SMS disponibles, las bonificaciones
+        existentes y, básicamente, a modo de resumen, todas las informaciones consultadas por medio
+        de la aplicación tras la realización de una operación. Los datos obtenidos son almacenados
+        exclusivamente en este dispositivo y se emplean únicamente para ser mostrados en la pantalla
+        principal de la aplicación.
+
+        \n\nPor favor, tenga en cuenta que al habilitar este servicio, el sistema puede alertarle que
+        STK posee acceso y control sobre el contenido que se muestra en pantalla. Esto se debe a que
+        para tener acceso a la información requerida se necesita inspeccionar el contenido en la
+        pantalla; pero STK solo examina los diálogos generados como respuesta a las consultas de
+        los servicios de ETECSA en busca de la información antes mencionada, ignorando cualquier otro
+        contenido y sin intervenir con las acciones del usuario.
+    </string>
+
+    <string name="recovery_mode_dialog_title">Modo de recuperación</string>
+    <string name="recovery_mode_dialog_message">Ocurrió un error inesperado y la aplicación tuvo que reiniciarse. Puede copiar el mensaje de error para obtener detalles avanzados del error ocurrido o simplemente descartar este mensaje. Lamentamos las molestias ocasionadas y al cerrar este diálogo podrá continuar utilizando la aplicación con normalidad</string>
+    <string name="error_message_clipboard_tag">Mensaje de error de STK</string>
+
+    <string name="home_fragment_menu_title">Inicio</string>
+    <string name="shop_fragment_menu_title">Compras</string>
+    <string name="shop_fragment_title">Planes y paquetes</string>
+    <string name="settings_fragment_menu_title">Ajustes</string>
+
+    <string name="invalid_phone_number_tip">El número asociado es inválido</string>
+    <string name="unusable_phone_number_tip">El número elegido no se puede usar</string>
+    <string name="transfer_receiver_phone_number_length_error">El número del receptor debe tener 8 dígitos</string>
+    <string name="transfer_receiver_phone_number_starting_error">El número del receptor debe empezar con 5 o 6</string>
+    <string name="transfer_key_length_error">La clave debe contener 4 dígitos</string>
+    <string name="transfer_balance_empty_error">Introduzca el monto</string>
+    <string name="transfer_balance_is_zero_error">El monto a transferir no puede ser 0</string>
+    <string name="old_transfer_key_length_error">La clave antigua debe tener cuatro dígitos</string>
+    <string name="new_transfer_key_length_error">La nueva clave debe tener cuatro dígitos</string>
+    <string name="transfer_new_key_equal_to_old_key_error">La nueva clave debe ser diferente</string>
+
+    <string name="transfer_cents_dialog_title">Monto con centavos</string>
+    <string name="transfer_cents_dialog_message">Debido a restricciones que impiden la transferencia de saldo con centavos directamente desde aplicaciones de terceros, se ignorará la cantidad especificada y deberá introducirla cuando ETECSA le solicite el monto a transferir</string>
+
+    <string name="calls_section_header">Llamadas</string>
+    <string name="private_number_label">Número privado</string>
+    <string name="reverted_call_label">Cobro revertido</string>
+
+    <string name="consults_section_header">Consultas</string>
+
+    <string name="balance_recharge_section_header">Recarga de saldo</string>
+    <string name="voucher_code_hint_label">Código del cupón</string>
+    <string name="invalid_code_tip">Código inválido</string>
+    <string name="malformed_code_tip">Código con caracteres inválidos</string>
+    <string name="recharge_code_length_error">El código debe tener 16 dígitos</string>
+    <string name="qr_scan_tip_message">Ubique el código QR del cupón dentro del cuadrado central</string>
+    <string name="balance_recharge_button_label">Recargar</string>
+
+    <string name="balance_transfer_section_header">Transferencia de saldo</string>
+    <string name="balance_transfer_receiver_number_field_hint_label">Número del receptor</string>
+    <string name="balance_transfer_key_field_hint_label">Clave</string>
+    <string name="balance_transfer_amount_field_hint_label">Monto</string>
+    <string name="balance_transfer_update_key_button_label">Cambiar clave</string>
+    <string name="balance_transfer_button_label">Transferir</string>
+
+    <string name="transfer_key_change_dialog_title">Cambio de clave</string>
+    <string name="transfer_key_change_dialog_old_key_hint">Clave antigua</string>
+    <string name="transfer_key_change_dialog_new_key_hint">Nueva clave</string>
+
+    <string name="balance_loan_section_header">Solicitar adelanto de saldo</string>
+    <string name="balance_loan_25">Pedir $25</string>
+    <string name="balance_loan_50">Pedir $50</string>
+    <string name="balance_loan_check_button_label">Verificar deuda</string>
+
+    <string name="data_packets_header_label">Paquetes de Internet</string>
+    <string name="message_packets_header_label">Planes de SMS</string>
+    <string name="voice_packets_header_label">Planes de Voz</string>
+
+    <string name="general_settings_section_header">Opciones generales</string>
+    <string name="accessibility_service_switch_header">Servicio de accesibilidad</string>
+    <string name="accessibility_service_switch_description">Habilitar el servicio de accesibilidad empleado para capturar los datos mostrados en la pantalla inicial</string>
+    <string name="reverted_call_prefix_selector_header">Prefijo para cobro revertido</string>
+    <string name="reverted_call_prefix_selector_description">Seleccionar el prefijo para las llamadas con cobro revertido (en caso de que la opción por defecto no funcione)</string>
+
+    <string name="useful_information_section_header">Informaciones útiles</string>
+    <string name="balance_recharge_faq_header">Saldo móvil</string>
+    <string name="balance_recharge_faq_description">Este es un enlace al sitio oficial con las preguntas más frecuentes sobre el saldo móvil</string>
+    <string name="mobile_plans_faq_header">Planes</string>
+    <string name="mobile_plans_faq_description">Este es un enlace al sitio oficial con las preguntas más frecuentes sobre los planes móviles</string>
+
+    <string name="application_info_section_header">Información de la aplicación</string>
+    <string name="version_label">Versión %s</string>
+    <string name="telegram_label">Telegram</string>
+    <string name="source_code_label">Código fuente</string>
+
+    <string name="opening_link_error_tip">No se puede abrir el enlace</string>
+</resources>
