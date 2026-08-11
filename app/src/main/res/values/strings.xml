@@ -46,5 +46,23 @@
     <string name="minutes_check_label">Consultar minutos restantes</string>
     <string name="bonuses_check_label">Consultar bonos disponibles</string>
     <string name="recharge_check_label">Consultar fecha de recarga</string>
+
+    <string name="calls_section_header">Llamadas</string>
+    <string name="private_number_label">Número privado</string>
+    <string name="reverted_call_label">Cobro revertido</string>
+    <string name="consults_section_header">Consultas</string>
+    <string name="balance_recharge_section_header">Recarga de saldo</string>
+    <string name="voucher_code_hint_label">Código del cupón</string>
     <string name="qr_scan_tip_message">Ubique el código QR del cupón dentro del cuadrado central</string>
+    <string name="balance_recharge_button_label">Recargar</string>
+    <string name="balance_transfer_section_header">Transferencia de saldo</string>
+    <string name="balance_transfer_receiver_number_field_hint_label">Número del receptor</string>
+    <string name="balance_transfer_key_field_hint_label">Clave</string>
+    <string name="balance_transfer_amount_field_hint_label">Monto</string>
+    <string name="balance_transfer_update_key_button_label">Cambiar clave</string>
+    <string name="balance_transfer_button_label">Transferir</string>
+    <string name="balance_loan_section_header">Solicitar adelanto de saldo</string>
+    <string name="balance_loan_25">Pedir $25</string>
+    <string name="balance_loan_50">Pedir $50</string>
+    <string name="balance_loan_check_button_label">Verificar deuda</string>
 </resources>

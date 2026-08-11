@@ -40,7 +40,7 @@
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="8dp"
-                        android:text="Llamadas"
+                        android:text="@string/calls_section_header"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textStyle="bold" />
 
@@ -83,7 +83,7 @@
                                     android:layout_marginStart="5dp"
                                     android:layout_toEndOf="@id/private_call_iv"
                                     android:singleLine="true"
-                                    android:text="Número privado"
+                                    android:text="@string/private_number_label"
                                     android:textAppearance="?android:attr/textAppearanceSmall" />
                             </RelativeLayout>
                         </com.google.android.material.card.MaterialCardView>
@@ -123,7 +123,7 @@
                                     android:layout_marginStart="5dp"
                                     android:layout_toEndOf="@id/reverted_call_iv"
                                     android:singleLine="true"
-                                    android:text="Cobro revertido"
+                                    android:text="@string/reverted_call_label"
                                     android:textAppearance="?android:attr/textAppearanceSmall" />
                             </RelativeLayout>
                         </com.google.android.material.card.MaterialCardView>
@@ -152,7 +152,7 @@
                         android:layout_marginStart="4dp"
                         android:layout_marginEnd="4dp"
                         android:layout_marginBottom="5dp"
-                        android:text="Consultas"
+                        android:text="@string/consults_section_header"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textStyle="bold" />
 
@@ -181,7 +181,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
-                        android:text="Recarga de saldo"
+                        android:text="@string/balance_recharge_section_header"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textStyle="bold" />
 
@@ -207,7 +207,7 @@
                             <com.google.android.material.textfield.TextInputEditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="Código del cupón"
+                                android:hint="@string/voucher_code_hint_label"
                                 android:inputType="number"
                                 android:maxLength="16"
                                 android:maxLines="1"
@@ -221,7 +221,7 @@
                             android:layout_below="@id/voucher_code_inputText"
                             android:layout_alignParentEnd="true"
                             android:onClickListener="@{v-> USSDRequester.executeUSSDRequest(v)}"
-                            android:text="Recargar"
+                            android:text="@string/balance_recharge_button_label"
                             app:cornerRadius="8dp" />
                     </RelativeLayout>
                 </LinearLayout>
@@ -245,7 +245,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
-                        android:text="Transferencia de saldo"
+                        android:text="@string/balance_transfer_section_header"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textStyle="bold" />
 
@@ -271,7 +271,7 @@
                             <com.google.android.material.textfield.TextInputEditText
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="Número del receptor"
+                                android:hint="@string/balance_transfer_receiver_number_field_hint_label"
                                 android:inputType="number"
                                 android:maxLength="8"
                                 android:maxLines="1"
@@ -282,7 +282,8 @@
                             android:id="@+id/transfer_password_and_balance_container"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/transfer_phone_number_inputText">
+                            android:layout_below="@id/transfer_phone_number_inputText"
+                            android:baselineAligned="false">
 
                             <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/transfer_password_inputText"
@@ -303,7 +304,7 @@
                                 <com.google.android.material.textfield.TextInputEditText
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="Clave"
+                                    android:hint="@string/balance_transfer_key_field_hint_label"
                                     android:inputType="numberPassword"
                                     android:maxLength="4"
                                     android:maxLines="1"
@@ -328,7 +329,7 @@
                                 <com.google.android.material.textfield.TextInputEditText
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="Monto"
+                                    android:hint="@string/balance_transfer_amount_field_hint_label"
                                     android:inputType="numberDecimal"
                                     android:maxLength="10"
                                     android:maxLines="1"
@@ -348,7 +349,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentStart="true"
                                 android:onClickListener="@{v-> USSDRequester.executeUSSDRequest(v)}"
-                                android:text="Cambiar clave" />
+                                android:text="@string/balance_transfer_update_key_button_label" />
 
                             <com.google.android.material.button.MaterialButton
                                 android:id="@+id/transfer_button"
@@ -356,7 +357,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentEnd="true"
                                 android:onClickListener="@{v-> USSDRequester.executeUSSDRequest(v)}"
-                                android:text="Transferir"
+                                android:text="@string/balance_transfer_button_label"
                                 app:cornerRadius="8dp" />
                         </RelativeLayout>
                     </RelativeLayout>
@@ -381,7 +382,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
-                        android:text="Solicitar adelanto de saldo"
+                        android:text="@string/balance_loan_section_header"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textStyle="bold" />
 
@@ -402,7 +403,7 @@
                                 android:layout_marginEnd="4dp"
                                 android:layout_weight="1"
                                 android:onClickListener="@{v-> USSDRequester.executeUSSDRequest(v)}"
-                                android:text="Pedir $25"
+                                android:text="@string/balance_loan_25"
                                 app:cornerRadius="8dp" />
 
                             <com.google.android.material.button.MaterialButton
@@ -412,7 +413,7 @@
                                 android:layout_marginStart="4dp"
                                 android:layout_weight="1"
                                 android:onClickListener="@{v-> USSDRequester.executeUSSDRequest(v)}"
-                                android:text="Pedir $50"
+                                android:text="@string/balance_loan_50"
                                 app:cornerRadius="8dp" />
                         </LinearLayout>
 
@@ -424,7 +425,7 @@
                             android:layout_below="@id/balance_loans_container_layout"
                             android:layout_alignParentEnd="true"
                             android:onClickListener="@{v-> USSDRequester.executeUSSDRequest(v)}"
-                            android:text="Verificar deuda" />
+                            android:text="@string/balance_loan_check_button_label" />
                     </RelativeLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
