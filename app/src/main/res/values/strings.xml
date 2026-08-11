@@ -27,4 +27,5 @@
     <string name="old_transfer_key_length_error">La clave antigua debe tener cuatro dígitos</string>
     <string name="new_transfer_key_length_error">La nueva clave debe tener cuatro dígitos</string>
     <string name="transfer_new_key_equal_to_old_key_error">La nueva clave debe ser diferente</string>
+    <string name="opening_link_error_tip">No se puede abrir el enlace</string>
 </resources>

@@ -67,7 +67,7 @@ public class SettingsFragment extends Fragment
         }
         catch (Exception e)
         {
-            Snackbar.make(binding.getRoot(), "No se puede abrir el enlace", Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(binding.getRoot(), R.string.opening_link_error_tip, Snackbar.LENGTH_SHORT).show();
         }
     }
 
