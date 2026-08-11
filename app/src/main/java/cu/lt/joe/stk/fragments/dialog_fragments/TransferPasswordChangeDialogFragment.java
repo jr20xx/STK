@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.databinding.TransferPinChangeDialogLayoutBinding;
 import cu.lt.joe.stk.utils.Utils;
 
@@ -26,16 +27,16 @@ public class TransferPasswordChangeDialogFragment extends DialogFragment
                     newPassword = binding.newPasswordInputText.getEditText().getText().toString();
             binding.oldPasswordInputText.setErrorEnabled(true);
             if (oldPassword.isBlank() || oldPassword.length() < 4)
-                binding.oldPasswordInputText.setError("La clave antigua debe tener cuatro dígitos");
+                binding.oldPasswordInputText.setError(getString(R.string.old_transfer_key_length_error));
             else
             {
                 binding.oldPasswordInputText.setError(null);
                 binding.oldPasswordInputText.setErrorEnabled(false);
                 binding.newPasswordInputText.setErrorEnabled(true);
                 if (newPassword.isBlank() || newPassword.length() < 4)
-                    binding.newPasswordInputText.setError("La nueva clave debe tener cuatro dígitos");
+                    binding.newPasswordInputText.setError(getString(R.string.new_transfer_key_length_error));
                 else if (newPassword.equals(oldPassword))
-                    binding.newPasswordInputText.setError("La nueva clave debe ser diferente");
+                    binding.newPasswordInputText.setError(getString(R.string.transfer_new_key_equal_to_old_key_error));
                 else
                 {
                     binding.newPasswordInputText.setError(null);

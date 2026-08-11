@@ -24,4 +24,7 @@
     <string name="transfer_key_length_error">La clave debe contener 4 dígitos</string>
     <string name="transfer_balance_empty_error">Introduzca el monto</string>
     <string name="transfer_balance_is_zero_error">El monto a transferir no puede ser 0</string>
+    <string name="old_transfer_key_length_error">La clave antigua debe tener cuatro dígitos</string>
+    <string name="new_transfer_key_length_error">La nueva clave debe tener cuatro dígitos</string>
+    <string name="transfer_new_key_equal_to_old_key_error">La nueva clave debe ser diferente</string>
 </resources>
