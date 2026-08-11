@@ -13,13 +13,13 @@ import cu.lt.joe.stk.utils.Utils;
 @SuppressLint("AccessibilityPolicy")
 public class USSDAccessibilityService extends AccessibilityService
 {
-    private final String TERMINATED_DATA_PACKET_CONTENT_MESSAGE = "Ud debe adquirir una oferta",
-            TERMINATED_SMS_PACKET_CONTENT_MESSAGE = "Usted debe adquirir un plan de SMS",
-            TERMINATED_VOICE_PACKET_CONTENT_MESSAGE = "Usted debe adquirir un plan de minutos";
-
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event)
     {
+        final String TERMINATED_DATA_PACKET_CONTENT_MESSAGE = "Ud debe adquirir una oferta",
+                TERMINATED_SMS_PACKET_CONTENT_MESSAGE = "Usted debe adquirir un plan de SMS",
+                TERMINATED_VOICE_PACKET_CONTENT_MESSAGE = "Usted debe adquirir un plan de minutos";
+
         SharedPreferences sharp = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor spEditor = sharp.edit();
 
