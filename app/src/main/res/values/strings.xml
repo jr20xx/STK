@@ -1,4 +1,11 @@
 <resources>
+    <string name="balance_check_ussd_code">*222#</string>
+    <string name="data_check_ussd_code">*222*328#</string>
+    <string name="messages_check_ussd_code">*222*767#</string>
+    <string name="minutes_check_ussd_code">*222*869#</string>
+    <string name="bonuses_check_ussd_code">*222*266#</string>
+    <string name="recharge_check_ussd_code">*222*732#</string>
+
     <string name="app_name">STK</string>
     <string name="ussd_accessibility_service_description">Servicio para obtener y almacenar la cantidad de saldo disponible y el estado de los bonos</string>
     <string name="recovery_mode_dialog_title">Modo de recuperación</string>
@@ -33,4 +40,10 @@
     <string name="voice_packets_header_label">Planes de Voz</string>
     <string name="transfer_cents_dialog_title">Monto con centavos</string>
     <string name="transfer_cents_dialog_message">Debido a restricciones que impiden la transferencia de saldo con centavos directamente desde aplicaciones de terceros, se ignorará la cantidad especificada y deberá introducirla cuando ETECSA le solicite el monto a transferir</string>
+    <string name="balance_check_label">Consultar saldo disponible</string>
+    <string name="data_check_label">Consultar datos disponibles</string>
+    <string name="messages_check_label">Consultar mensajes disponibles</string>
+    <string name="minutes_check_label">Consultar minutos restantes</string>
+    <string name="bonuses_check_label">Consultar bonos disponibles</string>
+    <string name="recharge_check_label">Consultar fecha de recarga</string>
 </resources>

@@ -37,12 +37,12 @@ public class ShortcutActivity extends BaseActivity
             super.applyDynamicColors();
             ShortcutSelectorLayoutBinding binding = DataBindingUtil.setContentView(this, R.layout.shortcut_selector_layout);
             ArrayList<ShortcutItem> shortcutItems = new ArrayList<>();
-            shortcutItems.add(new ShortcutItem(R.drawable.ic_balance, "Saldo", "Consultar saldo disponible", "*222#"));
-            shortcutItems.add(new ShortcutItem(R.drawable.ic_data, "Datos", "Consultar datos disponibles", "*222*328#"));
-            shortcutItems.add(new ShortcutItem(R.drawable.ic_message, "Mensajes", "Consultar mensajes disponibles", "*222*767#"));
-            shortcutItems.add(new ShortcutItem(R.drawable.ic_call, "Minutos", "Consultar minutos restantes", "*222*869#"));
-            shortcutItems.add(new ShortcutItem(R.drawable.ic_bonus, "Bonos", "Consultar bonos disponibles","*222*266#"));
-            shortcutItems.add(new ShortcutItem(R.drawable.ic_no_recharge, "Recarga", "Consultar fecha de recarga","*222*732#"));
+            shortcutItems.add(new ShortcutItem(R.drawable.ic_balance, getString(R.string.balance_label), getString(R.string.balance_check_label), getString(R.string.balance_check_ussd_code)));
+            shortcutItems.add(new ShortcutItem(R.drawable.ic_data, getString(R.string.data_label), getString(R.string.data_check_label), getString(R.string.data_check_ussd_code)));
+            shortcutItems.add(new ShortcutItem(R.drawable.ic_message, getString(R.string.messages_label), getString(R.string.messages_check_label), getString(R.string.messages_check_ussd_code)));
+            shortcutItems.add(new ShortcutItem(R.drawable.ic_call, getString(R.string.minutes_label), getString(R.string.minutes_check_label), getString(R.string.minutes_check_ussd_code)));
+            shortcutItems.add(new ShortcutItem(R.drawable.ic_bonus, getString(R.string.bonuses_label), getString(R.string.bonuses_check_label), getString(R.string.bonuses_check_ussd_code)));
+            shortcutItems.add(new ShortcutItem(R.drawable.ic_no_recharge, getString(R.string.recharge_label), getString(R.string.recharge_check_label), getString(R.string.recharge_check_ussd_code)));
             binding.shortcutListRv.setAdapter(new ShortcutListAdapter
                     (this, shortcutItems, (shortcutItem) -> {
                         Bitmap iconBitmap = ShortcutUtils.getShortcutIconBitmap(ShortcutActivity.this, Color.rgb(204, 12, 12), shortcutItem.getIconResId());
