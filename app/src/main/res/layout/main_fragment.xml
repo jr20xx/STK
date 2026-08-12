@@ -181,7 +181,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
-                        android:text="@string/balance_recharge_section_header"
+                        android:text="@string/balance_top_up_section_header"
                         android:textAppearance="?android:attr/textAppearanceSmall"
                         android:textStyle="bold" />
 
@@ -221,7 +221,7 @@
                             android:layout_below="@id/voucher_code_inputText"
                             android:layout_alignParentEnd="true"
                             android:onClickListener="@{v-> USSDRequester.executeUSSDRequest(v)}"
-                            android:text="@string/balance_recharge_button_label"
+                            android:text="@string/balance_top_up_button_label"
                             app:cornerRadius="8dp" />
                     </RelativeLayout>
                 </LinearLayout>

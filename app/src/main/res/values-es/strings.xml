@@ -66,13 +66,13 @@
 
     <string name="consults_section_header">Consultas</string>
 
-    <string name="balance_recharge_section_header">Recarga de saldo</string>
+    <string name="balance_top_up_section_header">Recarga de saldo</string>
     <string name="voucher_code_hint_label">Código del cupón</string>
     <string name="invalid_code_tip">Código inválido</string>
     <string name="malformed_code_tip">Código con caracteres inválidos</string>
     <string name="recharge_code_length_error">El código debe tener 16 dígitos</string>
     <string name="qr_scan_tip_message">Ubique el código QR del cupón dentro del cuadrado central</string>
-    <string name="balance_recharge_button_label">Recargar</string>
+    <string name="balance_top_up_button_label">Recargar</string>
 
     <string name="balance_transfer_section_header">Transferencia de saldo</string>
     <string name="balance_transfer_receiver_number_field_hint_label">Número del receptor</string>

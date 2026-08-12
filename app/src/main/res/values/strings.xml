@@ -73,13 +73,13 @@
 
     <string name="consults_section_header">Consults</string>
 
-    <string name="balance_recharge_section_header">Balance recharge</string>
+    <string name="balance_top_up_section_header">Mobile top-up</string>
     <string name="voucher_code_hint_label">Voucher code</string>
     <string name="invalid_code_tip">Invalid code</string>
     <string name="malformed_code_tip">Malformed code</string>
     <string name="recharge_code_length_error">The code must have 16 digits</string>
-    <string name="qr_scan_tip_message">Place the QR code on the voucher inside the central square</string>
-    <string name="balance_recharge_button_label">Recharge</string>
+    <string name="qr_scan_tip_message">Place the QR code on the voucher in the central square</string>
+    <string name="balance_top_up_button_label">Top-up</string>
 
     <string name="balance_transfer_section_header">Balance transfer</string>
     <string name="balance_transfer_receiver_number_field_hint_label">Receiver number</string>
