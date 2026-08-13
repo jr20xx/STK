@@ -117,8 +117,6 @@
 
     <string name="application_info_section_header">Application information</string>
     <string name="version_label">Version %s</string>
-    <string name="telegram_label">Telegram</string>
-    <string name="source_code_label">Source code</string>
 
     <string name="opening_link_error_tip">The link can\'t be opened</string>
 </resources>
