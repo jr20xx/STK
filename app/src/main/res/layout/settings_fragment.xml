@@ -349,31 +349,24 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/application_version_tv"
-                                android:layout_toEndOf="@id/application_icon_iv">
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true">
 
-                                <com.google.android.material.chip.Chip
+                                <com.google.android.material.button.MaterialButton
+                                    style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:clickable="true"
-                                    android:focusable="true"
                                     android:onClick='@{_ -> linkOpener.openExternalLink("https://t.me/stk_support_channel")}'
-                                    android:text="@string/telegram_label"
-                                    android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-                                    android:textColor="?android:attr/textColorSecondary"
-                                    app:chipIcon="@drawable/ic_telegram" />
+                                    app:icon="@drawable/ic_telegram"
+                                    app:tint="?colorOnSurface" />
 
-                                <com.google.android.material.chip.Chip
+                                <com.google.android.material.button.MaterialButton
+                                    style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginStart="5dp"
-                                    android:clickable="true"
-                                    android:focusable="true"
                                     android:onClick='@{_ -> linkOpener.openExternalLink("https://github.com/jr20xx/STK")}'
-                                    android:text="@string/source_code_label"
-                                    android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-                                    android:textColor="?android:attr/textColorSecondary"
-                                    app:chipIcon="@drawable/ic_github" />
+                                    app:icon="@drawable/ic_github"
+                                    app:tint="?colorOnSurface" />
                             </LinearLayout>
                         </RelativeLayout>
                     </com.google.android.material.card.MaterialCardView>
