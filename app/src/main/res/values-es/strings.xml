@@ -101,6 +101,10 @@
     <string name="accessibility_service_switch_description">Habilitar el servicio de accesibilidad empleado para capturar los datos mostrados en la pantalla inicial</string>
     <string name="reverted_call_prefix_selector_header">Prefijo para cobro revertido</string>
     <string name="reverted_call_prefix_selector_description">Seleccionar el prefijo para las llamadas con cobro revertido (en caso de que la opción por defecto no funcione)</string>
+    <string name="language_picker_card_title">Idioma predeterminado</string>
+    <string name="language_picker_card_description">Escoger el idioma utilizado por la aplicación para mostrar su contenido</string>
+    <string name="languages_dialog_title">Idiomas</string>
+    <string name="default_language_tag">Idioma por defecto</string>
 
     <string name="useful_information_section_header">Informaciones útiles</string>
     <string name="balance_recharge_faq_header">Saldo móvil</string>

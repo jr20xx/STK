@@ -19,6 +19,7 @@ import java.util.Arrays;
 import cu.lt.joe.stk.Constants;
 import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.databinding.SettingsFragmentBinding;
+import cu.lt.joe.stk.fragments.dialog_fragments.LanguagePickerDialogFragment;
 import cu.lt.joe.stk.utils.Utils;
 
 public class SettingsFragment extends Fragment
@@ -56,6 +57,7 @@ public class SettingsFragment extends Fragment
             }
         });
         binding.revertedCallPrefixSelectorSpinner.setSelection(sharp.getInt(Constants.REVERTED_CALL_PREFIX_INDEX, 0));
+        binding.languagePickerCard.setOnClickListener(v -> new LanguagePickerDialogFragment().show(requireActivity().getSupportFragmentManager(), null));
         return binding.getRoot();
     }
 

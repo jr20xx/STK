@@ -133,7 +133,7 @@ public class MainFragment extends Fragment
         binding.consultItemsList.setLayoutManager(new StaggeredGridLayoutManager(spanCount, StaggeredGridLayoutManager.VERTICAL));
 
         sharedPreferenceChangeListener = (sharedPreferences, key) -> {
-            if (key != null && !(key.equals(Constants.IS_DARK_MODE_ENABLED) || key.equals(Constants.REVERTED_CALL_PREFIX_INDEX)))
+            if (key != null && !(key.equals(Constants.IS_DARK_MODE_ENABLED) || key.equals(Constants.REVERTED_CALL_PREFIX_INDEX) || key.equals(Constants.SAVED_LANGUAGE_INDEX)))
             {
                 String newValue = sharp.getString(key, null);
                 switch (key)
