@@ -14,7 +14,9 @@ import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
+import androidx.core.os.LocaleListCompat;
 import androidx.fragment.app.Fragment;
 import cu.lt.joe.stk.accessibility.USSDAccessibilityService;
 import cu.lt.joe.stk.fragments.dialog_fragments.PermissionRequesterDialogFragment;
@@ -83,5 +85,13 @@ public class Utils
                 return true;
         }
         return false;
+    }
+
+    public static void updateAppLocale(String languageTag)
+    {
+        if (languageTag == null)
+            AppCompatDelegate.setApplicationLocales(LocaleListCompat.getEmptyLocaleList());
+        else
+            AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(languageTag));
     }
 }
