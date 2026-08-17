@@ -1,18 +1,15 @@
 package cu.lt.joe.stk.fragments.dialog_fragments;
 
 import android.app.Dialog;
-import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.DialogFragment;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import java.util.ArrayList;
 import cu.lt.joe.stk.Constants;
 import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.utils.LanguageUtils;
-import cu.lt.joe.stk.utils.Utils;
 
 public class LanguagePickerDialogFragment extends DialogFragment
 {
@@ -29,7 +26,7 @@ public class LanguagePickerDialogFragment extends DialogFragment
 
         String currentLanguageTag = LanguageUtils.getCurrentAppLocaleTag(requireContext());
         int defaultCheckedItem = 0;
-        if(currentLanguageTag != null)
+        if (currentLanguageTag != null)
         {
             if (currentLanguageTag.equalsIgnoreCase(Constants.LANGUAGE_TAGS[1]))
                 defaultCheckedItem = 1;
