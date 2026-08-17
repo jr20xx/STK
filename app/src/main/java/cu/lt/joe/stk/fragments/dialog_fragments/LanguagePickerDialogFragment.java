@@ -1,6 +1,7 @@
 package cu.lt.joe.stk.fragments.dialog_fragments;
 
 import android.app.Dialog;
+import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -10,6 +11,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import java.util.ArrayList;
 import cu.lt.joe.stk.Constants;
 import cu.lt.joe.stk.R;
+import cu.lt.joe.stk.utils.LanguageUtils;
 import cu.lt.joe.stk.utils.Utils;
 
 public class LanguagePickerDialogFragment extends DialogFragment
@@ -25,18 +27,21 @@ public class LanguagePickerDialogFragment extends DialogFragment
         supportedLocales.add("Español");
         supportedLocales.add("English");
 
-        String currentLanguageTag = AppCompatDelegate.getApplicationLocales().toLanguageTags().toLowerCase();
+        String currentLanguageTag = LanguageUtils.getCurrentAppLocaleTag(requireContext());
         int defaultCheckedItem = 0;
-        if (currentLanguageTag.startsWith(Constants.LANGUAGE_TAGS[1]))
-            defaultCheckedItem = 1;
-        else if (currentLanguageTag.startsWith(Constants.LANGUAGE_TAGS[2]))
-            defaultCheckedItem = 2;
+        if(currentLanguageTag != null)
+        {
+            if (currentLanguageTag.equalsIgnoreCase(Constants.LANGUAGE_TAGS[1]))
+                defaultCheckedItem = 1;
+            else if (currentLanguageTag.equalsIgnoreCase(Constants.LANGUAGE_TAGS[2]))
+                defaultCheckedItem = 2;
+        }
 
         return new MaterialAlertDialogBuilder(requireActivity())
                 .setTitle(R.string.languages_dialog_title)
                 .setSingleChoiceItems(supportedLocales.toArray(new String[0]), defaultCheckedItem, (dialog, which) -> currentlySelectedItemIndex = which)
                 .setPositiveButton(android.R.string.ok, (dialog, which) -> {
-                    Utils.updateAppLocale(Constants.LANGUAGE_TAGS[currentlySelectedItemIndex]);
+                    LanguageUtils.updateAppLocale(Constants.LANGUAGE_TAGS[currentlySelectedItemIndex], requireContext());
                     dismissAllowingStateLoss();
                 })
                 .setNegativeButton(android.R.string.cancel, null)

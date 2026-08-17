@@ -12,7 +12,7 @@ public class Constants
             LAST_KNOWN_BONUSES = "last_known_bonuses",
             LAST_KNOWN_RECHARGE_TIME = "last_known_recharge_time",
             REVERTED_CALL_PREFIX_INDEX = "reverted_call_prefix_index",
-            SAVED_LANGUAGE_INDEX = "saved_language_index";
+            SAVED_LOCALE_TAG = "saved_locale_tag";
     public final static String REVERTED_CALL_PREFIXES_ARRAY[] = new String[]{"*99", "*+99", "+5399"},
             LANGUAGE_TAGS[] = new String[]{null, "es", "en"};
 }

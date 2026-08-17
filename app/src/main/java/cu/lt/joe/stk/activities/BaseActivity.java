@@ -1,6 +1,8 @@
 package cu.lt.joe.stk.activities;
 
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +10,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.preference.PreferenceManager;
 import com.google.android.material.color.DynamicColors;
 import cu.lt.joe.stk.Constants;
+import cu.lt.joe.stk.utils.LanguageUtils;
 
 public class BaseActivity extends AppCompatActivity
 {
@@ -25,5 +28,13 @@ public class BaseActivity extends AppCompatActivity
     protected void applyDynamicColors()
     {
         DynamicColors.applyToActivityIfAvailable(this);
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase)
+    {
+        super.attachBaseContext(Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU
+                ? LanguageUtils.getLocalizedContext(newBase)
+                : newBase);
     }
 }

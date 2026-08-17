@@ -86,12 +86,4 @@ public class Utils
         }
         return false;
     }
-
-    public static void updateAppLocale(String languageTag)
-    {
-        if (languageTag == null)
-            AppCompatDelegate.setApplicationLocales(LocaleListCompat.getEmptyLocaleList());
-        else
-            AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(languageTag));
-    }
 }
