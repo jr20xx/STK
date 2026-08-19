@@ -27,10 +27,7 @@ public class LanguageUtils
     public static void updateAppLocale(String languageTag, Context context)
     {
         PreferenceManager.getDefaultSharedPreferences(context).edit().putString(Constants.SAVED_LOCALE_TAG, languageTag).apply();
-        if (languageTag == null)
-            AppCompatDelegate.setApplicationLocales(LocaleListCompat.getEmptyLocaleList());
-        else
-            AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(languageTag));
+        AppCompatDelegate.setApplicationLocales(languageTag == null ? LocaleListCompat.getEmptyLocaleList() : LocaleListCompat.forLanguageTags(languageTag));
     }
 
     public static Context getLocalizedContext(Context baseContext)
