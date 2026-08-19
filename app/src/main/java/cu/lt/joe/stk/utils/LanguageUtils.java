@@ -13,9 +13,15 @@ public class LanguageUtils
 {
     public static String getCurrentAppLocaleTag(Context context)
     {
-        return Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU
-                ? PreferenceManager.getDefaultSharedPreferences(context).getString(Constants.SAVED_LOCALE_TAG, null)
-                : AppCompatDelegate.getApplicationLocales().toLanguageTags().toLowerCase().substring(0, 2);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU)
+            return PreferenceManager.getDefaultSharedPreferences(context).getString(Constants.SAVED_LOCALE_TAG, null);
+        else
+        {
+            String currentLocaleTag = AppCompatDelegate.getApplicationLocales().toLanguageTags();
+            if (!currentLocaleTag.isBlank())
+                return currentLocaleTag.toLowerCase().substring(0, 2);
+            return currentLocaleTag;
+        }
     }
 
     public static void updateAppLocale(String languageTag, Context context)
