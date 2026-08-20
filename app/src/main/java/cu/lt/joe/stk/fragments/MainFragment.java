@@ -107,6 +107,7 @@ public class MainFragment extends Fragment
                 }
             }
     );
+    private boolean isFormattingVoucherCode;
     private SharedPreferences.OnSharedPreferenceChangeListener sharedPreferenceChangeListener;
 
     @Override
@@ -183,6 +184,24 @@ public class MainFragment extends Fragment
                 {
                     binding.voucherCodeInputText.setError(null);
                     binding.voucherCodeInputText.setErrorEnabled(false);
+                }
+                if (!s.toString().isBlank())
+                {
+                    if (!isFormattingVoucherCode)
+                    {
+                        isFormattingVoucherCode = true;
+                        String codeWithNoSpaces = s.toString().replaceAll(" ", "");
+                        StringBuilder formattedCodeBuilder = new StringBuilder();
+                        for (int i = 0; i < codeWithNoSpaces.length(); i++)
+                        {
+                            char currentChar = codeWithNoSpaces.charAt(i);
+                            if (i > 0 && i % 4 == 0)
+                                formattedCodeBuilder.append(" ");
+                            formattedCodeBuilder.append(currentChar);
+                        }
+                        s.replace(0, s.length(), formattedCodeBuilder.toString());
+                    }
+                    isFormattingVoucherCode = false;
                 }
             }
         });
