@@ -292,7 +292,7 @@ public class MainFragment extends Fragment
     {
         if (v.equals(binding.rechargeButton))
         {
-            String voucherActivationCode = binding.voucherCodeInputText.getEditText().getText().toString();
+            String voucherActivationCode = binding.voucherCodeInputText.getEditText().getText().toString().replaceAll(" ", "");
             binding.voucherCodeInputText.setErrorEnabled(true);
             if (voucherActivationCode.isBlank() || voucherActivationCode.length() < 16)
                 binding.voucherCodeInputText.setError(getString(R.string.recharge_code_length_error));
