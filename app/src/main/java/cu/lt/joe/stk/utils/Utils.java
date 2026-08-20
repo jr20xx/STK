@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.snackbar.Snackbar;
+import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.accessibility.USSDAccessibilityService;
 import cu.lt.joe.stk.fragments.dialog_fragments.PermissionRequesterDialogFragment;
 
@@ -38,7 +39,7 @@ public class Utils
         }
         catch (Exception e)
         {
-            Snackbar.make(fragment.requireView(), "Error while performing the call", Snackbar.LENGTH_SHORT).show();
+            Snackbar.make(fragment.requireView(), R.string.dialing_error_tip, Snackbar.LENGTH_SHORT).show();
         }
     }
 

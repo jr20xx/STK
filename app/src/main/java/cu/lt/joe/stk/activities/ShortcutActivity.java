@@ -88,7 +88,7 @@ public class ShortcutActivity extends BaseActivity
             }
             catch (Exception e)
             {
-                Toast.makeText(this, "Error while performing the call", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.dialing_error_tip, Toast.LENGTH_SHORT).show();
                 finish();
             }
         }

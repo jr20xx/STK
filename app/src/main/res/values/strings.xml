@@ -123,4 +123,5 @@
     <string name="version_label">Version %s</string>
 
     <string name="opening_link_error_tip">The link can\'t be opened</string>
+    <string name="dialing_error_tip">The call can\'t be performed</string>
 </resources>
