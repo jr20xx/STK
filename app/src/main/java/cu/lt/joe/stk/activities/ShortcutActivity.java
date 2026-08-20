@@ -11,6 +11,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.graphics.drawable.IconCompat;
@@ -74,14 +75,22 @@ public class ShortcutActivity extends BaseActivity
         }
         else if (Constants.SHORTCUT_ACTION_DIAL.equals(getIntent().getAction()) && getIntent().hasExtra(Constants.SHORTCUT_USSD_CODE))
         {
-            Uri uriToDial = Uri.fromParts("tel", getIntent().getStringExtra(Constants.SHORTCUT_USSD_CODE), null);
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED)
+            try
             {
-                startActivity(new Intent(Intent.ACTION_CALL, uriToDial));
+                Uri uriToDial = Uri.fromParts("tel", getIntent().getStringExtra(Constants.SHORTCUT_USSD_CODE), null);
+                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED)
+                {
+                    startActivity(new Intent(Intent.ACTION_CALL, uriToDial));
+                    finish();
+                }
+                else
+                    PermissionRequesterDialogFragment.newInstance(uriToDial, true).show(getSupportFragmentManager(), null);
+            }
+            catch (Exception e)
+            {
+                Toast.makeText(this, "Error while performing the call", Toast.LENGTH_SHORT).show();
                 finish();
             }
-            else
-                PermissionRequesterDialogFragment.newInstance(uriToDial, true).show(getSupportFragmentManager(), null);
         }
         else finish();
     }

@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+import com.google.android.material.snackbar.Snackbar;
 import cu.lt.joe.stk.accessibility.USSDAccessibilityService;
 import cu.lt.joe.stk.fragments.dialog_fragments.PermissionRequesterDialogFragment;
 
@@ -28,10 +29,17 @@ public class Utils
 
     public static void performCallFromFragment(@NonNull Fragment fragment, @NonNull Uri uriToDial)
     {
-        if (ActivityCompat.checkSelfPermission(fragment.requireActivity(), Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED)
-            fragment.requireActivity().startActivity(new Intent(Intent.ACTION_CALL, uriToDial));
-        else
-            PermissionRequesterDialogFragment.newInstance(uriToDial).show(fragment.getChildFragmentManager(), null);
+        try
+        {
+            if (ActivityCompat.checkSelfPermission(fragment.requireActivity(), Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED)
+                fragment.requireActivity().startActivity(new Intent(Intent.ACTION_CALL, uriToDial));
+            else
+                PermissionRequesterDialogFragment.newInstance(uriToDial).show(fragment.getChildFragmentManager(), null);
+        }
+        catch (Exception e)
+        {
+            Snackbar.make(fragment.requireView(), "Error while performing the call", Snackbar.LENGTH_SHORT).show();
+        }
     }
 
     public static void copyToClipboard(@NonNull Context context, @Nullable String title, @NonNull String description)
