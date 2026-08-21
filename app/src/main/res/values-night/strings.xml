@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="theme_toggle_card_title">Disable dark mode</string>
+    <string name="theme_toggle_card_description">Use a palette with light colors in the application</string>
+</resources>

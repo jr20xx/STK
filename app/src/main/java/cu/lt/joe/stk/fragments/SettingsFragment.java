@@ -37,11 +37,17 @@ public class SettingsFragment extends Fragment
         preferencesEditor = sharp.edit();
         binding = SettingsFragmentBinding.inflate(inflater, container, false);
         binding.setLinkOpener(this);
+
+        binding.themeToggleCard.setOnClickListener(v -> {
+            preferencesEditor.putBoolean(Constants.IS_DARK_MODE_ENABLED,
+                    !sharp.getBoolean(Constants.IS_DARK_MODE_ENABLED, false)).apply();
+            requireActivity().recreate();
+        });
+        binding.languagePickerCard.setOnClickListener(v -> new LanguagePickerDialogFragment().show(requireActivity().getSupportFragmentManager(), null));
         binding.accessibilityServiceSwitchCard.setOnClickListener(v -> startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)));
 
         binding.revertedCallPrefixSelectorSpinner.setAdapter(new ArrayAdapter<>(requireContext(),
-                R.layout.simple_spinner_dropdown_item,
-                Arrays.asList(Constants.REVERTED_CALL_PREFIXES_ARRAY)));
+                R.layout.simple_spinner_dropdown_item, Arrays.asList(Constants.REVERTED_CALL_PREFIXES_ARRAY)));
         binding.revertedCallPrefixSelectorCard.setOnClickListener(v -> binding.revertedCallPrefixSelectorSpinner.performClick());
         binding.revertedCallPrefixSelectorSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
@@ -57,7 +63,7 @@ public class SettingsFragment extends Fragment
             }
         });
         binding.revertedCallPrefixSelectorSpinner.setSelection(sharp.getInt(Constants.REVERTED_CALL_PREFIX_INDEX, 0));
-        binding.languagePickerCard.setOnClickListener(v -> new LanguagePickerDialogFragment().show(requireActivity().getSupportFragmentManager(), null));
+
         return binding.getRoot();
     }
 
@@ -92,6 +98,7 @@ public class SettingsFragment extends Fragment
     public void onResume()
     {
         super.onResume();
+        binding.themeToggleSwitch.setChecked(sharp.getBoolean(Constants.IS_DARK_MODE_ENABLED, false));
         binding.accessibilityServiceSwitch.setChecked(Utils.isAccessibilityServiceEnabled(requireContext()));
     }
 }

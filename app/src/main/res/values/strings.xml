@@ -103,15 +103,19 @@
     <string name="no_minutes_available_tag">NO MIN</string>
     <string name="no_sms_available_tag">NO SMS</string>
 
+    <string name="appearance_settings_section_header">Appearance</string>
+    <string name="theme_toggle_card_title">Enable dark mode</string>
+    <string name="theme_toggle_card_description">Use a palette with dark colors in the application</string>
+    <string name="language_picker_card_title">Application language</string>
+    <string name="language_picker_card_description">Select the language used by the application when showing its content</string>
+    <string name="languages_dialog_title">Languages</string>
+    <string name="default_language_tag">Default language</string>
+
     <string name="general_settings_section_header">General settings</string>
     <string name="accessibility_service_switch_header">Accessibility service</string>
     <string name="accessibility_service_switch_description">Enable the accessibility service used to capture the data showed in the main screen</string>
     <string name="reverted_call_prefix_selector_header">Prefix for reverted calls</string>
     <string name="reverted_call_prefix_selector_description">Choose the prefix for reverted calls (in case the default option doesn\'t work)</string>
-    <string name="language_picker_card_title">Application language</string>
-    <string name="language_picker_card_description">Select the language used by the application when showing its content</string>
-    <string name="languages_dialog_title">Languages</string>
-    <string name="default_language_tag">Default language</string>
 
     <string name="useful_information_section_header">Useful information</string>
     <string name="balance_recharge_faq_header">Mobile balance</string>
