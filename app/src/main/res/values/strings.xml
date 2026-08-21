@@ -106,6 +106,7 @@
     <string name="appearance_settings_section_header">Appearance</string>
     <string name="theme_toggle_card_title">Enable dark mode</string>
     <string name="theme_toggle_card_description">Use a palette with dark colors in the application</string>
+    <string name="updating_theme_message">Updating the theme…</string>
     <string name="language_picker_card_title">Application language</string>
     <string name="language_picker_card_description">Select the language used by the application when showing its content</string>
     <string name="languages_dialog_title">Languages</string>

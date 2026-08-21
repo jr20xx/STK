@@ -99,6 +99,7 @@
     <string name="appearance_settings_section_header">Apariencia</string>
     <string name="theme_toggle_card_title">Habilitar modo oscuro</string>
     <string name="theme_toggle_card_description">Utilizar una paleta de colores oscuros en la aplicación</string>
+    <string name="updating_theme_message">Actualizando el tema…</string>
     <string name="language_picker_card_title">Idioma predeterminado</string>
     <string name="language_picker_card_description">Escoger el idioma utilizado por la aplicación para mostrar su contenido</string>
     <string name="languages_dialog_title">Idiomas</string>

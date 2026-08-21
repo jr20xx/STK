@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -42,6 +43,7 @@ public class SettingsFragment extends Fragment
             preferencesEditor.putBoolean(Constants.IS_DARK_MODE_ENABLED,
                     !sharp.getBoolean(Constants.IS_DARK_MODE_ENABLED, false)).apply();
             requireActivity().recreate();
+            Toast.makeText(requireActivity(), R.string.updating_theme_message, Toast.LENGTH_SHORT).show();
         });
         binding.languagePickerCard.setOnClickListener(v -> new LanguagePickerDialogFragment().show(requireActivity().getSupportFragmentManager(), null));
         binding.accessibilityServiceSwitchCard.setOnClickListener(v -> startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)));
