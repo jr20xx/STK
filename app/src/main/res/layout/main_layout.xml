@@ -32,13 +32,13 @@
                         android:textAppearance="?textAppearanceTitleMedium" />
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/theme_mode_toggle_button"
+                        android:id="@+id/additional_options_menu_opener_button"
                         style="@style/Widget.Material3.Button.IconButton"
                         android:layout_width="42dp"
                         android:layout_height="42dp"
                         android:layout_margin="12dp"
                         android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/ic_theme_mode"
+                        app:srcCompat="@drawable/ic_additional_options_menu"
                         app:tint="?colorOnSurface" />
                 </LinearLayout>
             </com.google.android.material.appbar.MaterialToolbar>

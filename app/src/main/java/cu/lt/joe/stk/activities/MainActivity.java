@@ -1,12 +1,12 @@
 package cu.lt.joe.stk.activities;
 
 import android.os.Bundle;
+import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 import cu.lt.joe.stk.AppCore;
-import cu.lt.joe.stk.Constants;
 import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.adapters.MainActivityPagerAdapter;
 import cu.lt.joe.stk.databinding.MainLayoutBinding;
@@ -74,11 +74,10 @@ public class MainActivity extends BaseActivity
         });
         setSupportActionBar(binding.mainActivityToolbar);
         binding.mainActivityPager.setOffscreenPageLimit(2);
-        binding.themeModeToggleButton.setOnClickListener(v ->
+        binding.additionalOptionsMenuOpenerButton.setOnClickListener(v ->
         {
-            sharedPreferences.edit().putBoolean(Constants.IS_DARK_MODE_ENABLED,
-                    !sharedPreferences.getBoolean(Constants.IS_DARK_MODE_ENABLED, false)).apply();
-            recreate();
+            //TODO: Write the code to open the menu with additional stuffs
+            Toast.makeText(this, "WIP", Toast.LENGTH_SHORT).show();
         });
 
         binding.getRoot().postDelayed(() -> {
