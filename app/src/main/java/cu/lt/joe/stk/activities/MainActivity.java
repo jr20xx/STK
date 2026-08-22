@@ -6,14 +6,19 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import java.util.ArrayList;
 import cu.lt.joe.stk.AppCore;
 import cu.lt.joe.stk.R;
+import cu.lt.joe.stk.adapters.AdditionalOptionsMenuItemAdapter;
 import cu.lt.joe.stk.adapters.MainActivityPagerAdapter;
+import cu.lt.joe.stk.databinding.AdditionalOptionsMenuLayoutBinding;
 import cu.lt.joe.stk.databinding.MainLayoutBinding;
 import cu.lt.joe.stk.fragments.MainFragment;
 import cu.lt.joe.stk.fragments.SettingsFragment;
 import cu.lt.joe.stk.fragments.ShoppingFragment;
 import cu.lt.joe.stk.fragments.dialog_fragments.ErrorMessageDialogFragment;
+import cu.lt.joe.stk.objects.AdditionalOptionsMenuItem;
 
 public class MainActivity extends BaseActivity
 {
@@ -77,7 +82,16 @@ public class MainActivity extends BaseActivity
         binding.additionalOptionsMenuOpenerButton.setOnClickListener(v ->
         {
             //TODO: Write the code to open the menu with additional stuffs
-            Toast.makeText(this, "WIP", Toast.LENGTH_SHORT).show();
+            BottomSheetDialog additionalOptionsMenu = new BottomSheetDialog(this);
+            AdditionalOptionsMenuLayoutBinding menuLayoutBinding = AdditionalOptionsMenuLayoutBinding.inflate(getLayoutInflater());
+            ArrayList<AdditionalOptionsMenuItem> additionalOptionsMenuItems = new ArrayList<>();
+            additionalOptionsMenuItems.add(new AdditionalOptionsMenuItem(R.drawable.ic_bonus, "Registro de  llamadas", null));
+            additionalOptionsMenuItems.add(new AdditionalOptionsMenuItem(R.drawable.ic_bonus, "Opción intermedia", null));
+            additionalOptionsMenuItems.add(new AdditionalOptionsMenuItem(R.drawable.ic_bonus, "Otra opción intermedia", null));
+            additionalOptionsMenuItems.add(new AdditionalOptionsMenuItem(R.drawable.ic_bonus, "Registro de  fallas", null));
+            menuLayoutBinding.additionalOptionsMenuRecycler.setAdapter(new AdditionalOptionsMenuItemAdapter(this, additionalOptionsMenuItems));
+            additionalOptionsMenu.setContentView(menuLayoutBinding.getRoot());
+            additionalOptionsMenu.show();
         });
 
         binding.getRoot().postDelayed(() -> {

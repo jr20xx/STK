@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="additionalOptionsMenuItem"
+            type="cu.lt.joe.stk.objects.AdditionalOptionsMenuItem" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/additional_options_menu_item_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="?attr/colorSurfaceContainerLowest"
+        app:cardCornerRadius="1dp"
+        app:cardElevation="0dp"
+        app:contentPadding="15dp"
+        app:strokeWidth="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/additional_options_menu_item_iv"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="8dp"
+                android:drawable="@{additionalOptionsMenuItem.iconResId}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/additional_options_menu_item_iv"
+                android:singleLine="true"
+                android:text="@{additionalOptionsMenuItem.title}"
+                android:textAppearance="@style/TextAppearance.Material3.TitleSmall" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
