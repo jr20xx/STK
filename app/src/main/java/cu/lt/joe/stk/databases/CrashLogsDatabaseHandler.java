@@ -74,6 +74,7 @@ public class CrashLogsDatabaseHandler extends SQLiteOpenHelper
 
         for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext())
             logs.add(new CrashLog(cursor.getLong(idRowIndex), cursor.getString(errorTitleRowIndex), cursor.getString(errorMessageRowIndex), cursor.getLong(timestampRowIndex)));
+        cursor.close();
         return logs;
     }
 
