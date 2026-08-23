@@ -8,7 +8,10 @@ import android.content.Intent;
 import androidx.annotation.NonNull;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.Date;
 import cu.lt.joe.stk.activities.MainActivity;
+import cu.lt.joe.stk.databases.CrashLogsDatabaseHandler;
+import cu.lt.joe.stk.objects.CrashLog;
 
 public class AppCore extends Application
 {
@@ -20,8 +23,10 @@ public class AppCore extends Application
     {
         uncaughtExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
         Thread.setDefaultUncaughtExceptionHandler((thread, throwable) -> {
+            CrashLog crashLog = getCrashLog(throwable);
             ((AlarmManager) getSystemService(Context.ALARM_SERVICE)).set(AlarmManager.RTC, 1000,
-                    PendingIntent.getActivity(getApplicationContext(), 111, getResurrectionIntent(throwable), PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE));
+                    PendingIntent.getActivity(getApplicationContext(), 111, getResurrectionIntent(crashLog), PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE));
+            new CrashLogsDatabaseHandler(this).addLog(crashLog.getTitle(), crashLog.getBody(), crashLog.getTimestamp());
 
             android.os.Process.killProcess(android.os.Process.myPid());
             System.exit(1);
@@ -31,14 +36,19 @@ public class AppCore extends Application
     }
 
     @NonNull
-    private Intent getResurrectionIntent(@NonNull Throwable throwable)
+    private Intent getResurrectionIntent(@NonNull CrashLog crashLog)
+    {
+        return new Intent(getApplicationContext(), MainActivity.class)
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                .putExtra(ERROR_TAG, crashLog.getBody());
+    }
+
+    private @NonNull CrashLog getCrashLog(@NonNull Throwable throwable)
     {
         StringWriter result = new StringWriter();
         PrintWriter printWriter = new PrintWriter(result);
-        for (; throwable != null; throwable = throwable.getCause())
-            throwable.printStackTrace(printWriter);
-        return new Intent(getApplicationContext(), MainActivity.class)
-                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                .putExtra(ERROR_TAG, result.toString());
+        for (Throwable iterableThrowable = throwable; iterableThrowable != null; iterableThrowable = iterableThrowable.getCause())
+            iterableThrowable.printStackTrace(printWriter);
+        return new CrashLog(-1, throwable.getClass().getSimpleName(), result.toString(), new Date().getTime());
     }
 }
