@@ -3,7 +3,7 @@ package cu.lt.joe.stk.objects;
 public class CrashLog
 {
     private final String title, body;
-    private long ID, timestamp;
+    private final long ID, timestamp;
     private boolean isSelected;
 
     public CrashLog(long ID, String title, String body, long timestamp)
