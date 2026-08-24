@@ -59,6 +59,7 @@ public class AdditionalOptionsMenuItemAdapter extends RecyclerView.Adapter<Recyc
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(itemViewBinding.getRoot().getLayoutParams());
             marginLayoutParams.topMargin = Utils.dpToPx(context, position != 0 ? 3 : 0);
             itemViewBinding.getRoot().setLayoutParams(marginLayoutParams);
+            itemViewBinding.getRoot().setOnClickListener(v -> context.startActivity(additionalOptionsMenuItem.getTargetIntent()));
             itemViewBinding.executePendingBindings();
         }
     }

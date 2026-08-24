@@ -49,6 +49,10 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".activities.CrashLogsViewerActivity"
+            android:exported="false" />
+
         <service
             android:name=".accessibility.USSDAccessibilityService"
             android:enabled="true"

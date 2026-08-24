@@ -1,7 +1,7 @@
 package cu.lt.joe.stk.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
@@ -85,10 +85,7 @@ public class MainActivity extends BaseActivity
             BottomSheetDialog additionalOptionsMenu = new BottomSheetDialog(this);
             AdditionalOptionsMenuLayoutBinding menuLayoutBinding = AdditionalOptionsMenuLayoutBinding.inflate(getLayoutInflater());
             ArrayList<AdditionalOptionsMenuItem> additionalOptionsMenuItems = new ArrayList<>();
-            additionalOptionsMenuItems.add(new AdditionalOptionsMenuItem(R.drawable.ic_bonus, "Registro de  llamadas", null));
-            additionalOptionsMenuItems.add(new AdditionalOptionsMenuItem(R.drawable.ic_bonus, "Opción intermedia", null));
-            additionalOptionsMenuItems.add(new AdditionalOptionsMenuItem(R.drawable.ic_bonus, "Otra opción intermedia", null));
-            additionalOptionsMenuItems.add(new AdditionalOptionsMenuItem(R.drawable.ic_bonus, "Registro de  fallas", null));
+            additionalOptionsMenuItems.add(new AdditionalOptionsMenuItem(R.drawable.ic_bonus, "Registro de  fallos", new Intent(this, CrashLogsViewerActivity.class)));
             menuLayoutBinding.additionalOptionsMenuRecycler.setAdapter(new AdditionalOptionsMenuItemAdapter(this, additionalOptionsMenuItems));
             additionalOptionsMenu.setContentView(menuLayoutBinding.getRoot());
             additionalOptionsMenu.show();
