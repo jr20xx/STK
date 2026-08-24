@@ -43,7 +43,8 @@
                 android:layout_alignBottom="@id/crash_log_title_tv"
                 android:layout_alignParentEnd="true"
                 android:singleLine="true"
-                android:text='@{crashLog.timestamp+""}' />
+                android:text='@{crashLog.timestamp+""}'
+                android:textAppearance="@style/TextAppearance.Material3.LabelMedium" />
 
             <TextView
                 android:id="@+id/crash_log_title_tv"
@@ -54,7 +55,7 @@
                 android:layout_toEndOf="@id/crash_log_icon_iv"
                 android:singleLine="true"
                 android:text="@{crashLog.title}"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -63,7 +64,7 @@
                 android:layout_toEndOf="@id/crash_log_icon_iv"
                 android:singleLine="true"
                 android:text="@{crashLog.body}"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
         </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>
 </layout>
