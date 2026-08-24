@@ -34,7 +34,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="8dp"
-                app:srcCompat="@drawable/ic_bonus" />
+                app:srcCompat="@drawable/ic_crash_log" />
 
             <TextView
                 android:id="@+id/crash_log_date_tv"

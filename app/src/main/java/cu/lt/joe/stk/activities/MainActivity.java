@@ -85,7 +85,7 @@ public class MainActivity extends BaseActivity
             BottomSheetDialog additionalOptionsMenu = new BottomSheetDialog(this);
             AdditionalOptionsMenuLayoutBinding menuLayoutBinding = AdditionalOptionsMenuLayoutBinding.inflate(getLayoutInflater());
             ArrayList<AdditionalOptionsMenuItem> additionalOptionsMenuItems = new ArrayList<>();
-            additionalOptionsMenuItems.add(new AdditionalOptionsMenuItem(R.drawable.ic_bonus, "Registro de  fallos", new Intent(this, CrashLogsViewerActivity.class)));
+            additionalOptionsMenuItems.add(new AdditionalOptionsMenuItem(R.drawable.ic_crash_log, "Registro de  fallos", new Intent(this, CrashLogsViewerActivity.class)));
             menuLayoutBinding.additionalOptionsMenuRecycler.setAdapter(new AdditionalOptionsMenuItemAdapter(this, additionalOptionsMenuItems));
             additionalOptionsMenu.setContentView(menuLayoutBinding.getRoot());
             additionalOptionsMenu.show();
