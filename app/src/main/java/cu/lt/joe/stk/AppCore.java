@@ -1,15 +1,10 @@
 package cu.lt.joe.stk;
 
-import android.app.AlarmManager;
 import android.app.Application;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
 import androidx.annotation.NonNull;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Date;
-import cu.lt.joe.stk.activities.MainActivity;
 import cu.lt.joe.stk.databases.CrashLogsDatabaseHandler;
 import cu.lt.joe.stk.objects.CrashLog;
 
