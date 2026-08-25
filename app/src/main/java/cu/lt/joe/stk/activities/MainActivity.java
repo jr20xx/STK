@@ -90,11 +90,5 @@ public class MainActivity extends BaseActivity
             additionalOptionsMenu.setContentView(menuLayoutBinding.getRoot());
             additionalOptionsMenu.show();
         });
-
-        binding.getRoot().postDelayed(() -> {
-            String errorMessage = getIntent().getStringExtra(AppCore.ERROR_TAG);
-            if (errorMessage != null)
-                ErrorMessageDialogFragment.newInstance(errorMessage).show(getSupportFragmentManager(), null);
-        }, 100);
     }
 }

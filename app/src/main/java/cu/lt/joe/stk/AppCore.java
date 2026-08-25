@@ -24,8 +24,6 @@ public class AppCore extends Application
         uncaughtExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
         Thread.setDefaultUncaughtExceptionHandler((thread, throwable) -> {
             CrashLog crashLog = getCrashLog(throwable);
-            ((AlarmManager) getSystemService(Context.ALARM_SERVICE)).set(AlarmManager.RTC, 1000,
-                    PendingIntent.getActivity(getApplicationContext(), 111, getResurrectionIntent(crashLog), PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE));
             new CrashLogsDatabaseHandler(this).addLog(crashLog.getTitle(), crashLog.getBody(), crashLog.getTimestamp());
 
             android.os.Process.killProcess(android.os.Process.myPid());
@@ -33,14 +31,6 @@ public class AppCore extends Application
             uncaughtExceptionHandler.uncaughtException(thread, throwable);
         });
         super.onCreate();
-    }
-
-    @NonNull
-    private Intent getResurrectionIntent(@NonNull CrashLog crashLog)
-    {
-        return new Intent(getApplicationContext(), MainActivity.class)
-                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                .putExtra(ERROR_TAG, crashLog.getBody());
     }
 
     private @NonNull CrashLog getCrashLog(@NonNull Throwable throwable)
