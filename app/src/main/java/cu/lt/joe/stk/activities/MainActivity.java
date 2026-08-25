@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import java.util.ArrayList;
-import cu.lt.joe.stk.AppCore;
 import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.adapters.AdditionalOptionsMenuItemAdapter;
 import cu.lt.joe.stk.adapters.MainActivityPagerAdapter;
@@ -17,7 +16,6 @@ import cu.lt.joe.stk.databinding.MainLayoutBinding;
 import cu.lt.joe.stk.fragments.MainFragment;
 import cu.lt.joe.stk.fragments.SettingsFragment;
 import cu.lt.joe.stk.fragments.ShoppingFragment;
-import cu.lt.joe.stk.fragments.dialog_fragments.ErrorMessageDialogFragment;
 import cu.lt.joe.stk.objects.AdditionalOptionsMenuItem;
 
 public class MainActivity extends BaseActivity
