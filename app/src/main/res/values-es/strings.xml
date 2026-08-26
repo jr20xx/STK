@@ -44,6 +44,7 @@
     <string name="home_fragment_menu_title">Inicio</string>
     <string name="shop_fragment_menu_title">Compras</string>
     <string name="shop_fragment_title">Planes y paquetes</string>
+    <string name="more_options_fragment_menu_title">Más opciones</string>
     <string name="settings_fragment_menu_title">Ajustes</string>
 
     <string name="invalid_phone_number_tip">El número asociado es inválido</string>

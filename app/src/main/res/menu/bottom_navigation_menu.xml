@@ -10,7 +10,7 @@
         android:icon="@drawable/shop_icon_selector"
         android:title="@string/shop_fragment_menu_title" />
     <item
-        android:id="@+id/settings_fragment_im"
-        android:icon="@drawable/settings_icon_selector"
-        android:title="@string/settings_fragment_menu_title" />
+        android:id="@+id/more_options_im"
+        android:icon="@drawable/more_icon_selector"
+        android:title="@string/more_options_fragment_menu_title" />
 </menu>
