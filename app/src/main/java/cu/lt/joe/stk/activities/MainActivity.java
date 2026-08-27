@@ -8,8 +8,8 @@ import androidx.viewpager2.widget.ViewPager2;
 import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.adapters.MainActivityPagerAdapter;
 import cu.lt.joe.stk.databinding.MainLayoutBinding;
+import cu.lt.joe.stk.fragments.AdditionalOptionsFragment;
 import cu.lt.joe.stk.fragments.MainFragment;
-import cu.lt.joe.stk.fragments.SettingsFragment;
 import cu.lt.joe.stk.fragments.ShoppingFragment;
 
 public class MainActivity extends BaseActivity
@@ -23,7 +23,7 @@ public class MainActivity extends BaseActivity
         binding = DataBindingUtil.setContentView(this, R.layout.main_layout);
         binding.mainActivityPager.setSaveEnabled(true);
         binding.mainActivityPager.setAdapter(new MainActivityPagerAdapter(
-                new Fragment[]{new MainFragment(), new ShoppingFragment(), new SettingsFragment()},
+                new Fragment[]{new MainFragment(), new ShoppingFragment(), new AdditionalOptionsFragment()},
                 getSupportFragmentManager(), getLifecycle()
         ));
         binding.bottomNavigationView.setOnItemSelectedListener(item ->
