@@ -1,5 +1,6 @@
 package cu.lt.joe.stk.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 import cu.lt.joe.stk.R;
+import cu.lt.joe.stk.activities.SecondaryActivity;
 import cu.lt.joe.stk.adapters.AdditionalOptionsItemAdapter;
 import cu.lt.joe.stk.databinding.AdditionalOptionsLayoutBinding;
 import cu.lt.joe.stk.objects.AdditionalOptionsMenuItem;
@@ -24,10 +26,13 @@ public class AdditionalOptionsFragment extends Fragment
         binding = AdditionalOptionsLayoutBinding.inflate(inflater, container, false);
 
         ArrayList<AdditionalOptionsMenuItem> additionalItems = new ArrayList<>();
-        additionalItems.add(new AdditionalOptionsMenuItem(R.drawable.ic_settings_outline, getString(R.string.settings_fragment_menu_title), null));
-        additionalItems.add(new AdditionalOptionsMenuItem(R.drawable.ic_crash_log, "Registro de errores", null));
+        additionalItems.add(new AdditionalOptionsMenuItem(R.drawable.ic_settings_outline,
+                getString(R.string.settings_fragment_title),
+                new Intent(requireActivity(), SecondaryActivity.class).putExtra(Intent.EXTRA_TITLE, R.string.settings_fragment_title)));
+        additionalItems.add(new AdditionalOptionsMenuItem(R.drawable.ic_crash_log,
+                getString(R.string.crash_logs_fragment_title),
+                new Intent(requireActivity(), SecondaryActivity.class).putExtra(Intent.EXTRA_TITLE, R.string.crash_logs_fragment_title)));
         binding.additionalOptionsMenuRecycler.setAdapter(new AdditionalOptionsItemAdapter(requireContext(), additionalItems));
-
         return binding.getRoot();
     }
 }

@@ -45,7 +45,8 @@
     <string name="shop_fragment_menu_title">Compras</string>
     <string name="shop_fragment_title">Planes y paquetes</string>
     <string name="more_options_fragment_menu_title">Más opciones</string>
-    <string name="settings_fragment_menu_title">Ajustes</string>
+    <string name="settings_fragment_title">Ajustes</string>
+    <string name="crash_logs_fragment_title">Registro de errores</string>
 
     <string name="invalid_phone_number_tip">El número asociado es inválido</string>
     <string name="unusable_phone_number_tip">El número elegido no se puede usar</string>

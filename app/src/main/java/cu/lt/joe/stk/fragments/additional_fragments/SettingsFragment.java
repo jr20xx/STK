@@ -1,4 +1,4 @@
-package cu.lt.joe.stk.fragments;
+package cu.lt.joe.stk.fragments.additional_fragments;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -25,7 +25,6 @@ import cu.lt.joe.stk.utils.Utils;
 
 public class SettingsFragment extends Fragment
 {
-    private static final String SCROLL_POSITION_SAVER_TAG = "SAVED_SCROLL_POSITION";
     private SettingsFragmentBinding binding;
     private SharedPreferences sharp;
     private SharedPreferences.Editor preferencesEditor;
@@ -79,21 +78,6 @@ public class SettingsFragment extends Fragment
         {
             Snackbar.make(binding.getRoot(), R.string.opening_link_error_tip, Snackbar.LENGTH_SHORT).show();
         }
-    }
-
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState)
-    {
-        outState.putInt(SCROLL_POSITION_SAVER_TAG, binding.infoFragmentScrollview.getScrollY());
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    public void onViewStateRestored(@Nullable Bundle savedInstanceState)
-    {
-        if (savedInstanceState != null)
-            binding.infoFragmentScrollview.setScrollY(savedInstanceState.getInt(SCROLL_POSITION_SAVER_TAG));
-        super.onViewStateRestored(savedInstanceState);
     }
 
     @Override
