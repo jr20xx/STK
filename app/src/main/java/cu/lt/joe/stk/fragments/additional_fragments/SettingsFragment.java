@@ -2,7 +2,6 @@ package cu.lt.joe.stk.fragments.additional_fragments;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.LayoutInflater;
@@ -15,7 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceManager;
-import com.google.android.material.snackbar.Snackbar;
 import java.util.Arrays;
 import cu.lt.joe.stk.Constants;
 import cu.lt.joe.stk.R;
@@ -66,18 +64,6 @@ public class SettingsFragment extends Fragment
         binding.revertedCallPrefixSelectorSpinner.setSelection(sharp.getInt(Constants.REVERTED_CALL_PREFIX_INDEX, 0));
 
         return binding.getRoot();
-    }
-
-    public void openExternalLink(String webLink)
-    {
-        try
-        {
-            startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse(webLink)));
-        }
-        catch (Exception e)
-        {
-            Snackbar.make(binding.getRoot(), R.string.opening_link_error_tip, Snackbar.LENGTH_SHORT).show();
-        }
     }
 
     @Override
