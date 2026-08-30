@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import cu.lt.joe.stk.databinding.ShortcutSelectorItemLayoutBinding;
 import cu.lt.joe.stk.interfaces.OnShortcutItemSelectedListener;
 import cu.lt.joe.stk.objects.ShortcutItem;
+import cu.lt.joe.stk.utils.Utils;
 
 public class ShortcutListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 {
@@ -34,7 +35,7 @@ public class ShortcutListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position)
     {
-        ((ShortcutItemViewHolder) holder).bindShortcut(shortcutItems.get(position));
+        ((ShortcutItemViewHolder) holder).bindShortcutAt(position);
     }
 
     @Override
@@ -53,10 +54,16 @@ public class ShortcutListAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             this.itemViewBinding = itemViewBinding;
         }
 
-        public void bindShortcut(ShortcutItem shortcutItem)
+        public void bindShortcutAt(int position)
         {
+            ShortcutItem shortcutItem = shortcutItems.get(position);
             itemViewBinding.setShortcutItem(shortcutItem);
+
+            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(itemViewBinding.getRoot().getLayoutParams());
+            marginLayoutParams.topMargin = Utils.dpToPx(context, position > 0 ? 2 : 0);
+            itemViewBinding.getRoot().setLayoutParams(marginLayoutParams);
             itemViewBinding.getRoot().setOnClickListener(v -> onShortcutItemSelectedListener.onShortcutItemSelected(shortcutItem));
+
             itemViewBinding.executePendingBindings();
         }
     }
