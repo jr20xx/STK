@@ -34,7 +34,6 @@ public class SettingsFragment extends Fragment
         sharp = PreferenceManager.getDefaultSharedPreferences(requireContext());
         preferencesEditor = sharp.edit();
         binding = SettingsFragmentBinding.inflate(inflater, container, false);
-        binding.setLinkOpener(this);
 
         binding.themeToggleCard.setOnClickListener(v -> {
             preferencesEditor.putBoolean(Constants.IS_DARK_MODE_ENABLED,
