@@ -2,7 +2,7 @@ package cu.lt.joe.stk;
 
 public class Constants
 {
-    public final static String IS_DARK_MODE_ENABLED = "IS_DARK_MODE_ENABLED",
+    public final static String IS_DARK_MODE_ENABLED = "dark_mode_enabled",
             SHORTCUT_ACTION_DIAL = "cu.lt.joe.stk.DIAL_USSD",
             SHORTCUT_USSD_CODE = "cu.lt.joe.stk.USSD_CODE",
             LAST_KNOWN_BALANCE = "last_known_balance",
