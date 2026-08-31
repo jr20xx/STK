@@ -76,6 +76,7 @@
                 android:text="@string/source_code_label"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                android:textColor="?android:attr/textColorSecondary"
                 app:drawableStartCompat="@drawable/ic_github" />
 
             <TextView
@@ -87,6 +88,7 @@
                 android:text="•"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                android:textColor="?android:attr/textColorSecondary"
                 tools:ignore="HardcodedText" />
 
             <TextView
@@ -98,6 +100,7 @@
                 android:text="@string/telegram_channel_label"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                android:textColor="?android:attr/textColorSecondary"
                 app:drawableStartCompat="@drawable/ic_telegram" />
         </LinearLayout>
     </LinearLayout>
