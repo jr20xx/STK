@@ -11,97 +11,102 @@
             type="cu.lt.joe.stk.fragments.AdditionalOptionsFragment" />
     </data>
 
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="8dp">
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardBackgroundColor="?colorSurface"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="0dp"
-            app:contentPadding="0dp"
-            app:strokeWidth="0dp">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/additional_options_menu_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="8dp"
-            android:text="@string/useful_information_section_header"
-            android:textAppearance="@style/TextAppearance.Material3.TitleSmall" />
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            app:cardBackgroundColor="?colorSurface"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="0dp"
-            app:contentPadding="0dp"
-            app:strokeWidth="0dp">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/additional_info_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-        </com.google.android.material.card.MaterialCardView>
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="?colorSurface"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:contentPadding="0dp"
+                app:strokeWidth="0dp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/additional_options_menu_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            </com.google.android.material.card.MaterialCardView>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawablePadding="3dp"
-                android:gravity="center"
-                android:onClick='@{_ -> containerFragment.openExternalLink("https://github.com/jr20xx/STK")}'
-                android:text="@string/source_code_label"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-                android:textColor="?android:attr/textColorSecondary"
-                app:drawableStartCompat="@drawable/ic_github" />
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/useful_information_section_header"
+                android:textAppearance="@style/TextAppearance.Material3.TitleSmall" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:gravity="center"
-                android:text="•"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-                android:textColor="?android:attr/textColorSecondary"
-                tools:ignore="HardcodedText" />
+                android:layout_marginTop="10dp"
+                app:cardBackgroundColor="?colorSurface"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:contentPadding="0dp"
+                app:strokeWidth="0dp">
 
-            <TextView
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/additional_info_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawablePadding="3dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
                 android:gravity="center"
-                android:onClick='@{_ -> containerFragment.openExternalLink("https://t.me/stk_support_channel")}'
-                android:text="@string/telegram_channel_label"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-                android:textColor="?android:attr/textColorSecondary"
-                app:drawableStartCompat="@drawable/ic_telegram" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="3dp"
+                    android:gravity="center"
+                    android:onClick='@{_ -> containerFragment.openExternalLink("https://github.com/jr20xx/STK")}'
+                    android:text="@string/source_code_label"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                    android:textColor="?android:attr/textColorSecondary"
+                    app:drawableStartCompat="@drawable/ic_github" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center"
+                    android:text="•"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                    android:textColor="?android:attr/textColorSecondary"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="3dp"
+                    android:gravity="center"
+                    android:onClick='@{_ -> containerFragment.openExternalLink("https://t.me/stk_support_channel")}'
+                    android:text="@string/telegram_channel_label"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                    android:textColor="?android:attr/textColorSecondary"
+                    app:drawableStartCompat="@drawable/ic_telegram" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>
