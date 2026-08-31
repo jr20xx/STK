@@ -73,7 +73,7 @@
                 android:drawablePadding="3dp"
                 android:gravity="center"
                 android:onClick='@{_ -> containerFragment.openExternalLink("https://github.com/jr20xx/STK")}'
-                android:text="Código fuente"
+                android:text="@string/source_code_label"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.Material3.BodySmall"
                 app:drawableStartCompat="@drawable/ic_github" />
@@ -95,7 +95,7 @@
                 android:drawablePadding="3dp"
                 android:gravity="center"
                 android:onClick='@{_ -> containerFragment.openExternalLink("https://t.me/stk_support_channel")}'
-                android:text="Canal de Telegram"
+                android:text="@string/telegram_channel_label"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.Material3.BodySmall"
                 app:drawableStartCompat="@drawable/ic_telegram" />

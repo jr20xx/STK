@@ -126,8 +126,8 @@
     <string name="mobile_plans_faq_header">Plans</string>
     <string name="mobile_plans_faq_description">This is a link to the official site with the FAQs about mobile plans</string>
 
-    <string name="application_info_section_header">Application information</string>
-    <string name="version_label">Version %s</string>
+    <string name="source_code_label">Source code</string>
+    <string name="telegram_channel_label">Telegram channel</string>
 
     <string name="opening_link_error_tip">The link can\'t be opened</string>
     <string name="dialing_error_tip">The call can\'t be performed</string>

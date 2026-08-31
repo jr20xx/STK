@@ -119,8 +119,8 @@
     <string name="mobile_plans_faq_header">Planes</string>
     <string name="mobile_plans_faq_description">Este es un enlace al sitio oficial con las preguntas más frecuentes sobre los planes móviles</string>
 
-    <string name="application_info_section_header">Información de la aplicación</string>
-    <string name="version_label">Versión %s</string>
+    <string name="source_code_label">Código fuente</string>
+    <string name="telegram_channel_label">Canal de Telegram</string>
 
     <string name="opening_link_error_tip">No se puede abrir el enlace</string>
     <string name="dialing_error_tip">No se puede realizar la llamada</string>
