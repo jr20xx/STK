@@ -96,6 +96,7 @@
                             android:id="@+id/language_picker_card"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
                             android:clickable="true"
                             android:focusable="true"
                             app:cardBackgroundColor="?attr/colorSurfaceContainerHighest"
@@ -121,6 +122,40 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="4dp"
                                     android:text="@string/language_picker_card_description"
+                                    android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                                    android:textColor="?android:attr/textColorSecondary" />
+                            </LinearLayout>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/date_format_picker_card"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:focusable="true"
+                            app:cardBackgroundColor="?attr/colorSurfaceContainerHighest"
+                            app:cardCornerRadius="1dp"
+                            app:cardElevation="0dp"
+                            app:contentPadding="10dp"
+                            app:strokeWidth="0dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:singleLine="true"
+                                    android:text="Date format"
+                                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="4dp"
+                                    android:text="Seleccione el formato de la fecha a emplear en el registro de los errores"
                                     android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
                                     android:textColor="?android:attr/textColorSecondary" />
                             </LinearLayout>

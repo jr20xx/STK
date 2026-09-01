@@ -18,6 +18,7 @@ import java.util.Arrays;
 import cu.lt.joe.stk.Constants;
 import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.databinding.SettingsFragmentBinding;
+import cu.lt.joe.stk.fragments.dialog_fragments.DateFormatPickerDialogFragment;
 import cu.lt.joe.stk.fragments.dialog_fragments.LanguagePickerDialogFragment;
 import cu.lt.joe.stk.utils.Utils;
 
@@ -42,6 +43,7 @@ public class SettingsFragment extends Fragment
             Toast.makeText(requireActivity(), R.string.updating_theme_message, Toast.LENGTH_SHORT).show();
         });
         binding.languagePickerCard.setOnClickListener(v -> new LanguagePickerDialogFragment().show(requireActivity().getSupportFragmentManager(), null));
+        binding.dateFormatPickerCard.setOnClickListener(v -> new DateFormatPickerDialogFragment().show(requireActivity().getSupportFragmentManager(), null));
         binding.accessibilityServiceSwitchCard.setOnClickListener(v -> startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)));
 
         binding.revertedCallPrefixSelectorSpinner.setAdapter(new ArrayAdapter<>(requireContext(),
