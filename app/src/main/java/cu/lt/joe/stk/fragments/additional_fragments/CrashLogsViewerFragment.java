@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
 import cu.lt.joe.stk.adapters.CrashLogsAdapter;
 import cu.lt.joe.stk.databases.CrashLogsDatabaseHandler;
 import cu.lt.joe.stk.databinding.CrashLogsViewerLayoutBinding;
