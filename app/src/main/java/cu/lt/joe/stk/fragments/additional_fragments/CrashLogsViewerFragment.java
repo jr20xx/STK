@@ -23,8 +23,7 @@ public class CrashLogsViewerFragment extends Fragment
     {
         binding = CrashLogsViewerLayoutBinding.inflate(inflater, container, false);
         binding.crashLogsViewerRv.setAdapter(new CrashLogsAdapter(requireContext(),
-                new CrashLogsDatabaseHandler(requireContext()).getCrashLogs(),
-                new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())));
+                new CrashLogsDatabaseHandler(requireContext()).getCrashLogs()));
         return binding.getRoot();
     }
 }

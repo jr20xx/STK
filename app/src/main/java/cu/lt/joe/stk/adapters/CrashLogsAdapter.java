@@ -4,23 +4,26 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
+import cu.lt.joe.stk.Constants;
+import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.databinding.CrashLogItemLayoutBinding;
 import cu.lt.joe.stk.objects.CrashLog;
 
 public class CrashLogsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 {
     private final Context context;
-    private final SimpleDateFormat simpleDateFormat;
-    private ArrayList<CrashLog> crashLogsArrayList;
+    private final ArrayList<CrashLog> crashLogsArrayList;
 
-    public CrashLogsAdapter(Context context, ArrayList<CrashLog> crashLogsArrayList, SimpleDateFormat simpleDateFormat)
+    public CrashLogsAdapter(Context context, ArrayList<CrashLog> crashLogsArrayList)
     {
         this.context = context;
         this.crashLogsArrayList = crashLogsArrayList;
-        this.simpleDateFormat = simpleDateFormat;
     }
 
     public void removeCrashLog(int index)
@@ -68,6 +71,7 @@ public class CrashLogsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         public void bindCrashLog(CrashLog crashLog)
         {
             itemLayoutBinding.setCrashLog(crashLog);
+            itemLayoutBinding.crashLogDateTv.setText(new SimpleDateFormat(PreferenceManager.getDefaultSharedPreferences(context).getString(Constants.SAVED_DATE_FORMAT, context.getResources().getStringArray(R.array.date_formats)[0]), Locale.getDefault()).format(new Date(crashLog.getTimestamp())));
             itemLayoutBinding.executePendingBindings();
         }
     }

@@ -43,7 +43,6 @@
                 android:layout_alignBottom="@id/crash_log_title_tv"
                 android:layout_alignParentEnd="true"
                 android:singleLine="true"
-                android:text='@{crashLog.timestamp+""}'
                 android:textAppearance="@style/TextAppearance.Material3.LabelMedium" />
 
             <TextView
