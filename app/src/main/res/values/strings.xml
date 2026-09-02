@@ -113,6 +113,8 @@
     <string name="language_picker_card_description">Select the language used by the application when showing its content</string>
     <string name="languages_dialog_title">Languages</string>
     <string name="default_language_tag">Default language</string>
+    <string name="date_format_title">Date format</string>
+    <string name="date_format_description">Select the date format to use for the items on the list of crashlogs</string>
 
     <string name="general_settings_section_header">General settings</string>
     <string name="accessibility_service_switch_header">Accessibility service</string>

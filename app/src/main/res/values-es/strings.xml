@@ -106,6 +106,8 @@
     <string name="language_picker_card_description">Escoger el idioma utilizado por la aplicación para mostrar su contenido</string>
     <string name="languages_dialog_title">Idiomas</string>
     <string name="default_language_tag">Idioma por defecto</string>
+    <string name="date_format_title">Formato de fecha</string>
+    <string name="date_format_description">Seleccione el formato de la fecha a emplear en la lista del registro de errores</string>
 
     <string name="general_settings_section_header">Opciones generales</string>
     <string name="accessibility_service_switch_header">Servicio de accesibilidad</string>

@@ -32,7 +32,7 @@ public class DateFormatPickerDialogFragment extends DialogFragment
         currentlySelectedItemIndex = dateFormats.indexOf(sharp.getString(Constants.SAVED_DATE_FORMAT, dateFormats.get(0)));
 
         return new MaterialAlertDialogBuilder(requireActivity())
-                .setTitle("Date format")
+                .setTitle(R.string.date_format_title)
                 .setSingleChoiceItems(dateFormatsLabels.toArray(new String[0]), currentlySelectedItemIndex, (dialog, which) -> currentlySelectedItemIndex = which)
                 .setPositiveButton(android.R.string.ok, (dialog, which) -> {
                     preferencesEditor.putString(Constants.SAVED_DATE_FORMAT, dateFormats.get(currentlySelectedItemIndex)).apply();
