@@ -31,6 +31,9 @@ public class AdditionalOptionsFragment extends Fragment
         additionalItems.add(new AdditionalOptionsMenuItem(R.drawable.ic_settings_outline,
                 getString(R.string.settings_fragment_title),
                 new Intent(requireActivity(), SecondaryActivity.class).putExtra(Intent.EXTRA_TITLE, R.string.settings_fragment_title)));
+        additionalItems.add(new AdditionalOptionsMenuItem(R.drawable.ic_sim_card,
+                getString(R.string.change_sim_pin_title),
+                new Intent(requireActivity(), SecondaryActivity.class).putExtra(Intent.EXTRA_TITLE, R.string.change_sim_pin_title)));
         additionalItems.add(new AdditionalOptionsMenuItem(R.drawable.ic_crash_log,
                 getString(R.string.crash_logs_fragment_title),
                 new Intent(requireActivity(), SecondaryActivity.class).putExtra(Intent.EXTRA_TITLE, R.string.crash_logs_fragment_title)));

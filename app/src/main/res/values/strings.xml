@@ -53,6 +53,7 @@
     <string name="shop_fragment_title">Packets and plans</string>
     <string name="more_options_fragment_menu_title">More options</string>
     <string name="settings_fragment_title">Settings</string>
+    <string name="change_sim_pin_title">Change SIM card PIN</string>
     <string name="crash_logs_fragment_title">Crash logs</string>
 
     <string name="invalid_phone_number_tip">The associated number is invalid</string>
