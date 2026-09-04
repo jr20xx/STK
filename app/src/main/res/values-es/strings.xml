@@ -84,9 +84,12 @@
     <string name="balance_transfer_update_key_button_label">Cambiar clave</string>
     <string name="balance_transfer_button_label">Transferir</string>
 
-    <string name="transfer_key_change_dialog_title">Cambio de clave</string>
-    <string name="transfer_key_change_dialog_old_key_hint">Clave antigua</string>
-    <string name="transfer_key_change_dialog_new_key_hint">Nueva clave</string>
+    <string name="transfer_key_change_dialog_title">Cambio de PIN</string>
+    <string name="transfer_key_change_dialog_old_key_hint">PIN antiguo</string>
+    <string name="transfer_key_change_dialog_new_key_hint">Nuevo PIN</string>
+
+    <string name="puk_code_hint">Código PUK</string>
+    <string name="repeat_new_pin_hint">Repetir nuevo PIN</string>
 
     <string name="balance_loan_section_header">Solicitar adelanto de saldo</string>
     <string name="balance_loan_25">Pedir $25</string>

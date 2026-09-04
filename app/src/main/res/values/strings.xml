@@ -95,6 +95,9 @@
     <string name="transfer_key_change_dialog_old_key_hint">Old PIN</string>
     <string name="transfer_key_change_dialog_new_key_hint">New PIN</string>
 
+    <string name="puk_code_hint">PUK code</string>
+    <string name="repeat_new_pin_hint">Repeat new PIN</string>
+
     <string name="balance_loan_section_header">Ask for a balance loan</string>
     <string name="balance_loan_25">Ask for $25</string>
     <string name="balance_loan_50">Ask for $50</string>
