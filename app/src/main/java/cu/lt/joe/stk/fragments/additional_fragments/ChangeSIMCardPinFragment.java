@@ -128,12 +128,9 @@ public class ChangeSIMCardPinFragment extends Fragment
 
     private void clearAllTextLayoutErrors()
     {
-        binding.currentAccessCodeInputText.setError(null);
-        binding.currentAccessCodeInputText.setErrorEnabled(false);
-        binding.newPinInputText.setError(null);
-        binding.newPinInputText.setErrorEnabled(false);
-        binding.newPinRepetitionInputText.setError(null);
-        binding.newPinRepetitionInputText.setErrorEnabled(false);
+        clearInputLayoutError(binding.currentAccessCodeInputText);
+        clearInputLayoutError(binding.newPinInputText);
+        clearInputLayoutError(binding.newPinRepetitionInputText);
     }
 
     private void clearInputLayoutError(TextInputLayout textInputLayout)
