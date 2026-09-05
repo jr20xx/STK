@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputLayout;
 import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.accessibility.USSDAccessibilityService;
 import cu.lt.joe.stk.fragments.dialog_fragments.PermissionRequesterDialogFragment;
@@ -92,5 +93,14 @@ public class Utils
                 return true;
         }
         return false;
+    }
+
+    public static void clearTextInputLayoutsErrors(TextInputLayout... textInputLayouts)
+    {
+        for (TextInputLayout textInputLayout : textInputLayouts)
+        {
+            textInputLayout.setError(null);
+            textInputLayout.setErrorEnabled(false);
+        }
     }
 }

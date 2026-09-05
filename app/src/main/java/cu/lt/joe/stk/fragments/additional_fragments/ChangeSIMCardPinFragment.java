@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import com.google.android.material.textfield.TextInputLayout;
 import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.databinding.ChangeSimCardPinLayoutBinding;
+import cu.lt.joe.stk.utils.Utils;
 
 public class ChangeSIMCardPinFragment extends Fragment
 {
@@ -25,7 +25,7 @@ public class ChangeSIMCardPinFragment extends Fragment
 
         binding.simCardPinChangeTogglePinPuk.setOnCheckedChangeListener((buttonView, isChecked) -> {
             binding.currentAccessCodeInputText.setHint(isChecked ? R.string.puk_code_hint : R.string.current_pin_hint);
-            clearTextInputLayoutsErrors(binding.currentAccessCodeInputText, binding.newPinInputText, binding.newPinRepetitionInputText);
+            Utils.clearTextInputLayoutsErrors(binding.currentAccessCodeInputText, binding.newPinInputText, binding.newPinRepetitionInputText);
         });
 
         binding.currentAccessCodeInputText.getEditText().addTextChangedListener(new TextWatcher()
@@ -33,7 +33,7 @@ public class ChangeSIMCardPinFragment extends Fragment
             @Override
             public void afterTextChanged(Editable s)
             {
-                clearTextInputLayoutsErrors(binding.currentAccessCodeInputText);
+                Utils.clearTextInputLayoutsErrors(binding.currentAccessCodeInputText);
             }
 
             @Override
@@ -51,7 +51,7 @@ public class ChangeSIMCardPinFragment extends Fragment
             @Override
             public void afterTextChanged(Editable s)
             {
-                clearTextInputLayoutsErrors(binding.newPinInputText);
+                Utils.clearTextInputLayoutsErrors(binding.newPinInputText);
             }
 
             @Override
@@ -69,7 +69,7 @@ public class ChangeSIMCardPinFragment extends Fragment
             @Override
             public void afterTextChanged(Editable s)
             {
-                clearTextInputLayoutsErrors(binding.newPinRepetitionInputText);
+                Utils.clearTextInputLayoutsErrors(binding.newPinRepetitionInputText);
             }
 
             @Override
@@ -90,43 +90,34 @@ public class ChangeSIMCardPinFragment extends Fragment
             if (binding.simCardPinChangeTogglePinPuk.isChecked() && currentCode.length() < 8)
             {
                 binding.currentAccessCodeInputText.setError("El PUK debe tener 8 dígitos");
-                clearTextInputLayoutsErrors(binding.newPinInputText, binding.newPinRepetitionInputText);
+                Utils.clearTextInputLayoutsErrors(binding.newPinInputText, binding.newPinRepetitionInputText);
             }
             else if (!binding.simCardPinChangeTogglePinPuk.isChecked() && currentCode.length() < 4)
             {
                 binding.currentAccessCodeInputText.setError("El PIN debe tener al menos 4 dígitos");
-                clearTextInputLayoutsErrors(binding.newPinInputText, binding.newPinRepetitionInputText);
+                Utils.clearTextInputLayoutsErrors(binding.newPinInputText, binding.newPinRepetitionInputText);
             }
             else if (newPIN.length() < 4)
             {
                 binding.newPinInputText.setError("El nuevo PIN debe tener al menos 4 dígitos");
-                clearTextInputLayoutsErrors(binding.currentAccessCodeInputText, binding.newPinRepetitionInputText);
+                Utils.clearTextInputLayoutsErrors(binding.currentAccessCodeInputText, binding.newPinRepetitionInputText);
             }
             else if (newPIN.equals(currentCode))
             {
                 binding.newPinInputText.setError("El nuevo PIN debe ser diferente al anterior");
-                clearTextInputLayoutsErrors(binding.currentAccessCodeInputText, binding.newPinRepetitionInputText);
+                Utils.clearTextInputLayoutsErrors(binding.currentAccessCodeInputText, binding.newPinRepetitionInputText);
             }
             else if (!newPINRepetition.equals(newPIN))
             {
-                binding.newPinRepetitionInputText.setError("Los códigos PIN no coinciden");
-                clearTextInputLayoutsErrors(binding.currentAccessCodeInputText, binding.newPinInputText);
+                binding.newPinRepetitionInputText.setError("Los códigos no coinciden");
+                Utils.clearTextInputLayoutsErrors(binding.currentAccessCodeInputText, binding.newPinInputText);
             }
             else
             {
-                clearTextInputLayoutsErrors(binding.currentAccessCodeInputText, binding.newPinInputText, binding.newPinRepetitionInputText);
+                Utils.clearTextInputLayoutsErrors(binding.currentAccessCodeInputText, binding.newPinInputText, binding.newPinRepetitionInputText);
             }
         });
 
         return binding.getRoot();
-    }
-
-    private void clearTextInputLayoutsErrors(TextInputLayout... textInputLayouts)
-    {
-        for (TextInputLayout textInputLayout : textInputLayouts)
-        {
-            textInputLayout.setError(null);
-            textInputLayout.setErrorEnabled(false);
-        }
     }
 }
