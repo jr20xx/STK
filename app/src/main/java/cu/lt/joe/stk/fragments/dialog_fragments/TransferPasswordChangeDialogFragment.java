@@ -30,17 +30,14 @@ public class TransferPasswordChangeDialogFragment extends DialogFragment
                 binding.oldPasswordInputText.setError(getString(R.string.old_transfer_key_length_error));
             else
             {
-                binding.oldPasswordInputText.setError(null);
-                binding.oldPasswordInputText.setErrorEnabled(false);
-                binding.newPasswordInputText.setErrorEnabled(true);
+                Utils.clearErrorsOnTextInputLayouts(binding.oldPasswordInputText);
                 if (newPassword.isBlank() || newPassword.length() < 4)
                     binding.newPasswordInputText.setError(getString(R.string.new_transfer_key_length_error));
                 else if (newPassword.equals(oldPassword))
                     binding.newPasswordInputText.setError(getString(R.string.transfer_new_key_equal_to_old_key_error));
                 else
                 {
-                    binding.newPasswordInputText.setError(null);
-                    binding.newPasswordInputText.setErrorEnabled(false);
+                    Utils.clearErrorsOnTextInputLayouts(binding.newPasswordInputText);
                     Utils.performCallFromFragment(this, Uri.parse("tel:*234*2*" + oldPassword + "*" + newPassword + Uri.encode("#")));
                     dismissAllowingStateLoss();
                 }
