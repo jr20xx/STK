@@ -30,7 +30,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/transfer_key_change_dialog_old_key_hint"
+                    android:hint="@string/current_pin_hint"
                     android:inputType="numberPassword"
                     android:maxLength="8"
                     android:maxLines="1"
