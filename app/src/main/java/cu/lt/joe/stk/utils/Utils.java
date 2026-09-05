@@ -95,7 +95,7 @@ public class Utils
         return false;
     }
 
-    public static void clearTextInputLayoutsErrors(TextInputLayout... textInputLayouts)
+    public static void clearErrorsOnTextInputLayouts(TextInputLayout... textInputLayouts)
     {
         for (TextInputLayout textInputLayout : textInputLayouts)
         {
