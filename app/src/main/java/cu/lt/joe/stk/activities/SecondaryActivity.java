@@ -6,7 +6,6 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.databinding.SecondaryActivityLayoutBinding;
-import cu.lt.joe.stk.fragments.additional_fragments.ChangeSIMCardPinFragment;
 import cu.lt.joe.stk.fragments.additional_fragments.CrashLogsViewerFragment;
 import cu.lt.joe.stk.fragments.additional_fragments.SettingsFragment;
 
@@ -29,10 +28,6 @@ public class SecondaryActivity extends BaseActivity
         else if (titleId == R.string.crash_logs_fragment_title)
             getSupportFragmentManager().beginTransaction()
                     .replace(binding.secondaryActivityFrameLayout.getId(), new CrashLogsViewerFragment())
-                    .commit();
-        else if (titleId == R.string.change_sim_pin_title)
-            getSupportFragmentManager().beginTransaction()
-                    .replace(binding.secondaryActivityFrameLayout.getId(), new ChangeSIMCardPinFragment())
                     .commit();
         else finish();
     }

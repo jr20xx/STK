@@ -8,13 +8,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.databinding.ChangeSimCardPinLayoutBinding;
 import cu.lt.joe.stk.utils.Utils;
 
-public class ChangeSIMCardPinFragment extends Fragment
+public class ChangeSIMCardPinFragment extends BottomSheetDialogFragment
 {
+    private final String CURRENT_PIN_SAVE_TAG = "SAVED_CURRENT_PIN",
+            NEW_PIN_SAVE_TAG = "SAVED_NEW_PIN",
+            NEW_PIN_REPETITION_SAVE_TAG = "SAVED_PIN_REPETITION";
     private ChangeSimCardPinLayoutBinding binding;
 
     @Nullable
@@ -118,6 +121,30 @@ public class ChangeSIMCardPinFragment extends Fragment
             }
         });
 
+        if (savedInstanceState != null)
+        {
+            if (savedInstanceState.containsKey(CURRENT_PIN_SAVE_TAG))
+                binding.currentAccessCodeInputText.getEditText().setText(savedInstanceState.getString(CURRENT_PIN_SAVE_TAG));
+            if (savedInstanceState.containsKey(NEW_PIN_SAVE_TAG))
+                binding.newPinInputText.getEditText().setText(savedInstanceState.getString(NEW_PIN_SAVE_TAG));
+            if (savedInstanceState.containsKey(NEW_PIN_REPETITION_SAVE_TAG))
+                binding.newPinRepetitionInputText.getEditText().setText(savedInstanceState.getString(NEW_PIN_REPETITION_SAVE_TAG));
+        }
         return binding.getRoot();
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState)
+    {
+        String currentPIN = binding.currentAccessCodeInputText.getEditText().getText().toString(),
+                newPIN = binding.newPinInputText.getEditText().getText().toString(),
+                newPINRepetition = binding.newPinRepetitionInputText.getEditText().getText().toString();
+        if (!currentPIN.isBlank())
+            outState.putString(CURRENT_PIN_SAVE_TAG, currentPIN);
+        if (!newPIN.isBlank())
+            outState.putString(NEW_PIN_SAVE_TAG, newPIN);
+        if (!newPINRepetition.isBlank())
+            outState.putString(NEW_PIN_REPETITION_SAVE_TAG, newPINRepetition);
+        super.onSaveInstanceState(outState);
     }
 }
