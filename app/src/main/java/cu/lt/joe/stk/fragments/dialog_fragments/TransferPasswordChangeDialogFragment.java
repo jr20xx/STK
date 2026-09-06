@@ -34,7 +34,7 @@ public class TransferPasswordChangeDialogFragment extends DialogFragment
                 if (newPassword.isBlank() || newPassword.length() < 4)
                     binding.newPasswordInputText.setError(getString(R.string.new_transfer_key_length_error));
                 else if (newPassword.equals(oldPassword))
-                    binding.newPasswordInputText.setError(getString(R.string.transfer_new_key_equal_to_old_key_error));
+                    binding.newPasswordInputText.setError(getString(R.string.pin_replacement_is_old_pin_error));
                 else
                 {
                     Utils.clearErrorsOnTextInputLayouts(binding.newPasswordInputText);
