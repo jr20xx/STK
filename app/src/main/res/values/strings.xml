@@ -60,12 +60,12 @@
     <string name="unusable_phone_number_tip">The selected number can\'t be used</string>
     <string name="transfer_receiver_phone_number_length_error">The receiver\'s number must have 8 digits</string>
     <string name="transfer_receiver_phone_number_starting_error">The receiver\'s number must start with 5 or 6</string>
-    <string name="transfer_key_length_error">The PIN must have 4 digits</string>
+    <string name="transfer_key_length_error">The PIN must have four digits</string>
     <string name="transfer_balance_empty_error">Input the amount</string>
     <string name="transfer_balance_is_zero_error">The amount to transfer can\'t be 0</string>
     <string name="old_transfer_key_length_error">The old PIN must have four digits</string>
     <string name="new_transfer_key_length_error">The new PIN must have four digits</string>
-    <string name="transfer_new_key_equal_to_old_key_error">The new PIN must be different</string>
+    <string name="pin_replacement_is_old_pin_error">The new PIN must be different</string>
 
     <string name="transfer_cents_dialog_title">Balance with cents</string>
     <string name="transfer_cents_dialog_message">Due to restrictions that don\'t make possible transferring balance with cents directly from third-party apps, the specified amount will be ignored and you should input it when ETECSA requests you the amount to transfer</string>
@@ -95,8 +95,14 @@
     <string name="current_pin_hint">Current PIN</string>
     <string name="transfer_key_change_dialog_new_key_hint">New PIN</string>
 
+    <string name="use_pin_label">Use PIN</string>
+    <string name="use_puk_label">Use PUK</string>
     <string name="puk_code_hint">PUK code</string>
     <string name="repeat_new_pin_hint">Repeat new PIN</string>
+    <string name="puk_length_error">PUK code must be eight digits long</string>
+    <string name="short_pin_error">PIN code must be, at least, four digits long</string>
+    <string name="short_new_pin_error">New PIN must be at least four digits long</string>
+    <string name="pin_repetition_mismatch">The codes don\'t match</string>
 
     <string name="balance_loan_section_header">Ask for a balance loan</string>
     <string name="balance_loan_25">Ask for $25</string>

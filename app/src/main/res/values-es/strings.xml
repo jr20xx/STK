@@ -58,7 +58,7 @@
     <string name="transfer_balance_is_zero_error">El monto a transferir no puede ser 0</string>
     <string name="old_transfer_key_length_error">La clave antigua debe tener cuatro dígitos</string>
     <string name="new_transfer_key_length_error">La nueva clave debe tener cuatro dígitos</string>
-    <string name="transfer_new_key_equal_to_old_key_error">La nueva clave debe ser diferente</string>
+    <string name="pin_replacement_is_old_pin_error">El nuevo PIN debe ser diferente</string>
 
     <string name="transfer_cents_dialog_title">Monto con centavos</string>
     <string name="transfer_cents_dialog_message">Debido a restricciones que impiden la transferencia de saldo con centavos directamente desde aplicaciones de terceros, se ignorará la cantidad especificada y deberá introducirla cuando ETECSA le solicite el monto a transferir</string>
@@ -88,8 +88,14 @@
     <string name="current_pin_hint">PIN actual</string>
     <string name="transfer_key_change_dialog_new_key_hint">Nuevo PIN</string>
 
+    <string name="use_pin_label">Usar PIN</string>
+    <string name="use_puk_label">Usar PUK</string>
     <string name="puk_code_hint">Código PUK</string>
     <string name="repeat_new_pin_hint">Repetir nuevo PIN</string>
+    <string name="puk_length_error">El PUK debe tener ocho dígitos</string>
+    <string name="short_pin_error">El PIN debe tener al menos cuatro dígitos</string>
+    <string name="short_new_pin_error">El nuevo PIN debe tener al menos cuatro dígitos</string>
+    <string name="pin_repetition_mismatch">Los códigos no coinciden</string>
 
     <string name="balance_loan_section_header">Solicitar adelanto de saldo</string>
     <string name="balance_loan_25">Pedir $25</string>
