@@ -95,9 +95,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
+                    android:checked="false"
                     android:textColor="?attr/colorOnSurface"
-                    android:textOff="Usar PIN"
-                    android:textOn="Usar PUK" />
+                    android:textOff="@string/use_puk_label"
+                    android:textOn="@string/use_pin_label" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/sim_card_pin_change_ok_button"
