@@ -1,5 +1,6 @@
 package cu.lt.joe.stk.fragments.additional_fragments;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -118,6 +119,10 @@ public class ChangeSIMCardPinFragment extends BottomSheetDialogFragment
             else
             {
                 Utils.clearErrorsOnTextInputLayouts(binding.currentAccessCodeInputText, binding.newPinInputText, binding.newPinRepetitionInputText);
+                Utils.performCallFromFragment(this, Uri.fromParts("tel",
+                        (binding.simCardPinChangeTogglePinPuk.isChecked() ? "**05*" : "**04*")
+                                + currentCode + "*" + newPIN + "*" + newPINRepetition + "#", null));
+                dismissAllowingStateLoss();
             }
         });
 
