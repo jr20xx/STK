@@ -25,13 +25,12 @@ public class TransferPasswordChangeDialogFragment extends DialogFragment
         binding.transferPasswordChangeOkButton.setOnClickListener(v -> {
             String oldPassword = binding.oldPasswordInputText.getEditText().getText().toString(),
                     newPassword = binding.newPasswordInputText.getEditText().getText().toString();
-            binding.oldPasswordInputText.setErrorEnabled(true);
-            if (oldPassword.isBlank() || oldPassword.length() < 4)
+            if (oldPassword.length() < 4)
                 binding.oldPasswordInputText.setError(getString(R.string.old_transfer_key_length_error));
             else
             {
                 Utils.clearErrorsOnTextInputLayouts(binding.oldPasswordInputText);
-                if (newPassword.isBlank() || newPassword.length() < 4)
+                if (newPassword.length() < 4)
                     binding.newPasswordInputText.setError(getString(R.string.new_transfer_key_length_error));
                 else if (newPassword.equals(oldPassword))
                     binding.newPasswordInputText.setError(getString(R.string.pin_replacement_is_old_pin_error));
@@ -58,12 +57,8 @@ public class TransferPasswordChangeDialogFragment extends DialogFragment
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState)
     {
-        String oldPassword = binding.oldPasswordInputText.getEditText().getText().toString(),
-                newPassword = binding.newPasswordInputText.getEditText().getText().toString();
-        if (!oldPassword.isBlank())
-            outState.putString(OLD_PASSWORD_SAVE_TAG, oldPassword);
-        if (!newPassword.isBlank())
-            outState.putString(NEW_PASSWORD_SAVE_TAG, newPassword);
+        outState.putString(OLD_PASSWORD_SAVE_TAG, binding.oldPasswordInputText.getEditText().getText().toString());
+        outState.putString(NEW_PASSWORD_SAVE_TAG, binding.newPasswordInputText.getEditText().getText().toString());
         super.onSaveInstanceState(outState);
     }
 }
