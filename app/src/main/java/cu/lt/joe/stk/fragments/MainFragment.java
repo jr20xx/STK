@@ -180,11 +180,7 @@ public class MainFragment extends Fragment
             @Override
             public void afterTextChanged(Editable s)
             {
-                if (s.toString().isBlank() || binding.voucherCodeInputText.isErrorEnabled())
-                {
-                    binding.voucherCodeInputText.setError(null);
-                    binding.voucherCodeInputText.setErrorEnabled(false);
-                }
+                Utils.clearErrorsOnTextInputLayouts(binding.voucherCodeInputText);
                 if (!s.toString().isBlank())
                 {
                     if (!isFormattingVoucherCode)
@@ -220,11 +216,7 @@ public class MainFragment extends Fragment
             @Override
             public void afterTextChanged(Editable s)
             {
-                if (s.toString().isBlank() || binding.transferPhoneNumberInputText.isErrorEnabled())
-                {
-                    binding.transferPhoneNumberInputText.setError(null);
-                    binding.transferPhoneNumberInputText.setErrorEnabled(false);
-                }
+                Utils.clearErrorsOnTextInputLayouts(binding.transferPhoneNumberInputText);
             }
         });
         binding.transferPasswordInputText.getEditText().addTextChangedListener(new TextWatcher()
@@ -242,11 +234,7 @@ public class MainFragment extends Fragment
             @Override
             public void afterTextChanged(Editable s)
             {
-                if (s.toString().isBlank() || binding.transferPasswordInputText.isErrorEnabled())
-                {
-                    binding.transferPasswordInputText.setError(null);
-                    binding.transferPasswordInputText.setErrorEnabled(false);
-                }
+                Utils.clearErrorsOnTextInputLayouts(binding.transferPasswordInputText);
             }
         });
         Objects.requireNonNull(binding.transferBalanceInputText.getEditText()).addTextChangedListener(new TextWatcher()
@@ -264,11 +252,7 @@ public class MainFragment extends Fragment
             @Override
             public void afterTextChanged(Editable s)
             {
-                if (s.toString().isBlank() || binding.transferBalanceInputText.isErrorEnabled())
-                {
-                    binding.transferBalanceInputText.setError(null);
-                    binding.transferBalanceInputText.setErrorEnabled(false);
-                }
+                Utils.clearErrorsOnTextInputLayouts(binding.transferBalanceInputText);
             }
         });
 
@@ -293,13 +277,11 @@ public class MainFragment extends Fragment
         if (v.equals(binding.rechargeButton))
         {
             String voucherActivationCode = binding.voucherCodeInputText.getEditText().getText().toString().replaceAll(" ", "");
-            binding.voucherCodeInputText.setErrorEnabled(true);
             if (voucherActivationCode.isBlank() || voucherActivationCode.length() < 16)
                 binding.voucherCodeInputText.setError(getString(R.string.recharge_code_length_error));
             else
             {
-                binding.voucherCodeInputText.setError(null);
-                binding.voucherCodeInputText.setErrorEnabled(false);
+                Utils.clearErrorsOnTextInputLayouts(binding.voucherCodeInputText);
                 Utils.performCallFromFragment(this, Uri.parse("tel:*662*" + voucherActivationCode + Uri.encode("#")));
                 binding.voucherCodeInputText.getEditText().setText(null);
             }
@@ -309,31 +291,25 @@ public class MainFragment extends Fragment
             String receiverNumber = binding.transferPhoneNumberInputText.getEditText().getText().toString(),
                     passwordCode = binding.transferPasswordInputText.getEditText().getText().toString(),
                     balanceAmount = binding.transferBalanceInputText.getEditText().getText().toString();
-            binding.transferPhoneNumberInputText.setErrorEnabled(true);
             if (receiverNumber.isBlank() || receiverNumber.length() < 8)
                 binding.transferPhoneNumberInputText.setError(getString(R.string.transfer_receiver_phone_number_length_error));
             else if (receiverNumber.charAt(0) != '5' && receiverNumber.charAt(0) != '6')
                 binding.transferPhoneNumberInputText.setError(getString(R.string.transfer_receiver_phone_number_starting_error));
             else
             {
-                binding.transferPhoneNumberInputText.setError(null);
-                binding.transferPhoneNumberInputText.setErrorEnabled(false);
-                binding.transferPasswordInputText.setErrorEnabled(true);
+                Utils.clearErrorsOnTextInputLayouts(binding.transferPhoneNumberInputText);
                 if (passwordCode.isBlank() || passwordCode.length() < 4)
                     binding.transferPasswordInputText.setError(getString(R.string.transfer_key_length_error));
                 else
                 {
-                    binding.transferPasswordInputText.setError(null);
-                    binding.transferPasswordInputText.setErrorEnabled(false);
-                    binding.transferBalanceInputText.setErrorEnabled(true);
+                    Utils.clearErrorsOnTextInputLayouts(binding.transferPasswordInputText);
                     if (balanceAmount.isBlank())
                         binding.transferBalanceInputText.setError(getString(R.string.transfer_balance_empty_error));
                     else if (Double.parseDouble(balanceAmount) == 0)
                         binding.transferBalanceInputText.setError(getString(R.string.transfer_balance_is_zero_error));
                     else
                     {
-                        binding.transferBalanceInputText.setError(null);
-                        binding.transferBalanceInputText.setErrorEnabled(false);
+                        Utils.clearErrorsOnTextInputLayouts(binding.transferBalanceInputText);
                         if (balanceAmount.contains(".") || balanceAmount.contains(","))
                             new TransferCentsWarningDialogFragment().show(getChildFragmentManager(), null);
                         else
