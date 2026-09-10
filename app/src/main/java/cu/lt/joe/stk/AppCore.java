@@ -19,7 +19,7 @@ public class AppCore extends Application
         uncaughtExceptionHandler = Thread.getDefaultUncaughtExceptionHandler();
         Thread.setDefaultUncaughtExceptionHandler((thread, throwable) -> {
             CrashLog crashLog = getCrashLog(throwable);
-            new CrashLogsDatabaseHandler(this).addLog(crashLog.getTitle(), crashLog.getBody(), crashLog.getTimestamp());
+            new CrashLogsDatabaseHandler(this).addLog(crashLog.getTitle(), crashLog.getBody(), new Date().getTime());
 
             android.os.Process.killProcess(android.os.Process.myPid());
             System.exit(1);
@@ -34,6 +34,6 @@ public class AppCore extends Application
         PrintWriter printWriter = new PrintWriter(result);
         for (Throwable iterableThrowable = throwable; iterableThrowable != null; iterableThrowable = iterableThrowable.getCause())
             iterableThrowable.printStackTrace(printWriter);
-        return new CrashLog(-1, throwable.getClass().getSimpleName(), result.toString(), new Date().getTime());
+        return new CrashLog(-1, throwable.getClass().getSimpleName(), result.toString(), null);
     }
 }
