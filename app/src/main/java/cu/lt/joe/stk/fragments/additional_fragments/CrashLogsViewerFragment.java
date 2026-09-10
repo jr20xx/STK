@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import cu.lt.joe.stk.adapters.CrashLogsAdapter;
+import cu.lt.joe.stk.adapters.CrashLogsGroupsAdapter;
 import cu.lt.joe.stk.databases.CrashLogsDatabaseHandler;
 import cu.lt.joe.stk.databinding.CrashLogsViewerLayoutBinding;
 
@@ -20,8 +21,8 @@ public class CrashLogsViewerFragment extends Fragment
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
         binding = CrashLogsViewerLayoutBinding.inflate(inflater, container, false);
-        binding.crashLogsViewerRv.setAdapter(new CrashLogsAdapter(requireContext(),
-                new CrashLogsDatabaseHandler(requireContext()).getCrashLogs()));
+        binding.crashLogsViewerRv.setAdapter(new CrashLogsGroupsAdapter(requireContext(),
+                new CrashLogsDatabaseHandler(requireContext()).getCrashLogsGroups()));
         return binding.getRoot();
     }
 }

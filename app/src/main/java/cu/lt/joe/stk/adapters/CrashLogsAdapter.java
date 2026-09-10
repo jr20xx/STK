@@ -4,16 +4,11 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
-import cu.lt.joe.stk.Constants;
-import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.databinding.CrashLogItemLayoutBinding;
 import cu.lt.joe.stk.objects.CrashLog;
+import cu.lt.joe.stk.utils.Utils;
 
 public class CrashLogsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 {
@@ -49,7 +44,7 @@ public class CrashLogsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position)
     {
-        ((CrashLogsViewHolder) holder).bindCrashLog(crashLogsArrayList.get(position));
+        ((CrashLogsViewHolder) holder).bindCrashLogAtIndex(position);
     }
 
     @Override
@@ -60,19 +55,24 @@ public class CrashLogsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     private class CrashLogsViewHolder extends RecyclerView.ViewHolder
     {
-        private final CrashLogItemLayoutBinding itemLayoutBinding;
+        private final CrashLogItemLayoutBinding itemViewBinding;
 
-        public CrashLogsViewHolder(CrashLogItemLayoutBinding itemLayoutBinding)
+        public CrashLogsViewHolder(CrashLogItemLayoutBinding itemViewBinding)
         {
-            super(itemLayoutBinding.getRoot());
-            this.itemLayoutBinding = itemLayoutBinding;
+            super(itemViewBinding.getRoot());
+            this.itemViewBinding = itemViewBinding;
         }
 
-        public void bindCrashLog(CrashLog crashLog)
+        public void bindCrashLogAtIndex(int index)
         {
-            itemLayoutBinding.setCrashLog(crashLog);
-            itemLayoutBinding.crashLogDateTv.setText(new SimpleDateFormat(PreferenceManager.getDefaultSharedPreferences(context).getString(Constants.SAVED_DATE_FORMAT, context.getResources().getStringArray(R.array.date_formats)[0]), Locale.getDefault()).format(new Date(crashLog.getTimestamp())));
-            itemLayoutBinding.executePendingBindings();
+            CrashLog crashLog = crashLogsArrayList.get(index);
+            itemViewBinding.setCrashLog(crashLog);
+
+            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(itemViewBinding.getRoot().getLayoutParams());
+            marginLayoutParams.topMargin = Utils.dpToPx(context, index > 0 ? 2 : 0);
+            itemViewBinding.getRoot().setLayoutParams(marginLayoutParams);
+
+            itemViewBinding.executePendingBindings();
         }
     }
 }
