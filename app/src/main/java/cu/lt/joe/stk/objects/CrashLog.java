@@ -2,16 +2,16 @@ package cu.lt.joe.stk.objects;
 
 public class CrashLog
 {
-    private final String title, body;
-    private final long ID, timestamp;
+    private final long ID;
+    private final String title, body, formattedTimestamp;
     private boolean isSelected;
 
-    public CrashLog(long ID, String title, String body, long timestamp)
+    public CrashLog(long ID, String title, String body, String formattedTimestamp)
     {
         this.ID = ID;
         this.title = title;
         this.body = body;
-        this.timestamp = timestamp;
+        this.formattedTimestamp = formattedTimestamp;
     }
 
     public long getID()
@@ -29,9 +29,9 @@ public class CrashLog
         return body;
     }
 
-    public long getTimestamp()
+    public String getFormattedTimestamp()
     {
-        return timestamp;
+        return formattedTimestamp;
     }
 
     public boolean isSelected()
