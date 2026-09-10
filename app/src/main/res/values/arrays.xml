@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="date_formats_labels">
-        <item>Year/Month/Day, Hour:Minutes AM/PM</item>
-        <item>Day/Month/Year, Hour:Minutes AM/PM</item>
-        <item>Month/Day/Year, Hour:Minutes AM/PM</item>
-        <item>Hour:Minutes AM/PM, Year/Month/Day</item>
-        <item>Hour:Minutes AM/PM, Day/Month/Year</item>
-        <item>Hour:Minutes AM/PM, Month/Day/Year</item>
+        <item>Year/Month/Day</item>
+        <item>Day/Month/Year</item>
+        <item>Month/Day/Year</item>
     </string-array>
 
     <string-array name="date_formats">
-        <item>yyyy/MM/dd, hh:mm a</item>
-        <item>dd/MM/yyyy, hh:mm a</item>
-        <item>MM/dd/yyyy, hh:mm a</item>
-        <item>hh:mm a, yyyy/MM/dd</item>
-        <item>hh:mm a, dd/MM/yyyy</item>
-        <item>hh:mm a, MM/dd/yyyy</item>
+        <item>yyyy/MM/dd</item>
+        <item>dd/MM/yyyy</item>
+        <item>MM/dd/yyyy</item>
     </string-array>
 </resources>

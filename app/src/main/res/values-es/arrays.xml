@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="date_formats_labels">
-        <item>Año/Mes/Día, Hora:Minutos AM/PM</item>
-        <item>Día/Mes/Año, Hora:Minutos AM/PM</item>
-        <item>Mes/Día/Año, Hora:Minutos AM/PM</item>
-        <item>Hora:Minutos AM/PM, Año/Mes/Día</item>
-        <item>Hora:Minutos AM/PM, Día/Mes/Año</item>
-        <item>Hora:Minutos AM/PM, Mes/Día/Año</item>
+        <item>Año/Mes/Día</item>
+        <item>Día/Mes/Año</item>
+        <item>Mes/Día/Año</item>
     </string-array>
 </resources>
