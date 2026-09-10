@@ -5,9 +5,16 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import androidx.preference.PreferenceManager;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
+import cu.lt.joe.stk.Constants;
+import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.interfaces.OnCrashLogItemTransactionListener;
 import cu.lt.joe.stk.objects.CrashLog;
+import cu.lt.joe.stk.objects.CrashLogsGroup;
 
 public class CrashLogsDatabaseHandler extends SQLiteOpenHelper
 {
@@ -19,10 +26,12 @@ public class CrashLogsDatabaseHandler extends SQLiteOpenHelper
             TABLE_TIMESTAMP_ROW = "timestamp";
     private static final int DATABASE_VERSION = 1;
     private OnCrashLogItemTransactionListener onCrashLogItemTransactionListener;
+    private Context context;
 
     public CrashLogsDatabaseHandler(Context context)
     {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        this.context = context;
     }
 
     @Override
@@ -60,10 +69,8 @@ public class CrashLogsDatabaseHandler extends SQLiteOpenHelper
         db.close();
     }
 
-    public ArrayList<CrashLog> getCrashLogs()
+    public ArrayList<CrashLogsGroup> getCrashLogsGroups()
     {
-        ArrayList<CrashLog> logs = new ArrayList<>();
-
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + CRASH_LOGS_TABLE + " ORDER BY " + TABLE_TIMESTAMP_ROW + " DESC;", null);
 
@@ -72,10 +79,25 @@ public class CrashLogsDatabaseHandler extends SQLiteOpenHelper
         int errorMessageRowIndex = cursor.getColumnIndex(TABLE_ERROR_MESSAGE_ROW);
         int timestampRowIndex = cursor.getColumnIndex(TABLE_TIMESTAMP_ROW);
 
+        ArrayList<CrashLogsGroup> crashLogsGroups = new ArrayList<>();
+        ArrayList<CrashLog> logs = new ArrayList<>();
+        CrashLogsGroup crashLogsGroup;
+        String previousFormattedDate = "";
         for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext())
-            logs.add(new CrashLog(cursor.getLong(idRowIndex), cursor.getString(errorTitleRowIndex), cursor.getString(errorMessageRowIndex), cursor.getLong(timestampRowIndex)));
+        {
+            long currentTimestamp = cursor.getLong(timestampRowIndex);
+            String currentFormattedDate = new SimpleDateFormat(PreferenceManager.getDefaultSharedPreferences(context).getString(Constants.SAVED_DATE_FORMAT, context.getResources().getStringArray(R.array.date_formats)[0]), Locale.getDefault()).format(new Date(currentTimestamp));
+            if (!currentFormattedDate.equals(previousFormattedDate))
+            {
+                logs = new ArrayList<>();
+                crashLogsGroup = new CrashLogsGroup(currentFormattedDate, logs);
+                crashLogsGroups.add(crashLogsGroup);
+            }
+            logs.add(new CrashLog(cursor.getLong(idRowIndex), cursor.getString(errorTitleRowIndex), cursor.getString(errorMessageRowIndex), new SimpleDateFormat("hh:mm:ss a", Locale.getDefault()).format(new Date(currentTimestamp))));
+            previousFormattedDate = currentFormattedDate;
+        }
         cursor.close();
-        return logs;
+        return crashLogsGroups;
     }
 
     public void setOnLogItemTransactionListener(OnCrashLogItemTransactionListener onCrashLogItemTransactionListener)
