@@ -5,13 +5,14 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="crashLog"
             type="cu.lt.joe.stk.objects.CrashLog" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/additional_options_menu_item_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -22,48 +23,167 @@
         app:contentPadding="10dp"
         app:strokeWidth="0dp">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/crash_log_icon_iv"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="8dp"
-                app:srcCompat="@drawable/ic_crash_log" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/crash_log_date_tv"
-                android:layout_width="wrap_content"
+                <ImageView
+                    android:id="@+id/crash_log_icon_iv"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="8dp"
+                    app:srcCompat="@drawable/ic_crash_log" />
+
+                <TextView
+                    android:id="@+id/crash_log_date_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/crash_log_title_tv"
+                    android:layout_alignParentEnd="true"
+                    android:singleLine="true"
+                    android:text="@{crashLog.formattedTimestamp}"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelMedium" />
+
+                <TextView
+                    android:id="@+id/crash_log_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toStartOf="@id/crash_log_date_tv"
+                    android:layout_toEndOf="@id/crash_log_icon_iv"
+                    android:singleLine="true"
+                    android:text="@{crashLog.title}"
+                    android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/crash_log_title_tv"
+                    android:layout_toEndOf="@id/crash_log_icon_iv"
+                    android:singleLine="true"
+                    android:text="@{crashLog.body}"
+                    android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+            </RelativeLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/crash_log_title_tv"
-                android:layout_alignParentEnd="true"
-                android:singleLine="true"
-                android:text="@{crashLog.formattedTimestamp}"
-                android:textAppearance="@style/TextAppearance.Material3.LabelMedium" />
+                android:layout_marginTop="10dp"
+                android:visibility="@{crashLog.selected ? View.VISIBLE : View.GONE}"
+                app:cardBackgroundColor="?attr/colorSurfaceContainerHighest"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:contentPadding="0dp"
+                app:strokeWidth="0dp">
 
-            <TextView
-                android:id="@+id/crash_log_title_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_toStartOf="@id/crash_log_date_tv"
-                android:layout_toEndOf="@id/crash_log_icon_iv"
-                android:singleLine="true"
-                android:text="@{crashLog.title}"
-                android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/crash_log_title_tv"
-                android:layout_toEndOf="@id/crash_log_icon_iv"
-                android:singleLine="true"
-                android:text="@{crashLog.body}"
-                android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
-        </RelativeLayout>
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+                        app:cardCornerRadius="1dp"
+                        app:cardElevation="0dp"
+                        app:contentPadding="10dp"
+                        app:strokeWidth="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginEnd="8dp"
+                                app:srcCompat="@drawable/ic_crash_log" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:singleLine="true"
+                                android:text="Ver completo"
+                                android:textAppearance="@style/TextAppearance.Material3.LabelLarge" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+                        app:cardCornerRadius="1dp"
+                        app:cardElevation="0dp"
+                        app:contentPadding="10dp"
+                        app:strokeWidth="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginEnd="8dp"
+                                app:srcCompat="@drawable/ic_crash_log" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:singleLine="true"
+                                android:text="Copiar registro"
+                                android:textAppearance="@style/TextAppearance.Material3.LabelLarge" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+                        app:cardCornerRadius="1dp"
+                        app:cardElevation="0dp"
+                        app:contentPadding="10dp"
+                        app:strokeWidth="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginEnd="8dp"
+                                app:srcCompat="@drawable/ic_crash_log" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:singleLine="true"
+                                android:text="Eliminar registro"
+                                android:textAppearance="@style/TextAppearance.Material3.LabelLarge" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 </layout>
