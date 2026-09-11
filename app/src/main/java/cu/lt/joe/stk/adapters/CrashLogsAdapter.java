@@ -72,6 +72,12 @@ public class CrashLogsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             marginLayoutParams.topMargin = Utils.dpToPx(context, index > 0 ? 2 : 0);
             itemViewBinding.getRoot().setLayoutParams(marginLayoutParams);
 
+            itemViewBinding.getRoot().setOnClickListener(v -> {
+                crashLog.setSelected(!crashLog.isSelected());
+                itemViewBinding.setCrashLog(crashLog);
+                itemViewBinding.executePendingBindings();
+            });
+
             itemViewBinding.executePendingBindings();
         }
     }
