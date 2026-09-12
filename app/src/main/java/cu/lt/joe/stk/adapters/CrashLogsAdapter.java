@@ -2,6 +2,7 @@ package cu.lt.joe.stk.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -74,8 +75,7 @@ public class CrashLogsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
             itemViewBinding.getRoot().setOnClickListener(v -> {
                 crashLog.setSelected(!crashLog.isSelected());
-                itemViewBinding.setCrashLog(crashLog);
-                itemViewBinding.executePendingBindings();
+                itemViewBinding.crashLogOptionsLayout.setVisibility(crashLog.isSelected() ? View.VISIBLE : View.GONE);
             });
 
             itemViewBinding.executePendingBindings();
