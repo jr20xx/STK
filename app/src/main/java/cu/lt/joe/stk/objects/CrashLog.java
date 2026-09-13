@@ -1,10 +1,12 @@
 package cu.lt.joe.stk.objects;
 
+import androidx.databinding.ObservableBoolean;
+
 public class CrashLog
 {
     private final long ID;
     private final String title, body, formattedTimestamp;
-    private boolean isSelected;
+    private final ObservableBoolean isSelected = new ObservableBoolean(false);
 
     public CrashLog(long ID, String title, String body, String formattedTimestamp)
     {
@@ -34,13 +36,13 @@ public class CrashLog
         return formattedTimestamp;
     }
 
-    public boolean isSelected()
+    public ObservableBoolean isSelected()
     {
         return isSelected;
     }
 
     public void setSelected(boolean isSelected)
     {
-        this.isSelected = isSelected;
+        this.isSelected.set(isSelected);
     }
 }
