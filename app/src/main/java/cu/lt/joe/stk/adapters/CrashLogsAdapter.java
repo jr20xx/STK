@@ -2,10 +2,14 @@ package cu.lt.joe.stk.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.transition.ChangeBounds;
+import androidx.transition.Fade;
+import androidx.transition.TransitionManager;
+import androidx.transition.TransitionSet;
 import java.util.ArrayList;
 import cu.lt.joe.stk.databinding.CrashLogItemLayoutBinding;
 import cu.lt.joe.stk.objects.CrashLog;
@@ -74,8 +78,15 @@ public class CrashLogsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             itemViewBinding.getRoot().setLayoutParams(marginLayoutParams);
 
             itemViewBinding.getRoot().setOnClickListener(v -> {
-                crashLog.setSelected(!crashLog.isSelected());
-                itemViewBinding.crashLogOptionsLayout.setVisibility(crashLog.isSelected() ? View.VISIBLE : View.GONE);
+                TransitionManager.beginDelayedTransition(
+                        (ViewGroup) v.getRootView(),
+                        new TransitionSet()
+                                .addTransition(new ChangeBounds())
+                                .addTransition(new Fade(crashLog.isSelected().get() ? Fade.OUT : Fade.IN).setStartDelay(100))
+                                .setDuration(220)
+                                .setInterpolator(new AccelerateDecelerateInterpolator())
+                );
+                crashLog.setSelected(!crashLog.isSelected().get());
             });
 
             itemViewBinding.executePendingBindings();
