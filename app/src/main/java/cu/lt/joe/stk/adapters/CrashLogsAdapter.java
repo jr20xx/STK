@@ -12,7 +12,7 @@ import androidx.transition.TransitionManager;
 import androidx.transition.TransitionSet;
 import java.util.ArrayList;
 import cu.lt.joe.stk.databinding.CrashLogItemLayoutBinding;
-import cu.lt.joe.stk.objects.CrashLog;
+import cu.lt.joe.stk.objects.crash_log.CrashLog;
 import cu.lt.joe.stk.utils.Utils;
 
 public class CrashLogsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>

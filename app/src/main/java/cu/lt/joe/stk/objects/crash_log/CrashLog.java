@@ -1,4 +1,4 @@
-package cu.lt.joe.stk.objects;
+package cu.lt.joe.stk.objects.crash_log;
 
 import androidx.databinding.ObservableBoolean;
 

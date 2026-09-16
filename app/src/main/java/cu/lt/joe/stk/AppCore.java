@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Date;
 import cu.lt.joe.stk.databases.CrashLogsDatabaseHandler;
-import cu.lt.joe.stk.objects.CrashLog;
+import cu.lt.joe.stk.objects.crash_log.CrashLog;
 
 public class AppCore extends Application
 {

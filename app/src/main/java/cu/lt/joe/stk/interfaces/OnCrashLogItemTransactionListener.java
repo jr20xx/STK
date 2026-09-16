@@ -1,6 +1,6 @@
 package cu.lt.joe.stk.interfaces;
 
-import cu.lt.joe.stk.objects.CrashLog;
+import cu.lt.joe.stk.objects.crash_log.CrashLog;
 
 public interface OnCrashLogItemTransactionListener
 {

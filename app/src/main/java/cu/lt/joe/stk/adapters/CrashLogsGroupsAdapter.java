@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import cu.lt.joe.stk.databinding.CrashLogsGroupLayoutBinding;
-import cu.lt.joe.stk.objects.CrashLogsGroup;
+import cu.lt.joe.stk.objects.crash_log.CrashLogsGroup;
 import cu.lt.joe.stk.utils.Utils;
 
 public class CrashLogsGroupsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>

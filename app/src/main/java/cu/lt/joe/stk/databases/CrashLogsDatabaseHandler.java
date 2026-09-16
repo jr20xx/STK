@@ -13,8 +13,8 @@ import java.util.Locale;
 import cu.lt.joe.stk.Constants;
 import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.interfaces.OnCrashLogItemTransactionListener;
-import cu.lt.joe.stk.objects.CrashLog;
-import cu.lt.joe.stk.objects.CrashLogsGroup;
+import cu.lt.joe.stk.objects.crash_log.CrashLog;
+import cu.lt.joe.stk.objects.crash_log.CrashLogsGroup;
 
 public class CrashLogsDatabaseHandler extends SQLiteOpenHelper
 {
