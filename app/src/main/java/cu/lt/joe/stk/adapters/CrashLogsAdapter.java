@@ -11,8 +11,10 @@ import androidx.transition.Fade;
 import androidx.transition.TransitionManager;
 import androidx.transition.TransitionSet;
 import java.util.ArrayList;
+import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.databinding.CrashLogItemLayoutBinding;
 import cu.lt.joe.stk.objects.crash_log.CrashLog;
+import cu.lt.joe.stk.objects.crash_log.CrashLogItemOption;
 import cu.lt.joe.stk.utils.Utils;
 
 public class CrashLogsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
@@ -88,6 +90,13 @@ public class CrashLogsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 );
                 crashLog.setSelected(!crashLog.isSelected().get());
             });
+
+            ArrayList<CrashLogItemOption> crashLogItemOptions = new ArrayList<>();
+            crashLogItemOptions.add(new CrashLogItemOption(R.drawable.ic_crash_log, "Ver completo"));
+            crashLogItemOptions.add(new CrashLogItemOption(R.drawable.ic_crash_log, "Copiar registro"));
+            crashLogItemOptions.add(new CrashLogItemOption(R.drawable.ic_crash_log, "Eliminar registro"));
+
+            itemViewBinding.crashLogOptionsRecycler.setAdapter(new CrashLogItemOptionAdapter(context, crashLogItemOptions));
 
             itemViewBinding.executePendingBindings();
         }
