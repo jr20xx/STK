@@ -136,4 +136,8 @@
 
     <string name="opening_link_error_tip">No se puede abrir el enlace</string>
     <string name="dialing_error_tip">No se puede realizar la llamada</string>
+
+    <string name="crash_log_option_read_full_record_label">Leer registro completo</string>
+    <string name="crash_log_option_copy_record_label">Copiar registro de error</string>
+    <string name="crash_log_option_remove_record_label">Eliminar registro</string>
 </resources>

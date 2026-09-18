@@ -143,4 +143,8 @@
 
     <string name="opening_link_error_tip">The link can\'t be opened</string>
     <string name="dialing_error_tip">The call can\'t be performed</string>
+
+    <string name="crash_log_option_read_full_record_label">Read full log</string>
+    <string name="crash_log_option_copy_record_label">Copy crash log</string>
+    <string name="crash_log_option_remove_record_label">Remove crash log</string>
 </resources>
