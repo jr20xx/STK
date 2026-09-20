@@ -1,4 +1,4 @@
-package cu.lt.joe.stk.adapters;
+package cu.lt.joe.stk.adapters.crash_log;
 
 import android.content.Context;
 import android.view.LayoutInflater;
