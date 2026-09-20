@@ -18,7 +18,7 @@ import cu.lt.joe.stk.objects.crash_log.CrashLogsGroup;
 
 public class CrashLogsDatabaseHandler extends SQLiteOpenHelper
 {
-    private static final String DATABASE_NAME = "crash_logs.db",
+    private static final String DATABASE_NAME = "crash_log.db",
             CRASH_LOGS_TABLE = "crash_logs",
             TABLE_ID_ROW = "ID",
             TABLE_ERROR_TITLE_ROW = "error_title",
