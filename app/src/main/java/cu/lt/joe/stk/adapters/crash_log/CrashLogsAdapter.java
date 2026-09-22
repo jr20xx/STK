@@ -84,7 +84,7 @@ public class CrashLogsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                         (ViewGroup) v.getRootView(),
                         new TransitionSet()
                                 .addTransition(new ChangeBounds())
-                                .addTransition(new Fade(crashLog.isSelected().get() ? Fade.OUT : Fade.IN).setStartDelay(100))
+                                .addTransition(new Fade(crashLog.isSelected().get() ? Fade.OUT : Fade.IN).setStartDelay(90))
                                 .setDuration(220)
                                 .setInterpolator(new AccelerateDecelerateInterpolator())
                 );
