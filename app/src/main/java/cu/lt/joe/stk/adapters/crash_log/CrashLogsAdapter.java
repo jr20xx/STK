@@ -92,9 +92,9 @@ public class CrashLogsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             });
 
             ArrayList<CrashLogItemOption> crashLogItemOptions = new ArrayList<>();
-            crashLogItemOptions.add(new CrashLogItemOption(R.drawable.ic_read_full_log, context.getString(R.string.crash_log_option_read_full_record_label)));
-            crashLogItemOptions.add(new CrashLogItemOption(R.drawable.ic_copy, context.getString(R.string.crash_log_option_copy_record_label)));
-            crashLogItemOptions.add(new CrashLogItemOption(R.drawable.ic_delete, context.getString(R.string.crash_log_option_remove_record_label)));
+            crashLogItemOptions.add(new CrashLogItemOption(R.drawable.ic_read_full_log, context.getString(R.string.crash_log_option_read_full_record_label), null));
+            crashLogItemOptions.add(new CrashLogItemOption(R.drawable.ic_copy, context.getString(R.string.crash_log_option_copy_record_label), v -> Utils.copyToClipboard(context, crashLog.getTitle(), crashLog.getBody())));
+            crashLogItemOptions.add(new CrashLogItemOption(R.drawable.ic_delete, context.getString(R.string.crash_log_option_remove_record_label), null));
 
             itemViewBinding.crashLogOptionsRecycler.setAdapter(new CrashLogItemOptionAdapter(context, crashLogItemOptions));
 
