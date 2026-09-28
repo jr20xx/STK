@@ -8,7 +8,7 @@
 
         <variable
             name="dataPacket"
-            type="cu.lt.joe.stk.objects.DataPacket" />
+            type="cu.lt.joe.stk.objects.offers.DataPacket" />
 
         <import type="android.view.View" />
 

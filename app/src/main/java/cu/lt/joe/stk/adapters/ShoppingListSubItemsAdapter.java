@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import cu.lt.joe.stk.databinding.BasicOfferCardLayoutBinding;
 import cu.lt.joe.stk.databinding.DataPacketCardLayoutBinding;
 import cu.lt.joe.stk.interfaces.OnCarrierOfferClickListener;
-import cu.lt.joe.stk.objects.BasicOffer;
-import cu.lt.joe.stk.objects.DataPacket;
+import cu.lt.joe.stk.objects.offers.BasicOffer;
+import cu.lt.joe.stk.objects.offers.DataPacket;
 
 public class ShoppingListSubItemsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 {

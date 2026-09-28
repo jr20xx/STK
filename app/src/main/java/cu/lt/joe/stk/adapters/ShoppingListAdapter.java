@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import java.util.ArrayList;
 import cu.lt.joe.stk.databinding.CarrierOffersGroupLayoutBinding;
 import cu.lt.joe.stk.interfaces.OnCarrierOfferClickListener;
-import cu.lt.joe.stk.objects.CarrierOffersGroup;
+import cu.lt.joe.stk.objects.offers.CarrierOffersGroup;
 import cu.lt.joe.stk.utils.Utils;
 
 public class ShoppingListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>

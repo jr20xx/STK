@@ -7,7 +7,7 @@
 
         <variable
             name="basicOffer"
-            type="cu.lt.joe.stk.objects.BasicOffer" />
+            type="cu.lt.joe.stk.objects.offers.BasicOffer" />
 
         <import type="android.view.View" />
 

@@ -13,9 +13,9 @@ import java.util.ArrayList;
 import cu.lt.joe.stk.R;
 import cu.lt.joe.stk.adapters.ShoppingListAdapter;
 import cu.lt.joe.stk.databinding.ShoppingFragmentLayoutBinding;
-import cu.lt.joe.stk.objects.BasicOffer;
-import cu.lt.joe.stk.objects.CarrierOffersGroup;
-import cu.lt.joe.stk.objects.DataPacket;
+import cu.lt.joe.stk.objects.offers.BasicOffer;
+import cu.lt.joe.stk.objects.offers.CarrierOffersGroup;
+import cu.lt.joe.stk.objects.offers.DataPacket;
 import cu.lt.joe.stk.utils.Utils;
 
 public class ShoppingFragment extends Fragment
