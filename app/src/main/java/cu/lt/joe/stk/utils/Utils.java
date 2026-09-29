@@ -9,9 +9,11 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ServiceInfo;
 import android.net.Uri;
+import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.view.accessibility.AccessibilityNodeInfo;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
@@ -40,7 +42,11 @@ public class Utils
         }
         catch (Exception e)
         {
-            Snackbar.make(fragment.requireView(), R.string.dialing_error_tip, Snackbar.LENGTH_SHORT).show();
+            View fragmentView = fragment.getView();
+            if (fragmentView != null)
+                Snackbar.make(fragmentView, R.string.dialing_error_tip, Snackbar.LENGTH_SHORT).show();
+            else
+                Toast.makeText(fragment.requireContext(), R.string.dialing_error_tip, Toast.LENGTH_SHORT).show();
         }
     }
 
